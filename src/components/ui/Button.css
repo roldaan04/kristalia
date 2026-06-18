@@ -1,0 +1,95 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition), color var(--transition), border-color var(--transition), transform var(--transition);
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+/* Tamaños */
+.btn--sm {
+  font-size: 0.8rem;
+  padding: 0.5rem 1.1rem;
+}
+
+.btn--md {
+  font-size: 0.9rem;
+  padding: 0.75rem 1.6rem;
+}
+
+.btn--lg {
+  font-size: 0.95rem;
+  padding: 0.9rem 2rem;
+}
+
+/* Primario: navy relleno */
+.btn--primary {
+  background: var(--color-primary);
+  color: var(--color-text-light);
+  border: 2px solid var(--color-primary);
+}
+
+.btn--primary:hover {
+  background: var(--color-secondary);
+  border-color: var(--color-secondary);
+}
+
+/* Secundario: borde navy, fondo transparente */
+.btn--outline {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.btn--outline:hover {
+  background: var(--color-primary);
+  color: var(--color-text-light);
+}
+
+/* Outline light: para usar sobre fondos oscuros */
+.btn--outline-light {
+  background: transparent;
+  color: var(--color-text-light);
+  border: 2px solid rgba(255, 255, 255, 0.7);
+}
+
+.btn--outline-light:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--color-text-light);
+}
+
+/* WhatsApp */
+.btn--whatsapp {
+  background: #25d366;
+  color: #fff;
+  border: 2px solid #25d366;
+}
+
+.btn--whatsapp:hover {
+  background: #1ebe5d;
+  border-color: #1ebe5d;
+}
+
+/* Gold accent */
+.btn--gold {
+  background: var(--color-accent);
+  color: var(--color-primary);
+  border: 2px solid var(--color-accent);
+  font-weight: 600;
+}
+
+.btn--gold:hover {
+  background: #b8942e;
+  border-color: #b8942e;
+}
