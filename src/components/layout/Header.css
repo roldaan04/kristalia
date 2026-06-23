@@ -25,19 +25,23 @@
   gap: 1.5rem;
 }
 
-/* Logo */
 .header__logo {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.7rem;
   text-decoration: none;
   flex-shrink: 0;
+  transition: gap var(--transition);
 }
 
 .header__logo img {
   width: 44px;
   height: 44px;
   object-fit: contain;
+  transition:
+    width var(--transition),
+    height var(--transition),
+    filter var(--transition);
 }
 
 .header__logo-name {
@@ -46,15 +50,44 @@
   font-weight: 600;
   color: var(--color-primary);
   letter-spacing: 0.01em;
-  transition: color var(--transition);
+  transition:
+    color var(--transition),
+    font-size var(--transition),
+    text-shadow var(--transition);
+}
+
+/* Logo destacado solo sobre el Hero */
+.header--transparent .header__logo {
+  gap: 1rem;
+}
+
+.header--transparent .header__logo img {
+  width: 62px;
+  height: 62px;
+  filter: drop-shadow(0 5px 18px rgba(0, 0, 0, 0.42));
 }
 
 .header--transparent .header__logo-name {
+  font-size: 2.15rem;
   color: var(--color-white);
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Logo normal al hacer scroll */
+.header--solid .header__logo {
+  gap: 0.7rem;
+}
+
+.header--solid .header__logo img {
+  width: 44px;
+  height: 44px;
+  filter: none;
 }
 
 .header--solid .header__logo-name {
+  font-size: 1.3rem;
   color: var(--color-primary);
+  text-shadow: none;
 }
 
 /* Navegación */
@@ -89,7 +122,8 @@
 }
 
 .header__nav-link--light {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.28);
 }
 
 .header__nav-link--light:hover {
@@ -126,7 +160,10 @@
   height: 2px;
   background: var(--color-primary);
   border-radius: 2px;
-  transition: transform var(--transition), opacity var(--transition);
+  transition:
+    transform var(--transition),
+    opacity var(--transition),
+    background var(--transition);
 }
 
 .header--transparent .header__hamburger span {
@@ -136,9 +173,11 @@
 .header__hamburger--open span:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
 }
+
 .header__hamburger--open span:nth-child(2) {
   opacity: 0;
 }
+
 .header__hamburger--open span:nth-child(3) {
   transform: translateY(-7px) rotate(-45deg);
 }
@@ -205,7 +244,25 @@
 }
 
 @media (max-width: 480px) {
-  .header__logo-name {
+  .header--transparent .header__logo {
+    gap: 0.75rem;
+  }
+
+  .header--transparent .header__logo img {
+    width: 58px;
+    height: 58px;
+  }
+
+  .header--transparent .header__logo-name {
+    font-size: 1.6rem;
+  }
+
+  .header--solid .header__logo img {
+    width: 44px;
+    height: 44px;
+  }
+
+  .header--solid .header__logo-name {
     font-size: 1.1rem;
   }
 }
