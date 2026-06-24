@@ -33,7 +33,8 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contacto" className="contact section">
+    <section className="contact section">
+      <span id="contacto" className="contact__anchor" aria-hidden="true" />
       <div className="container">
         <div className="contact__layout">
           <div className="contact__info">

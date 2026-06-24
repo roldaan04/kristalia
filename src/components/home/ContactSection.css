@@ -1,5 +1,15 @@
 .contact {
+  position: relative;
   background: var(--color-white);
+}
+
+.contact__anchor {
+  position: absolute;
+  top: 5rem;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
 }
 
 .contact__layout {

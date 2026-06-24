@@ -16,7 +16,11 @@ export default function ServicesSection() {
 
         <div className="services__grid">
           {services.map((service, idx) => (
-            <article key={service.id} className="service-item">
+            <article
+              id={`servicio-${service.id}`}
+              key={service.id}
+              className="service-item"
+            >
               <div className="service-item__image-wrap">
                 <img
                   src={service.image}
@@ -25,8 +29,11 @@ export default function ServicesSection() {
                   loading={idx < 2 ? 'eager' : 'lazy'}
                 />
               </div>
+
               <div className="service-item__body">
-                <span className="service-item__number">{String(service.id).padStart(2, '0')}</span>
+                <span className="service-item__number">
+                  {String(service.id).padStart(2, '0')}
+                </span>
                 <h3 className="service-item__title">{service.title}</h3>
                 <p className="service-item__desc">{service.description}</p>
               </div>

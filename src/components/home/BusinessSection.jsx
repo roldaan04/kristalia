@@ -11,14 +11,18 @@ export default function BusinessSection() {
         style={{ backgroundImage: `url(${escaparateImg})` }}
       >
         <div className="business__overlay" aria-hidden="true" />
+
         <div className="business__content container">
           <span className="business__tag">Para empresas y locales</span>
+
           <h2 className="business__title">
             Un cristal limpio mejora la imagen de tu negocio antes de que el cliente entre.
           </h2>
+
           <p className="business__subtitle">
             Tu escaparate, tus cristaleras y tu fachada hablan por ti. Mantenlos impecables con un servicio adaptado a tu actividad.
           </p>
+
           <div className="business__actions">
             <Button
               variant="gold"
@@ -31,6 +35,7 @@ export default function BusinessSection() {
             >
               Pedir presupuesto
             </Button>
+
             <Button
               variant="outline-light"
               size="lg"
@@ -51,17 +56,15 @@ export default function BusinessSection() {
         <div className="container">
           <div className="business__stats-grid">
             <div className="business__stat">
-              <span className="business__stat-number">+200</span>
-              <span className="business__stat-label">Clientes activos</span>
+              <span className="business__stat-number">+100</span>
+              <span className="business__stat-label">Clientes satisfechos</span>
             </div>
-            <div className="business__stat">
-              <span className="business__stat-number">+8</span>
-              <span className="business__stat-label">Años de experiencia</span>
-            </div>
+
             <div className="business__stat">
               <span className="business__stat-number">100%</span>
               <span className="business__stat-label">Presupuesto sin compromiso</span>
             </div>
+
             <div className="business__stat">
               <span className="business__stat-number">24h</span>
               <span className="business__stat-label">Respuesta garantizada</span>

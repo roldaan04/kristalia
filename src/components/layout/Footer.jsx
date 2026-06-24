@@ -14,9 +14,11 @@ export default function Footer() {
             <img src={logo} alt="Kristalia logo" width="48" height="48" />
             <span className="footer__logo-name">Kristalia</span>
           </Link>
+
           <p className="footer__tagline">
             Limpieza profesional de cristales para empresas, locales y comunidades.
           </p>
+
           <a
             href={WHATSAPP_URL}
             target="_blank"
@@ -34,19 +36,43 @@ export default function Footer() {
         <div className="footer__nav-group">
           <h3 className="footer__nav-title">Servicios</h3>
           <ul className="footer__nav-list">
-            <li><a href="#servicios" className="footer__nav-link">Limpieza de cristales en altura</a></li>
-            <li><a href="#servicios" className="footer__nav-link">Escaparates y locales</a></li>
-            <li><a href="#servicios" className="footer__nav-link">Comunidades de propietarios</a></li>
-            <li><a href="#servicios" className="footer__nav-link">Mantenimiento para empresas</a></li>
-            <li><a href="#servicios" className="footer__nav-link">Paneles solares</a></li>
-            <li><a href="#servicios" className="footer__nav-link">Fachadas acristaladas</a></li>
+            <li>
+              <a href="#servicio-1" className="footer__nav-link">
+                Limpieza de cristales en altura
+              </a>
+            </li>
+            <li>
+              <a href="#servicio-2" className="footer__nav-link">
+                Escaparates y locales
+              </a>
+            </li>
+            <li>
+              <a href="#servicio-3" className="footer__nav-link">
+                Comunidades de propietarios
+              </a>
+            </li>
+            <li>
+              <a href="#servicio-4" className="footer__nav-link">
+                Mantenimiento para empresas
+              </a>
+            </li>
+            <li>
+              <a href="#servicio-6" className="footer__nav-link">
+                Paneles solares
+              </a>
+            </li>
+            <li>
+              <a href="#servicio-5" className="footer__nav-link">
+                Fachadas acristaladas
+              </a>
+            </li>
           </ul>
         </div>
 
         <div className="footer__nav-group">
           <h3 className="footer__nav-title">Empresa</h3>
           <ul className="footer__nav-list">
-            <li><Link to="/" className="footer__nav-link">Inicio</Link></li>
+            <li><a href="#inicio" className="footer__nav-link">Inicio</a></li>
             <li><Link to="/quienes-somos" className="footer__nav-link">Quiénes somos</Link></li>
             <li><a href="#contacto" className="footer__nav-link">Pedir presupuesto</a></li>
             <li><a href="#contacto" className="footer__nav-link">Contacto</a></li>
@@ -64,6 +90,7 @@ export default function Footer() {
                 {PHONE_DISPLAY}
               </a>
             </li>
+
             <li>
               <a href={`mailto:${EMAIL}`} className="footer__contact-item">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -73,6 +100,7 @@ export default function Footer() {
                 {EMAIL}
               </a>
             </li>
+
             <li>
               <span className="footer__contact-item footer__contact-item--text">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -91,6 +119,7 @@ export default function Footer() {
           <p className="footer__copy">
             &copy; {year} Kristalia. Todos los derechos reservados.
           </p>
+
           <ul className="footer__legal">
             <li><a href="#" className="footer__legal-link">Política de privacidad</a></li>
             <li><a href="#" className="footer__legal-link">Aviso legal</a></li>

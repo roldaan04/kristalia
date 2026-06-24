@@ -5,11 +5,11 @@ const steps = [
     number: '1',
     title: 'Nos cuentas qué necesitas',
     description:
-      'Por teléfono, WhatsApp o formulario. Cuéntanos el tipo de espacio, la superficie aproximada y lo que necesitas.',
+      'Por WhatsApp, teléfono o formulario. Indícanos si se trata de una vivienda o un negocio, tu zona y envíanos algunas fotos para que podamos valorar el trabajo.',
   },
   {
     number: '2',
-    title: 'Analizamos el trabajo',
+    title: 'Evaluación técnica',
     description:
       'Evaluamos el tipo de cristal, la altura y el acceso para ofrecerte un presupuesto real y detallado.',
   },
@@ -17,19 +17,19 @@ const steps = [
     number: '3',
     title: 'Presupuesto claro',
     description:
-      'Sin letra pequeña ni costes ocultos. Recibes tu presupuesto por escrito y un 10% de descuento en tu primera limpieza.',
+      'Sin letra pequeña ni costes ocultos. Recibes tu presupuesto y un obsequio exclusivo para tu primera limpieza.',
   },
   {
     number: '4',
     title: 'Agendamos el servicio',
     description:
-      'Elegimos juntos el día y la franja horaria que mejor se adapte a tu actividad.',
+      'Nos adaptamos completamente a tu disponibilidad para ofrecerte un servicio cómodo, flexible y sin complicaciones.',
   },
   {
     number: '5',
     title: 'Limpieza y revisión final',
     description:
-      'Realizamos el trabajo y revisamos el resultado contigo para asegurarnos de que todo queda perfecto.',
+      'Realizamos la limpieza y, antes de finalizar, revisamos el resultado contigo para asegurarnos de que todo queda impecable.',
   },
 ];
 

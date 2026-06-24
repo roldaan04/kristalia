@@ -16,6 +16,7 @@
   flex-direction: column;
   overflow: hidden;
   transition: box-shadow var(--transition-slow);
+  scroll-margin-top: calc(var(--header-height) + 2rem);
 }
 
 .service-item:hover {
@@ -71,7 +72,6 @@
   flex: 1;
 }
 
-/* Responsive */
 @media (max-width: 900px) {
   .services__grid {
     grid-template-columns: repeat(2, 1fr);
