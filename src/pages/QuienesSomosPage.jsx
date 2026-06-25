@@ -2,8 +2,8 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../components/ui/Button';
 import { WHATSAPP_URL } from '../utils/constants';
-import cristalera2Img from '../assets/cristales/cristalera2.jpeg';
-import cristaleraImg from '../assets/cristales/cristalera.jpeg';
+import cristalera2Img from '../assets/particulares/particular.jpeg';
+import cristaleraImg from '../assets/fachadas/fachada-acristalada (2).jpeg';
 import heroIllustration from '../assets/hero.png';
 import './QuienesSomosPage.css';
 
@@ -26,7 +26,7 @@ const values = [
   {
     number: '04',
     title: 'Compromiso',
-    description: 'No nos vamos hasta que el resultado es el esperado. Si algo no está bien, volvemos y lo dejamos como tiene que quedar.',
+    description: 'Nuestro trabajo solo termina cuando el resultado es el esperado. Antes de irnos, comprobamos contigo que todo esté impecable.',
   },
 ];
 

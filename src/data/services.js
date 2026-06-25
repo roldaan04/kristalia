@@ -1,6 +1,7 @@
 import cristaleraImg from '../assets/cristales/cristalera.jpeg';
 import cristalera2Img from '../assets/cristales/cristalera2.jpeg';
 import cristalera3Img from '../assets/cristales/cristalera3.jpeg';
+import fachada from '../assets/fachadas/fachada-acristalada.jpeg';
 import escaparateImg from '../assets/escaparates/escaparate.jpeg';
 import panelesImg from '../assets/paneles-solares/paneles.jpeg';
 
@@ -37,7 +38,7 @@ export const services = [
     id: 5,
     title: 'Fachadas acristaladas',
     description: 'Limpieza integral de fachadas de vidrio en edificios de oficinas, centros comerciales y grandes superficies. Presupuesto personalizado según características del edificio.',
-    image: cristalera2Img,
+    image: fachada,
     alt: 'Fachada acristalada de edificio moderno con ventanas limpias',
   },
   {
