@@ -132,8 +132,7 @@ export default function Header() {
           <Button
             variant="primary"
             size="sm"
-            href="#contacto"
-            onClick={(e) => handleHashLink(e, '#contacto')}
+            href="/#contacto"
           >
             Pedir presupuesto
           </Button>

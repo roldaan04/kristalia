@@ -74,8 +74,7 @@ export default function Footer() {
           <ul className="footer__nav-list">
             <li><a href="#inicio" className="footer__nav-link">Inicio</a></li>
             <li><Link to="/quienes-somos" className="footer__nav-link">Quiénes somos</Link></li>
-            <li><a href="#contacto" className="footer__nav-link">Pedir presupuesto</a></li>
-            <li><a href="#contacto" className="footer__nav-link">Contacto</a></li>
+            <li><a href="/#contacto" className="footer__nav-link">Contacto</a></li>
           </ul>
         </div>
 
@@ -119,12 +118,6 @@ export default function Footer() {
           <p className="footer__copy">
             &copy; {year} Kristalia. Todos los derechos reservados.
           </p>
-
-          <ul className="footer__legal">
-            <li><a href="#" className="footer__legal-link">Política de privacidad</a></li>
-            <li><a href="#" className="footer__legal-link">Aviso legal</a></li>
-            <li><a href="#" className="footer__legal-link">Cookies</a></li>
-          </ul>
         </div>
       </div>
     </footer>

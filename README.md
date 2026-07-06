@@ -306,7 +306,7 @@ export const WHATSAPP_NUMBER = '34600000000';
 // Mensaje que aparece pre-escrito al abrir WhatsApp
 export const WHATSAPP_MESSAGE = encodeURIComponent('Hola, me gustaría...');
 
-export const PHONE_DISPLAY = '+34 600 000 000';
+export const PHONE_DISPLAY = '+34 614 744 754';
 export const EMAIL = 'info@kristalia.es';
 export const ADDRESS = 'Madrid, España';
 ```
