@@ -1,5 +1,5 @@
 import Button from '../ui/Button';
-import heroImg from '../../assets/cristales/cristalera.jpeg';
+import heroImg from '../../assets/cristales/cristaleraa.jpg';
 import './Hero.css';
 
 export default function Hero() {

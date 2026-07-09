@@ -1,7 +1,7 @@
 import cristaleraImg from '../../assets/cristales/cristalera.jpeg';
-import cristalera2Img from '../../assets/cristales/cristalera2.jpeg';
+import cristalera2Img from '../../assets/cristales/cristalera4.jpg';
 import cristalera3Img from '../../assets/cristales/cristalera3.jpeg';
-import escaparateImg from '../../assets/escaparates/escaparate.jpeg';
+import escaparateImg from '../../assets/escaparates/escaparate.jpg';
 import './GallerySection.css';
 
 export default function GallerySection() {
@@ -16,15 +16,8 @@ export default function GallerySection() {
           />
           <div className="gallery__caption">Cristaleras residenciales</div>
         </div>
+
         <div className="gallery__item gallery__item--tall">
-          <img
-            src={cristalera2Img}
-            alt="Limpieza de cristales en ático con vistas a la ciudad"
-            loading="lazy"
-          />
-          <div className="gallery__caption">Áticos y terrazas</div>
-        </div>
-        <div className="gallery__item">
           <img
             src={escaparateImg}
             alt="Escaparate de local comercial con cristales limpios y transparentes"
@@ -32,6 +25,16 @@ export default function GallerySection() {
           />
           <div className="gallery__caption">Locales comerciales</div>
         </div>
+
+        <div className="gallery__item">
+          <img
+            src={cristalera2Img}
+            alt="Limpieza de cristales en ático con vistas a la ciudad"
+            loading="lazy"
+          />
+          <div className="gallery__caption">Áticos y terrazas</div>
+        </div>
+
         <div className="gallery__item">
           <img
             src={cristalera3Img}
@@ -44,7 +47,9 @@ export default function GallerySection() {
 
       <div className="gallery__label container">
         <span className="section-tag">Trabajos realizados</span>
-        <p className="gallery__label-text">Cada proyecto es diferente. Adaptamos el servicio a las características de cada espacio.</p>
+        <p className="gallery__label-text">
+          Cada proyecto es diferente. Adaptamos el servicio a las características de cada espacio.
+        </p>
       </div>
     </section>
   );
