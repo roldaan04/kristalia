@@ -5,8 +5,8 @@
 .gallery__grid {
   display: grid;
   grid-template-columns: 1.6fr 1fr 1fr;
-  grid-template-rows: 300px 300px;
-  gap: 4px;
+  grid-template-rows: 460px 460px;
+  gap: 6px;
 }
 
 .gallery__item {
@@ -27,11 +27,48 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s ease;
+  object-position: center;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  display: block;
+}
+
+/* Encuadre fino por imagen — ajustable sin deformar (object-fit: cover) */
+.gallery__item--large img {
+  /* Cristalera residencial: mostramos mejor la vivienda y la cristalera */
+  object-position: center 40%;
+}
+
+.gallery__item--tall img {
+  /* Local comercial: encuadre limpio y centrado del escaparate */
+  object-position: center;
+}
+
+/* Áticos y terrazas (arriba dcha.) */
+.gallery__item:nth-of-type(3) img {
+  object-position: center 45%;
+}
+
+/* Espacios singulares (abajo dcha.) */
+.gallery__item:nth-of-type(4) img {
+  object-position: center 35%;
 }
 
 .gallery__item:hover img {
-  transform: scale(1.04);
+  transform: scale(1.045);
+}
+
+/* Velo sutil que aporta profundidad premium al pasar el cursor */
+.gallery__item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 39, 68, 0);
+  transition: background var(--transition);
+  pointer-events: none;
+}
+
+.gallery__item:hover::after {
+  background: rgba(26, 39, 68, 0.08);
 }
 
 .gallery__caption {
@@ -39,14 +76,16 @@
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 1rem 1.25rem;
-  background: linear-gradient(to top, rgba(26,39,68,0.75) 0%, transparent 100%);
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 0.8rem;
+  z-index: 1;
+  padding: 1.75rem 1.5rem 1.35rem;
+  background: linear-gradient(to top, rgba(26, 39, 68, 0.82) 0%, rgba(26, 39, 68, 0.4) 45%, transparent 100%);
+  color: #ffffff;
+  font-size: 0.9rem;
   font-weight: 500;
   letter-spacing: 0.04em;
+  text-shadow: 0 1px 8px rgba(26, 39, 68, 0.45);
   opacity: 0;
-  transform: translateY(4px);
+  transform: translateY(8px);
   transition: opacity var(--transition), transform var(--transition);
 }
 
@@ -56,54 +95,68 @@
 }
 
 .gallery__label {
-  padding: 2rem 0 3rem;
+  padding: 2.25rem 0 3.25rem;
   display: flex;
   align-items: baseline;
   gap: 1.5rem;
 }
 
 .gallery__label-text {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: var(--color-text-muted);
 }
 
-/* Responsive */
+/* Responsive — Tablet */
 @media (max-width: 900px) {
   .gallery__grid {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 240px 240px;
-  }
-
-  .gallery__item--large {
-    grid-row: auto;
-    grid-column: 1 / -1;
-  }
-
-  .gallery__item--tall {
-    grid-row: auto;
-  }
-}
-
-@media (max-width: 560px) {
-  .gallery__grid {
-    grid-template-columns: 1fr;
     grid-template-rows: auto;
+    gap: 6px;
   }
 
   .gallery__item {
-    height: 240px;
+    height: 320px;
   }
 
   .gallery__item--large,
   .gallery__item--tall {
     grid-row: auto;
+    grid-column: 1 / -1;
+  }
+
+  .gallery__item--large {
+    height: 420px;
+  }
+
+  .gallery__item--tall {
+    height: 380px;
+  }
+}
+
+/* Responsive — Móvil */
+@media (max-width: 560px) {
+  .gallery__grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 8px;
+  }
+
+  .gallery__item,
+  .gallery__item--large,
+  .gallery__item--tall {
+    grid-row: auto;
     grid-column: auto;
+    height: 300px;
+  }
+
+  .gallery__item--large {
+    height: 320px;
   }
 
   .gallery__label {
     flex-direction: column;
     gap: 0.5rem;
-    padding: 1.5rem 0 2rem;
+    padding: 1.75rem 0 2.25rem;
   }
 
   .gallery__caption {
