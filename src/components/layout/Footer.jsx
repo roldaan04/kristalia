@@ -118,6 +118,12 @@ export default function Footer() {
           <p className="footer__copy">
             &copy; {year} Kristalia. Todos los derechos reservados.
           </p>
+
+          <nav className="footer__legal" aria-label="Enlaces legales">
+            <Link to="/aviso-legal" className="footer__legal-link">Aviso legal</Link>
+            <Link to="/privacidad" className="footer__legal-link">Privacidad</Link>
+            <Link to="/cookies" className="footer__legal-link">Cookies</Link>
+          </nav>
         </div>
       </div>
     </footer>

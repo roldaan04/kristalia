@@ -126,13 +126,31 @@
 .footer__bottom-inner {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
   text-align: center;
 }
 
 .footer__copy {
   font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.4);
+}
+
+.footer__legal {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.footer__legal-link {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.55);
+  transition: color var(--transition);
+}
+
+.footer__legal-link:hover {
+  color: var(--color-white);
 }
 
 /* Responsive */

@@ -1,166 +1,322 @@
 .gallery {
-  background: var(--color-background);
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--color-background);
 }
+
+/* ================================
+   GRID PRINCIPAL — ESCRITORIO
+================================ */
 
 .gallery__grid {
   display: grid;
-  grid-template-columns: 1.6fr 1fr 1fr;
-  grid-template-rows: 460px 460px;
+  width: 100%;
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-rows: repeat(2, minmax(360px, 46vh));
   gap: 6px;
 }
 
 .gallery__item {
   position: relative;
+  min-width: 0;
+  min-height: 0;
   overflow: hidden;
-  background: var(--color-silver);
+  background-color: var(--color-silver);
+  isolation: isolate;
 }
 
-.gallery__item--large {
-  grid-row: 1 / 3;
+/* Primera imagen grande */
+.gallery__item--featured {
+  grid-column: 1;
+  grid-row: 1 / span 2;
 }
 
-.gallery__item--tall {
-  grid-row: 1 / 3;
+/* Segunda imagen vertical */
+.gallery__item--vertical {
+  grid-column: 2;
+  grid-row: 1 / span 2;
 }
 
-.gallery__item img {
+/* Tercera imagen */
+.gallery__item--terrace {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+/* Cuarta imagen */
+.gallery__item--singular {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+/* ================================
+   IMÁGENES
+================================ */
+
+.gallery__image {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
-  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-  display: block;
+  transition:
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 500ms ease;
 }
 
-/* Encuadre fino por imagen — ajustable sin deformar (object-fit: cover) */
-.gallery__item--large img {
-  /* Cristalera residencial: mostramos mejor la vivienda y la cristalera */
+/* Encuadre individual */
+.gallery__item--featured .gallery__image {
   object-position: center 40%;
 }
 
-.gallery__item--tall img {
-  /* Local comercial: encuadre limpio y centrado del escaparate */
+.gallery__item--vertical .gallery__image {
   object-position: center;
 }
 
-/* Áticos y terrazas (arriba dcha.) */
-.gallery__item:nth-of-type(3) img {
+.gallery__item--terrace .gallery__image {
   object-position: center 45%;
 }
 
-/* Espacios singulares (abajo dcha.) */
-.gallery__item:nth-of-type(4) img {
+.gallery__item--singular .gallery__image {
   object-position: center 35%;
 }
 
-.gallery__item:hover img {
-  transform: scale(1.045);
-}
-
-/* Velo sutil que aporta profundidad premium al pasar el cursor */
-.gallery__item::after {
-  content: '';
+/* Oscurecimiento inferior permanente */
+.gallery__overlay {
   position: absolute;
+  z-index: 1;
   inset: 0;
-  background: rgba(26, 39, 68, 0);
-  transition: background var(--transition);
   pointer-events: none;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(13, 27, 51, 0.02) 20%,
+      rgba(13, 27, 51, 0.08) 55%,
+      rgba(13, 27, 51, 0.78) 100%
+    );
+  transition: background 400ms ease;
 }
 
-.gallery__item:hover::after {
-  background: rgba(26, 39, 68, 0.08);
-}
+/* ================================
+   TEXTOS SOBRE LAS IMÁGENES
+================================ */
 
 .gallery__caption {
   position: absolute;
+  z-index: 2;
+  right: 0;
   bottom: 0;
   left: 0;
-  right: 0;
-  z-index: 1;
-  padding: 1.75rem 1.5rem 1.35rem;
-  background: linear-gradient(to top, rgba(26, 39, 68, 0.82) 0%, rgba(26, 39, 68, 0.4) 45%, transparent 100%);
+
+  margin: 0;
+  padding: 2.5rem 1.75rem 1.5rem;
+
   color: #ffffff;
-  font-size: 0.9rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  text-shadow: 0 1px 8px rgba(26, 39, 68, 0.45);
-  opacity: 0;
-  transform: translateY(8px);
-  transition: opacity var(--transition), transform var(--transition);
+  font-size: clamp(0.9rem, 1.2vw, 1.05rem);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0.025em;
+
+  text-shadow: 0 2px 12px rgba(13, 27, 51, 0.55);
 }
 
-.gallery__item:hover .gallery__caption {
-  opacity: 1;
-  transform: translateY(0);
+/* ================================
+   INTERACCIÓN DE ESCRITORIO
+================================ */
+
+@media (hover: hover) and (pointer: fine) {
+  .gallery__item:hover .gallery__image {
+    transform: scale(1.045);
+  }
+
+  .gallery__item:hover .gallery__overlay {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(13, 27, 51, 0.03) 15%,
+        rgba(13, 27, 51, 0.14) 55%,
+        rgba(13, 27, 51, 0.84) 100%
+      );
+  }
 }
 
-.gallery__label {
-  padding: 2.25rem 0 3.25rem;
-  display: flex;
-  align-items: baseline;
-  gap: 1.5rem;
+/* ================================
+   INFORMACIÓN INFERIOR
+================================ */
+
+.gallery__information {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  align-items: start;
+  column-gap: clamp(1.5rem, 4vw, 4rem);
+
+  padding-top: 2.5rem;
+  padding-bottom: 3.5rem;
 }
 
-.gallery__label-text {
-  font-size: 0.95rem;
+.gallery__description {
+  width: 100%;
+  max-width: 680px;
+  margin: 0;
+
   color: var(--color-text-muted);
+  font-size: clamp(0.95rem, 1.3vw, 1.05rem);
+  line-height: 1.8;
 }
 
-/* Responsive — Tablet */
-@media (max-width: 900px) {
+/* ================================
+   TABLET
+================================ */
+
+@media (max-width: 1000px) {
   .gallery__grid {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
-    gap: 6px;
-  }
-
-  .gallery__item {
-    height: 320px;
-  }
-
-  .gallery__item--large,
-  .gallery__item--tall {
-    grid-row: auto;
-    grid-column: 1 / -1;
-  }
-
-  .gallery__item--large {
-    height: 420px;
-  }
-
-  .gallery__item--tall {
-    height: 380px;
-  }
-}
-
-/* Responsive — Móvil */
-@media (max-width: 560px) {
-  .gallery__grid {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    gap: 8px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: none;
+    grid-auto-rows: 340px;
   }
 
   .gallery__item,
-  .gallery__item--large,
-  .gallery__item--tall {
-    grid-row: auto;
+  .gallery__item--featured,
+  .gallery__item--vertical,
+  .gallery__item--terrace,
+  .gallery__item--singular {
     grid-column: auto;
-    height: 300px;
+    grid-row: auto;
   }
 
-  .gallery__item--large {
-    height: 320px;
+  .gallery__item--featured,
+  .gallery__item--vertical {
+    grid-column: span 1;
   }
 
-  .gallery__label {
-    flex-direction: column;
-    gap: 0.5rem;
-    padding: 1.75rem 0 2.25rem;
+  .gallery__item--featured .gallery__image {
+    object-position: center 42%;
+  }
+
+  .gallery__item--vertical .gallery__image {
+    object-position: center 45%;
+  }
+}
+
+/* ================================
+   TABLET PEQUEÑA
+================================ */
+
+@media (max-width: 760px) {
+  .gallery__grid {
+    grid-auto-rows: 300px;
+    gap: 5px;
   }
 
   .gallery__caption {
-    opacity: 1;
-    transform: translateY(0);
+    padding: 2rem 1.25rem 1.15rem;
+    font-size: 0.95rem;
+  }
+
+  .gallery__information {
+    grid-template-columns: 1fr;
+    row-gap: 1rem;
+
+    padding-top: 2rem;
+    padding-bottom: 2.75rem;
+  }
+
+  .gallery__description {
+    max-width: 100%;
+  }
+}
+
+/* ================================
+   MÓVIL
+================================ */
+
+@media (max-width: 560px) {
+  .gallery__grid {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .gallery__item,
+  .gallery__item--featured,
+  .gallery__item--vertical,
+  .gallery__item--terrace,
+  .gallery__item--singular {
+    flex: none;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+  }
+
+  /* Las dos primeras algo más panorámicas */
+  .gallery__item--featured,
+  .gallery__item--vertical {
+    aspect-ratio: 16 / 11;
+  }
+
+  .gallery__item--featured .gallery__image {
+    object-position: center 42%;
+  }
+
+  .gallery__item--vertical .gallery__image {
+    object-position: center 48%;
+  }
+
+  .gallery__item--terrace .gallery__image {
+    object-position: center 48%;
+  }
+
+  .gallery__item--singular .gallery__image {
+    object-position: center 38%;
+  }
+
+  .gallery__caption {
+    padding: 2.5rem 1.25rem 1.1rem;
+    font-size: 0.95rem;
+    line-height: 1.25;
+  }
+
+  .gallery__information {
+    padding-top: 1.75rem;
+    padding-bottom: 2.5rem;
+    row-gap: 0.9rem;
+  }
+
+  .gallery__description {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+}
+
+/* ================================
+   MÓVILES MUY PEQUEÑOS
+================================ */
+
+@media (max-width: 380px) {
+  .gallery__item,
+  .gallery__item--featured,
+  .gallery__item--vertical,
+  .gallery__item--terrace,
+  .gallery__item--singular {
+    aspect-ratio: 1 / 0.78;
+  }
+
+  .gallery__caption {
+    padding-right: 1rem;
+    padding-left: 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Respeta la configuración de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .gallery__image,
+  .gallery__overlay {
+    transition: none;
+  }
+
+  .gallery__item:hover .gallery__image {
+    transform: none;
   }
 }

@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Seo, { SITE_URL } from '../components/Seo';
 import Button from '../components/ui/Button';
 import { WHATSAPP_URL } from '../utils/constants';
-import cristalera2Img from '../assets/particulares/particular.jpeg';
-import cristaleraImg from '../assets/fachadas/fachada-acristalada (2).jpeg';
+import cristalera2Img from '../assets/particulares/particular.webp';
+import cristaleraImg from '../assets/fachadas/fachada.webp';
 import heroIllustration from '../assets/hero.png';
 import './QuienesSomosPage.css';
 
@@ -30,6 +31,15 @@ const values = [
   },
 ];
 
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${SITE_URL}/` },
+    { '@type': 'ListItem', position: 2, name: 'Quiénes somos', item: `${SITE_URL}/quienes-somos` },
+  ],
+};
+
 export default function QuienesSomosPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -37,6 +47,13 @@ export default function QuienesSomosPage() {
 
   return (
     <main className="about-page">
+      <Seo
+        title="Quiénes somos | Kristalia — Limpieza de cristales en Madrid"
+        description="Conoce a Kristalia: especialistas en limpieza profesional de cristales en Madrid y provincia. Método claro, equipo serio y compromiso con un resultado impecable."
+        path="/quienes-somos"
+        jsonLd={breadcrumbLd}
+        jsonLdId="breadcrumb"
+      />
       <section
         className="about-hero"
         style={{ backgroundImage: `url(${cristalera2Img})` }}
@@ -79,6 +96,7 @@ export default function QuienesSomosPage() {
                 alt="Cristalera residencial recién limpiada con escalera en exterior"
                 className="about-intro__image"
                 loading="eager"
+                decoding="async"
               />
             </div>
           </div>

@@ -75,6 +75,16 @@
   line-height: 1.5;
 }
 
+.contact__privacy {
+  margin-top: 0.75rem;
+}
+
+.contact__note a {
+  color: var(--color-secondary);
+  font-weight: 500;
+  text-decoration: underline;
+}
+
 /* Right guide card */
 .contact__guide {
   background: var(--color-background-alt);

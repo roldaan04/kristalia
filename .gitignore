@@ -46,29 +46,8 @@ dist-ssr
 
 *.sw?
 
-
-
-# Imágenes del proyecto
-
-src/assets/**/*.jpg
-
-src/assets/**/*.jpeg
-
-src/assets/**/*.png
-
-src/assets/**/*.webp
-
-src/assets/**/*.svg
-
-
-
-# Excepción: mantener SVGs base si quieres
-
-!src/assets/react.svg
-
-!src/assets/vite.svg
-
-
+guia-seo.html
+GUIA-DESPLIEGUE.html
 
 .claude
 CLAUDE.md

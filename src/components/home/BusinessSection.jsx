@@ -1,6 +1,6 @@
 import Button from '../ui/Button';
 import { WHATSAPP_URL } from '../../utils/constants';
-import escaparateImg from '../../assets/escaparates/escaparate.jpeg';
+import escaparateImg from '../../assets/escaparates/escaparate.webp';
 import './BusinessSection.css';
 
 export default function BusinessSection() {

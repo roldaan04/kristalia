@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
+import Seo from '../components/Seo';
 import Hero from '../components/home/Hero';
 import ServicesSection from '../components/home/ServicesSection';
 import BusinessSection from '../components/home/BusinessSection';
@@ -30,6 +31,11 @@ export default function HomePage() {
 
   return (
     <main>
+      <Seo
+        title="Limpieza de cristales en Madrid | Kristalia"
+        description="Limpieza profesional de cristales, escaparates y fachadas acristaladas en Madrid y provincia. Para empresas, comunidades y particulares. Presupuesto sin compromiso."
+        path="/"
+      />
       <Hero />
       <ServicesSection />
       <BusinessSection />

@@ -27,6 +27,8 @@ export default function ServicesSection() {
                   alt={service.alt}
                   className="service-item__image"
                   loading={idx < 2 ? 'eager' : 'lazy'}
+                  decoding="async"
+                  fetchPriority={idx < 2 ? 'high' : 'auto'}
                 />
               </div>
 

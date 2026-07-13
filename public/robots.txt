@@ -1,0 +1,6 @@
+# robots.txt — Kristalia
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://kristalia.es/sitemap.xml

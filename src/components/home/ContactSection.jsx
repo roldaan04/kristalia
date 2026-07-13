@@ -1,5 +1,6 @@
+import { Link } from 'react-router-dom';
 import Button from '../ui/Button';
-import { WHATSAPP_URL, PHONE_DISPLAY } from '../../utils/constants';
+import { WHATSAPP_URL, PHONE_DISPLAY, LEGAL_INFO } from '../../utils/constants';
 import './ContactSection.css';
 
 export default function ContactSection() {
@@ -50,6 +51,12 @@ export default function ContactSection() {
             <div className="contact__note">
               <p>
                 Puedes enviarnos fotos, ubicación aproximada y una breve descripción del trabajo.
+              </p>
+              <p className="contact__privacy">
+                Responsable: {LEGAL_INFO.ownerName}, profesional autónomo que opera bajo el
+                nombre comercial Kristalia. Finalidad: atender tu consulta y gestionar tu
+                solicitud de presupuesto o servicio. Más información en la{' '}
+                <Link to="/privacidad">Política de privacidad</Link>.
               </p>
             </div>
           </div>
