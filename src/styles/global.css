@@ -77,6 +77,12 @@ p {
   outline: none;
 }
 
+/* Reserva de espacio mientras carga una ruta diferida (React.lazy).
+   Evita que el footer suba y provoque un salto de layout. */
+.route-fallback {
+  min-height: 70vh;
+}
+
 /* Contenedor global */
 .container {
   max-width: var(--container-max);

@@ -1,0 +1,415 @@
+/* ==========================================================================
+   Landing: Empresa de limpieza en Madrid
+   Prefijo BEM propio: .limpmad-*
+   ========================================================================== */
+
+/* --- Hero ---------------------------------------------------------------- */
+.limpmad-hero {
+  position: relative;
+  min-height: 560px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.limpmad-hero__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.limpmad-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-hero);
+}
+
+.limpmad-hero__content {
+  position: relative;
+  width: 100%;
+  padding-top: calc(var(--header-height) + var(--spacing-xl));
+  padding-bottom: var(--spacing-xl);
+  max-width: var(--container-max);
+}
+
+.limpmad-hero__breadcrumb {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1rem;
+}
+
+.limpmad-hero__breadcrumb-link {
+  color: rgba(255, 255, 255, 0.85);
+  transition: color var(--transition);
+}
+
+.limpmad-hero__breadcrumb-link:hover {
+  color: var(--color-accent);
+}
+
+.limpmad-hero__title {
+  font-size: clamp(2.1rem, 4.6vw, 3.4rem);
+  color: var(--color-text-light);
+  max-width: 16ch;
+  margin-bottom: 1.25rem;
+}
+
+.limpmad-hero__subtitle {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 56ch;
+  margin-bottom: var(--spacing-md);
+}
+
+.limpmad-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+/* --- Intro a dos columnas ------------------------------------------------ */
+.limpmad-intro__layout {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: var(--spacing-xl);
+  align-items: center;
+}
+
+.limpmad-intro__text p {
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  margin-bottom: 1.1rem;
+}
+
+.limpmad-intro__text p:last-child {
+  margin-bottom: 0;
+}
+
+.limpmad-intro__image-wrap {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.limpmad-intro__image {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+/* --- Servicios principales ----------------------------------------------- */
+.limpmad-servicios__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.limpmad-servicio__image-wrap {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  margin-bottom: var(--spacing-sm);
+}
+
+.limpmad-servicio__image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.limpmad-servicio__image-wrap:hover .limpmad-servicio__image {
+  transform: scale(1.03);
+}
+
+.limpmad-servicio__title {
+  font-size: 1.3rem;
+  color: var(--color-primary);
+  margin-bottom: 0.6rem;
+}
+
+.limpmad-servicio__text {
+  color: var(--color-text-muted);
+  line-height: 1.8;
+}
+
+.limpmad-servicios__note {
+  max-width: 620px;
+  margin: var(--spacing-lg) auto 0;
+  text-align: center;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+}
+
+/* --- Servicios adicionales ----------------------------------------------- */
+.limpmad-adicionales__layout {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: var(--spacing-xl);
+  align-items: start;
+}
+
+.limpmad-adicionales__intro {
+  position: sticky;
+  top: calc(var(--header-height) + var(--spacing-md));
+}
+
+.limpmad-adicionales__list {
+  display: grid;
+  gap: var(--spacing-md);
+}
+
+.limpmad-adicional {
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.limpmad-adicional:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.limpmad-adicional__title {
+  font-size: 1.2rem;
+  color: var(--color-primary);
+  margin-bottom: 0.45rem;
+}
+
+.limpmad-adicional__text {
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  max-width: 60ch;
+}
+
+/* --- Calendario estacional ----------------------------------------------- */
+.limpmad-calendario__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-md);
+}
+
+.limpmad-estacion {
+  background: var(--color-background);
+  border-top: 2px solid var(--color-accent);
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  padding: var(--spacing-md);
+}
+
+.limpmad-estacion__title {
+  font-size: 1.2rem;
+  color: var(--color-primary);
+  margin-bottom: 0.6rem;
+}
+
+.limpmad-estacion__text {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.75;
+}
+
+/* --- Tipos de cliente ---------------------------------------------------- */
+.limpmad-clientes__layout {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: var(--spacing-xl);
+  align-items: center;
+}
+
+.limpmad-clientes__image-wrap {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.limpmad-clientes__image {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+.limpmad-clientes__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-sm);
+}
+
+.limpmad-cliente__title {
+  font-size: 1.1rem;
+  color: var(--color-primary);
+  margin-bottom: 0.4rem;
+}
+
+.limpmad-cliente__text {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.75;
+}
+
+/* --- FAQ ----------------------------------------------------------------- */
+.limpmad-faq__container {
+  max-width: 840px;
+}
+
+.limpmad-faq__list {
+  display: grid;
+  gap: var(--spacing-md);
+}
+
+.limpmad-faq__item {
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+}
+
+.limpmad-faq__question {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 0.6rem;
+}
+
+.limpmad-faq__answer {
+  color: var(--color-text-muted);
+  line-height: 1.8;
+}
+
+/* --- Enlaces de texto ---------------------------------------------------- */
+.limpmad-link {
+  color: var(--color-secondary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--transition);
+}
+
+.limpmad-link:hover {
+  color: var(--color-accent);
+}
+
+/* --- CTA final ----------------------------------------------------------- */
+.limpmad-cta {
+  padding-top: var(--spacing-2xl);
+  padding-bottom: var(--spacing-2xl);
+}
+
+.limpmad-cta__inner {
+  text-align: center;
+  max-width: 720px;
+}
+
+.limpmad-cta__title {
+  font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+  color: var(--color-text-light);
+  margin-bottom: 1rem;
+}
+
+.limpmad-cta__text {
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.8;
+  margin-bottom: var(--spacing-md);
+}
+
+.limpmad-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.85rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.limpmad-cta__phone {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0.85rem;
+}
+
+.limpmad-cta__phone-link {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.limpmad-cta__phone-link:hover {
+  text-decoration: underline;
+}
+
+.limpmad-cta__links {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.limpmad-cta__link {
+  color: rgba(255, 255, 255, 0.7);
+  transition: color var(--transition);
+}
+
+.limpmad-cta__link:hover {
+  color: var(--color-white);
+}
+
+/* --- Responsive ---------------------------------------------------------- */
+@media (max-width: 960px) {
+  .limpmad-intro__layout,
+  .limpmad-adicionales__layout,
+  .limpmad-clientes__layout {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .limpmad-adicionales__intro {
+    position: static;
+  }
+
+  .limpmad-intro__image,
+  .limpmad-clientes__image {
+    aspect-ratio: 16 / 10;
+  }
+
+  .limpmad-servicios__grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
+  .limpmad-servicio__image {
+    aspect-ratio: 16 / 9;
+  }
+
+  .limpmad-calendario__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  .limpmad-hero {
+    min-height: 480px;
+  }
+
+  .limpmad-hero__title {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .limpmad-hero {
+    min-height: 420px;
+  }
+
+  .limpmad-hero__content {
+    padding-top: calc(var(--header-height) + var(--spacing-lg));
+    padding-bottom: var(--spacing-lg);
+  }
+
+  .limpmad-hero__actions .btn,
+  .limpmad-cta__actions .btn {
+    width: 100%;
+  }
+
+  .limpmad-calendario__grid,
+  .limpmad-clientes__list {
+    grid-template-columns: 1fr;
+  }
+}

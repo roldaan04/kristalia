@@ -37,6 +37,16 @@ export default function Footer() {
           <h3 className="footer__nav-title">Servicios</h3>
           <ul className="footer__nav-list">
             <li>
+              <Link to="/empresa-de-limpieza-de-cristales-madrid" className="footer__nav-link">
+                Limpieza de cristales en Madrid
+              </Link>
+            </li>
+            <li>
+              <Link to="/empresa-de-limpieza-madrid" className="footer__nav-link">
+                Empresa de limpieza en Madrid
+              </Link>
+            </li>
+            <li>
               <a href="#servicio-1" className="footer__nav-link">
                 Limpieza de cristales en altura
               </a>

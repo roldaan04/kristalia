@@ -49,5 +49,7 @@ dist-ssr
 guia-seo.html
 GUIA-DESPLIEGUE.html
 
+.htaccess
+
 .claude
 CLAUDE.md
