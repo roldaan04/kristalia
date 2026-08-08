@@ -4,7 +4,6 @@ import Seo, { SITE_URL } from '../../components/Seo';
 import Button from '../../components/ui/Button';
 import { WHATSAPP_URL, PHONE_DISPLAY } from '../../utils/constants';
 import heroImg from '../../assets/cristales/cristalera4.webp';
-import metodoImg from '../../assets/cristales/cristalera.webp';
 import aticoImg from '../../assets/cristales/cristalera2.webp';
 import escaparateImg from '../../assets/escaparates/escaparates.webp';
 import lucernarioImg from '../../assets/fachadas/fachada-acristalada.webp';
@@ -24,7 +23,7 @@ const jsonLd = [
     serviceType: 'Limpieza profesional de cristales',
     name: 'Limpieza de cristales en Madrid',
     description:
-      'Limpieza profesional de cristales, escaparates, cerramientos de ático, lucernarios y fachadas acristaladas en los 21 distritos de Madrid capital, con medios adaptados al acceso de cada edificio.',
+      'Limpieza profesional de cristales, escaparates, cerramientos de ático, lucernarios y fachadas acristaladas en todo Madrid, con medios adaptados al acceso de cada edificio.',
     url: `${SITE_URL}${PATH}`,
     provider: { '@id': `${SITE_URL}/#business` },
     areaServed: { '@type': 'City', name: 'Madrid' },
@@ -82,13 +81,6 @@ const tipologias = [
     texto:
       'Portales con cubierta de vidrio, atrios de oficinas y galerías comerciales. Son superficies grandes, en horizontal y con muy mal acceso, donde la suciedad se acumula sin que nadie la vea hasta que la luz baja de golpe.',
   },
-];
-
-const distritos = [
-  'Centro', 'Arganzuela', 'Retiro', 'Salamanca', 'Chamartín', 'Tetuán',
-  'Chamberí', 'Fuencarral-El Pardo', 'Moncloa-Aravaca', 'Latina', 'Carabanchel',
-  'Usera', 'Puente de Vallecas', 'Moratalaz', 'Ciudad Lineal', 'Hortaleza',
-  'Villaverde', 'Villa de Vallecas', 'Vicálvaro', 'San Blas-Canillejas', 'Barajas',
 ];
 
 const faqs = [
@@ -159,8 +151,7 @@ export default function LimpiezaCristalesMadridPage() {
 
           <p className="crismad-hero__subtitle">
             Trabajamos solo en Madrid y solo con cristal. Escaparates, oficinas,
-            comunidades, cerramientos de ático y lucernarios en los 21 distritos
-            de la capital.
+            comunidades, cerramientos de ático y lucernarios.
           </p>
 
           <div className="crismad-hero__actions">
@@ -177,111 +168,6 @@ export default function LimpiezaCristalesMadridPage() {
               Escribir por WhatsApp
             </Button>
           </div>
-        </div>
-      </section>
-
-      <section className="crismad-intro section" aria-labelledby="crismad-intro-title">
-        <div className="container">
-          <div className="crismad-intro__layout">
-            <div className="crismad-intro__text">
-              <span className="section-tag">Especialistas en cristal</span>
-              <div className="gold-line" />
-              <h2 id="crismad-intro-title" className="section-title">
-                El cristal en Madrid no se ensucia como en otras ciudades
-              </h2>
-              <p>
-                Es la diferencia que más sorprende a quien viene de fuera. El agua
-                que llega a Madrid procede de los embalses de la sierra de
-                Guadarrama, sobre roca granítica, y es de las más blandas de
-                España. Aquí prácticamente no hay incrustación de cal en el vidrio,
-                el problema que domina en el Levante o en el sur.
-              </p>
-              <p>
-                Lo que sí hay es una película grasa de partículas en suspensión:
-                hollín de tráfico, polvo y polen. No se va con agua y un paño,
-                porque al arrastrarla se reparte por el cristal en lugar de
-                retirarse. De ahí el velo que aparece al secar y la sensación de
-                que el cristal está peor después de limpiarlo.
-              </p>
-              <p>
-                Por eso trabajamos con un lavado previo que disuelve esa película
-                y un secado con labio de goma, sin abrasivos y sin producto de más.
-                Es un método pensado para la suciedad que hay en esta ciudad, no
-                un procedimiento genérico.
-              </p>
-            </div>
-
-            <div className="crismad-intro__image-wrap">
-              <img
-                src={metodoImg}
-                alt="Cerramiento acristalado de una vivienda durante la limpieza, con escalera telescópica y útiles de trabajo"
-                className="crismad-intro__image"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="crismad-factores section bg-alt" aria-labelledby="crismad-factores-title">
-        <div className="container">
-          <header className="section-header--center">
-            <span className="section-tag">Condiciones locales</span>
-            <div className="gold-line gold-line--center" />
-            <h2 id="crismad-factores-title" className="section-title">
-              Qué ensucia los cristales en Madrid
-            </h2>
-            <p className="section-subtitle section-subtitle--center">
-              Tres factores explican casi toda la suciedad que encontramos en la
-              capital. Saber cuál pesa más en tu edificio es lo que fija la
-              periodicidad correcta.
-            </p>
-          </header>
-
-          <ol className="crismad-factores__list">
-            <li className="crismad-factor">
-              <span className="crismad-factor__number">01</span>
-              <div className="crismad-factor__body">
-                <h3 className="crismad-factor__title">El tráfico</h3>
-                <p className="crismad-factor__text">
-                  La M-30, la Castellana y los grandes ejes de entrada concentran
-                  un tránsito constante que deja una película fina y grasa sobre
-                  cualquier superficie vertical. Es la razón por la que un local
-                  a pie de calle necesita una frecuencia distinta a la de una
-                  oficina en una octava planta del mismo edificio.
-                </p>
-              </div>
-            </li>
-
-            <li className="crismad-factor">
-              <span className="crismad-factor__number">02</span>
-              <div className="crismad-factor__body">
-                <h3 className="crismad-factor__title">La calima</h3>
-                <p className="crismad-factor__text">
-                  Los episodios de polvo sahariano dejan un poso rojizo sobre
-                  cristales, cerramientos y toldos en cuestión de horas. El de
-                  marzo de 2022 fue el más intenso registrado y llenó media
-                  ciudad. Después de un episodio así, adelantar la limpieza
-                  evita que el polvo se fije con la primera lluvia.
-                </p>
-              </div>
-            </li>
-
-            <li className="crismad-factor">
-              <span className="crismad-factor__number">03</span>
-              <div className="crismad-factor__body">
-                <h3 className="crismad-factor__title">La sequedad</h3>
-                <p className="crismad-factor__text">
-                  Madrid ronda los 430 mm de lluvia al año y pasa veranos casi
-                  sin precipitación. La suciedad no se lava sola: se acumula
-                  durante meses y se compacta. En zonas con obra cerca, además,
-                  el polvo de cemento es alcalino y puede dejar marca permanente
-                  en el vidrio si se deja secar.
-                </p>
-              </div>
-            </li>
-          </ol>
         </div>
       </section>
 
@@ -377,40 +263,7 @@ export default function LimpiezaCristalesMadridPage() {
         </div>
       </section>
 
-      <section className="crismad-zonas section" aria-labelledby="crismad-zonas-title">
-        <div className="container">
-          <header className="section-header--center">
-            <span className="section-tag">Cobertura</span>
-            <div className="gold-line gold-line--center" />
-            <h2 id="crismad-zonas-title" className="section-title">
-              Los 21 distritos de Madrid capital
-            </h2>
-            <p className="section-subtitle section-subtitle--center">
-              Nos movemos por toda la ciudad. Estas son las zonas donde más
-              trabajo tenemos y en las que podemos ajustar mejor el precio por la
-              cercanía entre servicios.
-            </p>
-          </header>
-
-          <ul className="crismad-zonas__grid">
-            {distritos.map((distrito) => (
-              <li key={distrito} className="crismad-zonas__item">{distrito}</li>
-            ))}
-          </ul>
-
-          <p className="crismad-zonas__note">
-            ¿Tu edificio está fuera de la capital? Cuéntanoslo igualmente en la{' '}
-            <Link to="/" className="crismad-link">página de inicio</Link> y
-            valoramos el desplazamiento. Si además necesitas suelos, moquetas o
-            tapicerías, puedes ver el{' '}
-            <Link to="/empresa-de-limpieza-madrid" className="crismad-link">
-              resto de servicios de limpieza que ofrecemos en Madrid
-            </Link>.
-          </p>
-        </div>
-      </section>
-
-      <section className="crismad-faq section bg-alt" aria-labelledby="crismad-faq-title">
+      <section className="crismad-faq section" aria-labelledby="crismad-faq-title">
         <div className="container crismad-faq__container">
           <header className="section-header--center">
             <span className="section-tag">Dudas frecuentes</span>
@@ -431,11 +284,16 @@ export default function LimpiezaCristalesMadridPage() {
         </div>
       </section>
 
-      <section className="crismad-cta bg-dark" aria-labelledby="crismad-cta-title">
+      <section className="crismad-cta bg-alt" aria-labelledby="crismad-cta-title">
         <div className="container crismad-cta__inner">
+
+          <span className="section-tag">Presupuesto sin compromiso</span>
+          <div className="gold-line gold-line--center" />
+
           <h2 id="crismad-cta-title" className="crismad-cta__title">
             Dinos qué edificio es y te decimos cómo se limpia
           </h2>
+
           <p className="crismad-cta__text">
             Con la dirección, la planta y una foto tenemos suficiente para darte
             un precio cerrado. Sin visita comercial y sin compromiso.
@@ -445,8 +303,9 @@ export default function LimpiezaCristalesMadridPage() {
             <Button variant="gold" size="lg" href="/#contacto">
               Solicitar presupuesto
             </Button>
+
             <Button
-              variant="outline-light"
+              variant="outline"
               size="lg"
               href={WHATSAPP_URL}
               target="_blank"
@@ -458,15 +317,25 @@ export default function LimpiezaCristalesMadridPage() {
 
           <p className="crismad-cta__phone">
             O llámanos directamente al{' '}
-            <a href={`tel:${PHONE_DISPLAY.replace(/\s/g, '')}`} className="crismad-cta__phone-link">
+            <a
+              href={`tel:${PHONE_DISPLAY.replace(/\s/g, '')}`}
+              className="crismad-cta__phone-link"
+            >
               {PHONE_DISPLAY}
             </a>
           </p>
 
           <p className="crismad-cta__links">
-            <Link to="/quienes-somos" className="crismad-cta__link">Conoce a Kristalia</Link>
+            <Link to="/quienes-somos" className="crismad-cta__link">
+              Conoce a Kristalia
+            </Link>
+
             <span aria-hidden="true"> · </span>
-            <Link to="/empresa-de-limpieza-madrid" className="crismad-cta__link">
+
+            <Link
+              to="/empresa-de-limpieza-madrid"
+              className="crismad-cta__link"
+            >
               Empresa de limpieza en Madrid
             </Link>
           </p>
