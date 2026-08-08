@@ -132,29 +132,6 @@ const serviciosAdicionales = [
   },
 ];
 
-const calendario = [
-  {
-    estacion: 'Otoño',
-    texto:
-      'Es el mes de los canalones. Entre octubre y noviembre cae la hoja del arbolado viario y las cubiertas planas se llenan. Revisar canalones y sumideros ahora cuesta una fracción de lo que cuesta una filtración en enero.',
-  },
-  {
-    estacion: 'Invierno',
-    texto:
-      'Los días son cortos y se nota cada superficie que roba luz: lucernarios, patios interiores, claraboyas de portal. También es cuando los paneles solares producen menos y la suciedad acumulada pesa más sobre el rendimiento.',
-  },
-  {
-    estacion: 'Primavera',
-    texto:
-      'El polen de plátano de sombra se pega a cristales, toldos y tapicerías de terraza. Coincide con el arranque de la temporada de terrazas, así que es el momento natural para poner a punto lonas y mobiliario exterior.',
-  },
-  {
-    estacion: 'Verano',
-    texto:
-      'Calima y sequedad. Con apenas lluvia entre junio y septiembre, la suciedad se compacta en lugar de arrastrarse. Tras un episodio de polvo sahariano conviene adelantar la limpieza antes de que se fije con la primera tormenta.',
-  },
-];
-
 const clientes = [
   {
     titulo: 'Comunidades de propietarios',
@@ -188,11 +165,6 @@ const faqs = [
     pregunta: '¿Se pueden contratar varios servicios en la misma visita?',
     respuesta:
       'Sí, y casi siempre sale mejor de precio. Lo más habitual en comunidades es juntar cristales del portal, cristalizado del suelo y revisión de canalones en una sola intervención. En oficinas, cristales y moqueta. Al agrupar se reparte el desplazamiento y el montaje entre todos los trabajos.',
-  },
-  {
-    pregunta: '¿Trabajáis fuera de Madrid capital?',
-    respuesta:
-      'Nuestra base de trabajo son los 21 distritos de la capital, que es donde podemos garantizar mejor plazo y mejor precio. Para trabajos en municipios de la Comunidad de Madrid lo valoramos caso por caso según el volumen y la distancia. Consúltanos y te decimos con claridad si podemos o no.',
   },
   {
     pregunta: '¿Cuánto cuesta un servicio de limpieza?',
@@ -290,7 +262,7 @@ export default function EmpresaLimpiezaMadridPage() {
                 material y alguien que sepa cuándo no hay que tocar algo.
               </p>
               <p>
-                Trabajamos en los 21 distritos de Madrid capital, con presupuesto
+                Trabajamos por todo Madrid, con presupuesto
                 por escrito y precio cerrado antes de empezar.
               </p>
             </div>
@@ -339,15 +311,6 @@ export default function EmpresaLimpiezaMadridPage() {
               </article>
             ))}
           </div>
-
-          <p className="limpmad-servicios__note">
-            Si lo que necesitas es solo cristal, tenemos una página con el detalle
-            del{' '}
-            <Link to="/empresa-de-limpieza-de-cristales-madrid" className="limpmad-link">
-              servicio de limpieza de cristales en Madrid
-            </Link>
-            : tipos de edificio, medios de acceso y cobertura por distrito.
-          </p>
         </div>
       </section>
 
@@ -379,32 +342,7 @@ export default function EmpresaLimpiezaMadridPage() {
         </div>
       </section>
 
-      <section className="limpmad-calendario section bg-alt" aria-labelledby="limpmad-calendario-title">
-        <div className="container">
-          <header className="section-header--center">
-            <span className="section-tag">Clima y calendario</span>
-            <div className="gold-line gold-line--center" />
-            <h2 id="limpmad-calendario-title" className="section-title">
-              El año de limpieza en Madrid
-            </h2>
-            <p className="section-subtitle section-subtitle--center">
-              Con unos 430 mm de lluvia al año, Madrid no limpia nada por sí sola.
-              Cada estación deja su marca en una superficie distinta.
-            </p>
-          </header>
-
-          <div className="limpmad-calendario__grid">
-            {calendario.map((bloque) => (
-              <article key={bloque.estacion} className="limpmad-estacion">
-                <h3 className="limpmad-estacion__title">{bloque.estacion}</h3>
-                <p className="limpmad-estacion__text">{bloque.texto}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="limpmad-clientes section" aria-labelledby="limpmad-clientes-title">
+     <section className="limpmad-clientes section bg-alt" aria-labelledby="limpmad-clientes-title">
         <div className="container">
           <div className="limpmad-clientes__layout">
             <div className="limpmad-clientes__image-wrap">
@@ -437,7 +375,7 @@ export default function EmpresaLimpiezaMadridPage() {
         </div>
       </section>
 
-      <section className="limpmad-faq section bg-alt" aria-labelledby="limpmad-faq-title">
+      <section className="limpmad-faq section" aria-labelledby="limpmad-faq-title">
         <div className="container limpmad-faq__container">
           <header className="section-header--center">
             <span className="section-tag">Dudas frecuentes</span>
@@ -458,11 +396,12 @@ export default function EmpresaLimpiezaMadridPage() {
         </div>
       </section>
 
-      <section className="limpmad-cta bg-dark" aria-labelledby="limpmad-cta-title">
+      <section className="limpmad-cta bg-alt" aria-labelledby="limpmad-cta-title">
         <div className="container limpmad-cta__inner">
           <h2 id="limpmad-cta-title" className="limpmad-cta__title">
             Cuéntanos qué hay que limpiar
           </h2>
+
           <p className="limpmad-cta__text">
             Con la dirección, un par de fotos y lo que necesitas te damos un
             presupuesto por escrito con precio cerrado. Sin visita comercial y sin
@@ -473,8 +412,9 @@ export default function EmpresaLimpiezaMadridPage() {
             <Button variant="gold" size="lg" href="/#contacto">
               Solicitar presupuesto
             </Button>
+
             <Button
-              variant="outline-light"
+              variant="outline"
               size="lg"
               href={WHATSAPP_URL}
               target="_blank"
@@ -486,15 +426,25 @@ export default function EmpresaLimpiezaMadridPage() {
 
           <p className="limpmad-cta__phone">
             O llámanos al{' '}
-            <a href={`tel:${PHONE_DISPLAY.replace(/\s/g, '')}`} className="limpmad-cta__phone-link">
+            <a
+              href={`tel:${PHONE_DISPLAY.replace(/\s/g, '')}`}
+              className="limpmad-cta__phone-link"
+            >
               {PHONE_DISPLAY}
             </a>
           </p>
 
           <p className="limpmad-cta__links">
-            <Link to="/quienes-somos" className="limpmad-cta__link">Conoce a Kristalia</Link>
+            <Link to="/quienes-somos" className="limpmad-cta__link">
+              Conoce a Kristalia
+            </Link>
+
             <span aria-hidden="true"> · </span>
-            <Link to="/empresa-de-limpieza-de-cristales-madrid" className="limpmad-cta__link">
+
+            <Link
+              to="/empresa-de-limpieza-de-cristales-madrid"
+              className="limpmad-cta__link"
+            >
               Limpieza de cristales en Madrid
             </Link>
           </p>
