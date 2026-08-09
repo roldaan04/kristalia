@@ -4,7 +4,7 @@ import Seo, { SITE_URL } from '../components/Seo';
 import Button from '../components/ui/Button';
 import { WHATSAPP_URL } from '../utils/constants';
 import cristalera2Img from '../assets/particulares/particular.webp';
-import cristaleraImg from '../assets/fachadas/fachada.webp';
+import cristaleraImg from '../assets/cristales/nosotros.webp';
 import heroIllustration from '../assets/hero.png';
 import './QuienesSomosPage.css';
 
@@ -93,7 +93,7 @@ export default function QuienesSomosPage() {
             <div className="about-intro__image-wrap">
               <img
                 src={cristaleraImg}
-                alt="Cristalera residencial recién limpiada con escalera en exterior"
+                alt="Limpieza profesional de fachada acristalada con pértiga telescópica"
                 className="about-intro__image"
                 loading="eager"
                 decoding="async"

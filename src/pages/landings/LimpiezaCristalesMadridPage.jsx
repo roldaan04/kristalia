@@ -5,7 +5,7 @@ import Button from '../../components/ui/Button';
 import { WHATSAPP_URL, PHONE_DISPLAY } from '../../utils/constants';
 import heroImg from '../../assets/cristales/cristalera4.webp';
 import aticoImg from '../../assets/cristales/cristalera2.webp';
-import escaparateImg from '../../assets/escaparates/escaparates.webp';
+import escaparateImg from '../../assets/escaparates/escaparate-calle.webp';
 import lucernarioImg from '../../assets/fachadas/fachada-acristalada.webp';
 import calleImg from '../../assets/fachadas/fachadaAcristalada.webp';
 import './LimpiezaCristalesMadridPage.css';
@@ -50,12 +50,12 @@ const jsonLd = [
 
 const tipologias = [
   {
-    id: 'ensanche',
-    titulo: 'Miradores y patios del Ensanche',
+    id: 'dificil-acceso',
+    titulo: 'Ventanas de difícil acceso',
     imagen: calleImg,
-    alt: 'Fachada estrecha con ventanas de aluminio vista en contrapicado desde la acera',
+    alt: 'Ventanas altas en la fachada de un edificio',
     texto:
-      'Las fincas de Salamanca, Chamberí o Retiro tienen miradores acristalados, carpintería antigua y patios de luces de apenas dos metros. Ahí no entra una plataforma: se trabaja desde el interior, ventana por ventana, y con pértiga para lo que da a patio.',
+      'No todas las ventanas pueden limpiarse desde el interior o con medios convencionales. En viviendas, comunidades y edificios con huecos elevados adaptamos el método de trabajo a cada caso, para llegar al cristal con seguridad y conseguir un acabado uniforme.',
   },
   {
     id: 'aticos',

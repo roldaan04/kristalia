@@ -1,8 +1,8 @@
 import cristaleraImg from '../assets/comunidades/comunidad.webp';
 import cristalera2Img from '../assets/cristales/cristalera2.webp';
-import cristalera3Img from '../assets/cristales/cristalera3.webp';
+import cristalera3Img from '../assets/cristales/empresas.webp';
 import fachada from '../assets/fachadas/fachada-acristalada.webp';
-import escaparateImg from '../assets/escaparates/escaparate-local.webp';
+import escaparateImg from '../assets/escaparates/escaparate-tienda.webp';
 import panelesImg from '../assets/paneles-solares/paneles.webp';
 
 export const services = [

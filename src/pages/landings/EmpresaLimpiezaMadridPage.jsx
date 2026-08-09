@@ -4,7 +4,7 @@ import Seo, { SITE_URL } from '../../components/Seo';
 import Button from '../../components/ui/Button';
 import { WHATSAPP_URL, PHONE_DISPLAY } from '../../utils/constants';
 import heroImg from '../../assets/fachadas/edificio-fachada-acristalada.webp';
-import portalImg from '../../assets/comunidades/comunidad.webp';
+import limpiezaImg from '../../assets/cristales/limpieza.webp';
 import cristalesImg from '../../assets/cristales/cristalera-chalet.webp';
 import alturaImg from '../../assets/cristales/cristalera3.webp';
 import panelesImg from '../../assets/paneles-solares/paneles2.webp';
@@ -269,7 +269,7 @@ export default function EmpresaLimpiezaMadridPage() {
 
             <div className="limpmad-intro__image-wrap">
               <img
-                src={portalImg}
+                src={limpiezaImg}
                 alt="Portal de una comunidad de vecinos con puerta acristalada y suelo de mármol pulido"
                 className="limpmad-intro__image"
                 loading="lazy"
