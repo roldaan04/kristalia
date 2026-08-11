@@ -6,7 +6,6 @@ import { WHATSAPP_URL, PHONE_DISPLAY } from '../../utils/constants';
 import heroImg from '../../assets/cristales/cristalera4.webp';
 import aticoImg from '../../assets/cristales/cristalera2.webp';
 import escaparateImg from '../../assets/escaparates/escaparate-calle.webp';
-import lucernarioImg from '../../assets/fachadas/fachada-acristalada.webp';
 import calleImg from '../../assets/fachadas/fachadaAcristalada.webp';
 import './LimpiezaCristalesMadridPage.css';
 
@@ -23,7 +22,7 @@ const jsonLd = [
     serviceType: 'Limpieza profesional de cristales',
     name: 'Limpieza de cristales en Madrid',
     description:
-      'Limpieza profesional de cristales, escaparates, cerramientos de ático, lucernarios y fachadas acristaladas en todo Madrid, con medios adaptados al acceso de cada edificio.',
+    'Limpieza profesional de cristales, escaparates, cerramientos, ventanales y cristales de difícil acceso en Madrid, con medios adaptados a las características de cada trabajo.',
     url: `${SITE_URL}${PATH}`,
     provider: { '@id': `${SITE_URL}/#business` },
     areaServed: { '@type': 'City', name: 'Madrid' },
@@ -71,15 +70,7 @@ const tipologias = [
     imagen: escaparateImg,
     alt: 'Escaparate de una clínica dental a pie de calle con el tráfico reflejado en el cristal',
     texto:
-      'Un escaparate en un eje de tráfico como Alcalá, Bravo Murillo o Príncipe de Vergara se ensucia varias veces más rápido que el mismo escaparate en una calle peatonal de Malasaña. La periodicidad no puede ser la misma.',
-  },
-  {
-    id: 'lucernarios',
-    titulo: 'Lucernarios y atrios',
-    imagen: lucernarioImg,
-    alt: 'Lucernario acristalado de gran superficie sobre el atrio interior de un edificio',
-    texto:
-      'Portales con cubierta de vidrio, atrios de oficinas y galerías comerciales. Son superficies grandes, en horizontal y con muy mal acceso, donde la suciedad se acumula sin que nadie la vea hasta que la luz baja de golpe.',
+    'Un escaparate limpio transmite cuidado, profesionalidad y buena imagen desde el primer vistazo. Trabajamos sobre cristaleras comerciales de distintos tamaños, cuidando el acabado para conseguir una superficie uniforme, transparente y sin marcas.',
   },
 ];
 
@@ -102,7 +93,7 @@ const faqs = [
   {
     pregunta: '¿Trabajáis con comunidades de propietarios y administradores?',
     respuesta:
-      'Sí, es una parte importante de lo que hacemos en Madrid capital: portales acristalados, puertas de acceso, lucernarios de patio y ventanas de zonas comunes. Damos un presupuesto por escrito con precio cerrado por visita, que es lo que necesita cualquier administrador para llevarlo a junta.',
+      'Sí, es una parte importante de lo que hacemos en Madrid capital: portales acristalados, puertas de acceso y ventanas de zonas comunes. Damos un presupuesto por escrito con precio cerrado por visita, que es lo que necesita cualquier administrador para llevarlo a junta.',
   },
   {
     pregunta: '¿Por qué mis cristales quedan con marcas aunque los limpie?',
@@ -120,7 +111,7 @@ export default function LimpiezaCristalesMadridPage() {
     <main className="crismad-page">
       <Seo
         title="Empresa de limpieza de cristales en Madrid | Kristalia"
-        description="Empresa de limpieza de cristales en Madrid capital: escaparates, oficinas, comunidades, áticos y lucernarios. Trabajo en altura. Presupuesto gratis."
+        description="Limpieza profesional de cristales, escaparates, cerramientos, ventanales y cristales de difícil acceso en Madrid, con medios adaptados a las características de cada trabajo."
         path={PATH}
         image="/og-image.jpg"
         jsonLd={jsonLd}
@@ -150,8 +141,9 @@ export default function LimpiezaCristalesMadridPage() {
           </h1>
 
           <p className="crismad-hero__subtitle">
-            Trabajamos solo en Madrid y solo con cristal. Escaparates, oficinas,
-            comunidades, cerramientos de ático y lucernarios.
+            Especialistas en limpieza profesional de cristales para viviendas,
+            comunidades, oficinas y locales. Desde escaparates y ventanales hasta
+            cerramientos y cristales de difícil acceso.
           </p>
 
           <div className="crismad-hero__actions">

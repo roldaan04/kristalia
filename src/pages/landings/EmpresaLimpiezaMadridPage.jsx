@@ -82,7 +82,7 @@ const serviciosPrincipales = [
     imagen: alturaImg,
     alt: 'Ventanal situado a gran altura sobre un espacio interior de doble altura con barandilla de vidrio',
     texto:
-      'Fachadas acristaladas, lucernarios, patios interiores y ventanales a los que no se llega desde el suelo. Según el edificio se resuelve con pértiga telescópica de agua osmotizada, plataforma elevadora o acceso desde cubierta.',
+      'Fachadas acristaladas, patios interiores y ventanales a los que no se llega desde el suelo. Según el edificio se resuelve con pértiga telescópica de agua osmotizada, plataforma elevadora o acceso desde cubierta.',
   },
   {
     id: 'paneles',

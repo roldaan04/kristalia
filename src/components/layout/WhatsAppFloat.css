@@ -1,0 +1,180 @@
+/* Botón flotante de WhatsApp: presente en todas las páginas.
+   En escritorio el CTA ya vive en el header; aquí lo importante es el móvil,
+   donde el usuario no tiene ese botón a mano mientras hace scroll. */
+.wa-float {
+  position: fixed;
+  right: clamp(1rem, 3vw, 1.75rem);
+  bottom: calc(clamp(1rem, 3vw, 1.75rem) + env(safe-area-inset-bottom, 0px));
+  z-index: 90;
+
+  /* Oculto hasta que el componente lo activa tras el retardo inicial */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(14px) scale(0.9);
+  transition: opacity var(--transition-slow), transform var(--transition-slow), visibility var(--transition-slow);
+}
+
+.wa-float--visible {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.wa-float__link {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform var(--transition);
+}
+
+/* Etiqueta CTA */
+.wa-float__label {
+  max-width: 0;
+  padding: 0;
+  margin-right: 0;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--color-primary);
+  text-align: center;
+
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  box-shadow: var(--shadow-card);
+
+  white-space: nowrap;
+
+  transition:
+    max-width var(--transition-slow),
+    opacity var(--transition-slow),
+    padding var(--transition-slow),
+    margin var(--transition-slow);
+}
+
+.wa-float--label-open .wa-float__label,
+.wa-float__link:focus-visible .wa-float__label {
+  max-width: 17rem;
+  padding: 0.65rem 1.25rem;
+  margin-right: 0.75rem;
+  opacity: 1;
+}
+
+/* Botón circular */
+.wa-float__icon {
+  position: relative;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4), 0 2px 8px rgba(26, 39, 68, 0.18);
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+/* Halo que late suavemente para atraer la mirada sin resultar intrusivo */
+.wa-float__icon::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  border: 2px solid #25d366;
+  pointer-events: none;
+  animation: wa-pulse 2.6s ease-out infinite;
+}
+
+@keyframes wa-pulse {
+  0% { transform: scale(1); opacity: 0.55; }
+  70% { transform: scale(1.5); opacity: 0; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+.wa-float__link:active {
+  transform: scale(0.95);
+}
+
+.wa-float__link:focus-visible {
+  outline: none;
+}
+
+.wa-float__link:focus-visible .wa-float__icon {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* Solo en dispositivos con puntero: al pasar el ratón se despliega la etiqueta */
+@media (hover: hover) {
+  .wa-float__link:hover .wa-float__label {
+    max-width: 17rem;
+    padding: 0.65rem 1.25rem;
+    margin-right: 0.75rem;
+    opacity: 1;
+  }
+
+  .wa-float__link:hover .wa-float__icon {
+    background: #1ebe5d;
+    transform: translateY(-2px);
+    box-shadow:
+      0 12px 28px rgba(37, 211, 102, 0.48),
+      0 2px 8px rgba(26, 39, 68, 0.2);
+  }
+}
+
+/* Móvil: botón algo menor y etiqueta más compacta (puede ocupar dos líneas) */
+@media (max-width: 640px) {
+  .wa-float__icon {
+    width: 54px;
+    height: 54px;
+  }
+
+  .wa-float__icon svg {
+    width: 27px;
+    height: 27px;
+  }
+
+  .wa-float__label {
+    font-size: 0.76rem;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .wa-float--label-open .wa-float__label,
+  .wa-float__link:focus-visible .wa-float__label {
+    max-width: 12.5rem;
+    padding: 0.55rem 0.9rem;
+    border-radius: var(--radius-lg);
+  }
+}
+
+/* Pantallas muy estrechas: no hay espacio digno para el texto, solo el botón */
+@media (max-width: 359px) {
+  .wa-float__label {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wa-float,
+  .wa-float__label,
+  .wa-float__icon {
+    transition: none;
+  }
+
+  .wa-float__icon::before {
+    animation: none;
+  }
+}
