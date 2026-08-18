@@ -1,10 +1,42 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.png';
 import { WHATSAPP_URL, PHONE_DISPLAY, EMAIL, ADDRESS } from '../../utils/constants';
 import './Footer.css';
 
 export default function Footer() {
   const year = new Date().getFullYear();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const isHome = location.pathname === '/';
+
+  const scrollToHash = (hash) => {
+    const el = document.querySelector(hash);
+
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+      return;
+    }
+
+    if (hash === '#inicio') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  const handleHashLink = (e, hash) => {
+    e.preventDefault();
+
+    if (isHome) {
+      scrollToHash(hash);
+      return;
+    }
+
+    navigate('/');
+
+    setTimeout(() => {
+      scrollToHash(hash);
+    }, 120);
+  };
 
   return (
     <footer className="footer">
@@ -47,32 +79,32 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <a href="#servicio-1" className="footer__nav-link">
+              <a href="/#servicio-1" className="footer__nav-link" onClick={(e) => handleHashLink(e, '#servicio-1')}>
                 Limpieza de cristales en altura
               </a>
             </li>
             <li>
-              <a href="#servicio-2" className="footer__nav-link">
+              <a href="/#servicio-2" className="footer__nav-link" onClick={(e) => handleHashLink(e, '#servicio-2')}>
                 Escaparates y locales
               </a>
             </li>
             <li>
-              <a href="#servicio-3" className="footer__nav-link">
+              <a href="/#servicio-3" className="footer__nav-link" onClick={(e) => handleHashLink(e, '#servicio-3')}>
                 Comunidades de propietarios
               </a>
             </li>
             <li>
-              <a href="#servicio-4" className="footer__nav-link">
+              <a href="/#servicio-4" className="footer__nav-link" onClick={(e) => handleHashLink(e, '#servicio-4')}>
                 Mantenimiento para empresas
               </a>
             </li>
             <li>
-              <a href="#servicio-6" className="footer__nav-link">
+              <a href="/#servicio-6" className="footer__nav-link" onClick={(e) => handleHashLink(e, '#servicio-6')}>
                 Paneles solares
               </a>
             </li>
             <li>
-              <a href="#servicio-5" className="footer__nav-link">
+              <a href="/#servicio-5" className="footer__nav-link" onClick={(e) => handleHashLink(e, '#servicio-5')}>
                 Fachadas acristaladas
               </a>
             </li>
@@ -82,9 +114,9 @@ export default function Footer() {
         <div className="footer__nav-group">
           <h3 className="footer__nav-title">Empresa</h3>
           <ul className="footer__nav-list">
-            <li><a href="#inicio" className="footer__nav-link">Inicio</a></li>
+            <li><a href="/#inicio" className="footer__nav-link" onClick={(e) => handleHashLink(e, '#inicio')}>Inicio</a></li>
             <li><Link to="/quienes-somos" className="footer__nav-link">Quiénes somos</Link></li>
-            <li><a href="/#contacto" className="footer__nav-link">Contacto</a></li>
+            <li><a href="/#contacto" className="footer__nav-link" onClick={(e) => handleHashLink(e, '#contacto')}>Contacto</a></li>
           </ul>
         </div>
 
