@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
@@ -9,11 +9,11 @@ import AvisoLegalPage from './pages/legal/AvisoLegalPage';
 import PrivacidadPage from './pages/legal/PrivacidadPage';
 import CookiesPage from './pages/legal/CookiesPage';
 import NotFoundPage from './pages/NotFoundPage';
-
-// Las landings SEO se cargan bajo demanda: son páginas largas y de tráfico
-// directo desde buscador, así que no deben engordar el bundle inicial de la home.
-const LimpiezaCristalesMadridPage = lazy(() => import('./pages/landings/LimpiezaCristalesMadridPage'));
-const EmpresaLimpiezaMadridPage = lazy(() => import('./pages/landings/EmpresaLimpiezaMadridPage'));
+// Las landings SEO se importan de forma estática (antes iban con React.lazy):
+// el prerender las renderiza a HTML en el build con renderToString, y una ruta
+// suspendida solo emitiría el fallback en lugar del contenido de la página.
+import LimpiezaCristalesMadridPage from './pages/landings/LimpiezaCristalesMadridPage';
+import EmpresaLimpiezaMadridPage from './pages/landings/EmpresaLimpiezaMadridPage';
 
 export default function App() {
   return (

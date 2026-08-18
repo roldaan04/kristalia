@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { collectHead } from '../seo/headSink';
 
 /**
  * Gestor de metadatos por página, sin dependencias.
@@ -60,6 +61,27 @@ export default function Seo({
   jsonLd = null,
   jsonLdId = null,
 }) {
+  // Recogida de metadatos durante el prerender (build). Solo se ejecuta en el
+  // servidor (Node no tiene `window`); en el navegador este bloque se salta y el
+  // comportamiento en cliente es idéntico al anterior. Se resuelve en tiempo de
+  // render porque los efectos no corren durante el prerender.
+  if (typeof window === 'undefined') {
+    const url = SITE_URL + path;
+    const img = image
+      ? image.startsWith('http')
+        ? image
+        : SITE_URL + image
+      : DEFAULT_IMAGE;
+    collectHead({
+      title,
+      description,
+      robots: noindex ? 'noindex, follow' : 'index, follow',
+      canonical: url,
+      image: img,
+      jsonLd: jsonLd && jsonLdId ? { id: jsonLdId, data: jsonLd } : null,
+    });
+  }
+
   useEffect(() => {
     const url = SITE_URL + path;
     const img = image

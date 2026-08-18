@@ -50,6 +50,8 @@ guia-seo.html
 GUIA-DESPLIEGUE.html
 
 .htaccess
+# Excepción: el .htaccess de despliegue sí debe versionarse.
+!public/.htaccess
 
 .claude
 CLAUDE.md

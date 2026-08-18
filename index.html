@@ -4,19 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- ===== SEO base (valores por defecto / home) ===== -->
-    <title>Limpieza de cristales en Madrid | Kristalia</title>
-    <meta
-      name="description"
-      content="Limpieza profesional de cristales, escaparates y fachadas acristaladas en Madrid y provincia. Para empresas, comunidades y particulares. Presupuesto sin compromiso."
-    />
-    <meta name="robots" content="index, follow" />
+    <!-- ===== SEO por ruta =====
+      El prerender (build) sustituye este marcador por el title, description,
+      robots, canonical, Open Graph, Twitter y JSON-LD propios de cada página.
+      En desarrollo (vite dev) el marcador queda como comentario y esos valores
+      los aplica Seo.jsx en runtime. -->
+    <!--app-head-->
+
     <meta name="author" content="Kristalia" />
     <meta
       name="keywords"
       content="limpieza de cristales Madrid, limpieza de escaparates, limpieza de fachadas acristaladas, limpieza de cristales en altura, limpieza de comunidades, limpieza de paneles solares"
     />
-    <link rel="canonical" href="https://kristalia.es/" />
     <meta name="theme-color" content="#ffffff" />
 
     <!-- ===== Iconos y manifest ===== -->
@@ -24,29 +23,14 @@
     <link rel="apple-touch-icon" href="/logo.png" />
     <link rel="manifest" href="/site.webmanifest" />
 
-    <!-- ===== Open Graph (Facebook / WhatsApp / LinkedIn) ===== -->
+    <!-- ===== Open Graph / Twitter (valores invariables; los variables por ruta van en app-head) ===== -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Kristalia" />
     <meta property="og:locale" content="es_ES" />
-    <meta property="og:title" content="Limpieza de cristales en Madrid | Kristalia" />
-    <meta
-      property="og:description"
-      content="Limpieza profesional de cristales, escaparates y fachadas acristaladas en Madrid y provincia. Presupuesto sin compromiso."
-    />
-    <meta property="og:url" content="https://kristalia.es/" />
-    <meta property="og:image" content="https://kristalia.es/og-image.jpg" />
     <meta property="og:image:width" content="1600" />
     <meta property="og:image:height" content="1200" />
     <meta property="og:image:alt" content="Cristalera impecable limpiada por Kristalia" />
-
-    <!-- ===== Twitter Card ===== -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Limpieza de cristales en Madrid | Kristalia" />
-    <meta
-      name="twitter:description"
-      content="Limpieza profesional de cristales, escaparates y fachadas acristaladas en Madrid y provincia. Presupuesto sin compromiso."
-    />
-    <meta name="twitter:image" content="https://kristalia.es/og-image.jpg" />
 
     <!-- ===== Fuentes ===== -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -56,7 +40,7 @@
       rel="stylesheet"
     />
 
-    <!-- ===== Datos estructurados: negocio local ===== -->
+    <!-- ===== Datos estructurados sitewide: negocio local ===== -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -115,7 +99,7 @@
       }
     </script>
 
-    <!-- ===== Datos estructurados: sitio web ===== -->
+    <!-- ===== Datos estructurados sitewide: sitio web ===== -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -128,63 +112,6 @@
       }
     </script>
 
-    <!-- ===== Datos estructurados: preguntas frecuentes ===== -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "¿Con qué frecuencia se recomienda limpiar los cristales?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Depende del entorno y el tipo de instalación. En zonas urbanas con mucho tráfico o polución, recomendamos una limpieza mensual o bimensual. Para comunidades o viviendas con menor exposición, una vez cada dos o tres meses puede ser suficiente. En todos los casos, hacemos una valoración inicial gratuita."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "¿Trabajáis en altura y con andamios?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Sí. Contamos con los equipos y la formación necesarios para trabajar en altura de forma segura: plataformas elevadoras, pértigas telescópicas con sistema de agua purificada y sistemas de acceso vertical según las necesidades de cada edificio."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "¿Hacéis presupuesto sin compromiso?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Siempre. Evaluamos el trabajo, el tipo de superficie, la accesibilidad y la periodicidad necesaria, y te damos un presupuesto claro y detallado sin coste ni compromiso. Puedes solicitarlo por teléfono, por WhatsApp o a través del formulario de contacto."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "¿En qué zonas trabajáis?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Actualmente operamos en Madrid y provincia. Si tienes un proyecto fuera de esta área, consúltanos igualmente y valoramos si podemos desplazarnos según las características del trabajo."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "¿Qué productos utilizáis?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Usamos productos profesionales de limpieza de cristales homologados, sin componentes abrasivos, específicos según el tipo de superficie: vidrio templado, vidrio laminado, policarbonato, cristal con tratamiento solar, etc. Para superficies con incrustaciones de cal o suciedad persistente, aplicamos tratamientos específicos de eliminación."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "¿Podéis encargaros del mantenimiento periódico de mi empresa?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Sí. Ofrecemos contratos de mantenimiento con visitas programadas según la periodicidad que necesites. Se fija un precio cerrado por visita y un calendario de servicio adaptado a tu actividad. Es la opción más cómoda y económica para empresas y comunidades."
-            }
-          }
-        ]
-      }
-    </script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-83BPY2RNKZ"></script>
     <script>
@@ -196,7 +123,7 @@
     </script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"><!--app-html--></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
