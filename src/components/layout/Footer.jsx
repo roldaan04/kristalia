@@ -79,6 +79,11 @@ export default function Footer() {
               </Link>
             </li>
             <li>
+              <Link to="/limpieza-particulares-madrid" className="footer__nav-link">
+                Limpieza para particulares
+              </Link>
+            </li>
+            <li>
               <a href="/#servicio-1" className="footer__nav-link" onClick={(e) => handleHashLink(e, '#servicio-1')}>
                 Limpieza de cristales en altura
               </a>

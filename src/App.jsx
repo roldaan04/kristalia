@@ -14,6 +14,7 @@ import NotFoundPage from './pages/NotFoundPage';
 // suspendida solo emitiría el fallback en lugar del contenido de la página.
 import LimpiezaCristalesMadridPage from './pages/landings/LimpiezaCristalesMadridPage';
 import EmpresaLimpiezaMadridPage from './pages/landings/EmpresaLimpiezaMadridPage';
+import LimpiezaParticularesMadridPage from './pages/landings/LimpiezaParticularesMadridPage';
 
 export default function App() {
   return (
@@ -32,6 +33,10 @@ export default function App() {
             <Route
               path="/empresa-de-limpieza-madrid"
               element={<EmpresaLimpiezaMadridPage />}
+            />
+            <Route
+              path="/limpieza-particulares-madrid"
+              element={<LimpiezaParticularesMadridPage />}
             />
             <Route path="/aviso-legal" element={<AvisoLegalPage />} />
             <Route path="/privacidad" element={<PrivacidadPage />} />
