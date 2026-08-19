@@ -4,6 +4,42 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- ===== Consent Mode v2 — DEBE ejecutarse ANTES de Google Tag Manager =====
+      Consentimiento denegado por defecto. Si el usuario ya decidió en una visita
+      anterior (guardado en localStorage por el banner), se restaura aquí mismo,
+      antes de que GTM dispare ninguna etiqueta. Este script solo corre en el
+      navegador; el prerender no lo ejecuta (lo copia como texto). -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+        wait_for_update: 500
+      });
+      try {
+        var kConsent = JSON.parse(window.localStorage.getItem('kristalia_consent'));
+        if (kConsent && kConsent.version === 1) {
+          gtag('consent', 'update', {
+            analytics_storage: kConsent.analytics ? 'granted' : 'denied',
+            ad_storage: kConsent.ads ? 'granted' : 'denied',
+            ad_user_data: kConsent.ads ? 'granted' : 'denied',
+            ad_personalization: kConsent.ads ? 'granted' : 'denied'
+          });
+        }
+      } catch (e) {}
+    </script>
+
+    <!-- ===== Google Tag Manager ===== -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KNG6W58H');</script>
+    <!-- ===== End Google Tag Manager ===== -->
+
     <!-- ===== SEO por ruta =====
       El prerender (build) sustituye este marcador por el title, description,
       robots, canonical, Open Graph, Twitter y JSON-LD propios de cada página.
@@ -111,18 +147,12 @@
         "publisher": { "@id": "https://kristalia.es/#business" }
       }
     </script>
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-83BPY2RNKZ"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-83BPY2RNKZ');
-    </script>
   </head>
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KNG6W58H"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <div id="root"><!--app-html--></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

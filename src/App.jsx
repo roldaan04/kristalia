@@ -3,6 +3,8 @@ import { Routes, Route } from 'react-router-dom';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import WhatsAppFloat from './components/layout/WhatsAppFloat';
+import AnalyticsListener from './components/AnalyticsListener';
+import CookieConsent from './components/consent/CookieConsent';
 import HomePage from './pages/HomePage';
 import QuienesSomosPage from './pages/QuienesSomosPage';
 import AvisoLegalPage from './pages/legal/AvisoLegalPage';
@@ -19,6 +21,7 @@ import LimpiezaParticularesMadridPage from './pages/landings/LimpiezaParticulare
 export default function App() {
   return (
     <>
+      <AnalyticsListener />
       <a href="#contenido" className="skip-link">Saltar al contenido</a>
       <Header />
       <div id="contenido" tabIndex={-1}>
@@ -47,6 +50,7 @@ export default function App() {
       </div>
       <Footer />
       <WhatsAppFloat />
+      <CookieConsent />
     </>
   );
 }

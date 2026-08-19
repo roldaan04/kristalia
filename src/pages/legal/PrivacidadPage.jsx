@@ -72,17 +72,35 @@ export default function PrivacidadPage() {
         carga tipografías desde Google Fonts, lo que puede implicar una conexión con servidores de
         Google que registra la dirección IP a efectos técnicos, sin fines de seguimiento.
       </p>
-      {/* TODO (antes de producción): confirmar y, si procede, nombrar expresamente el proveedor
-          de alojamiento (p. ej. Vercel) y formalizar el encargo de tratamiento correspondiente. */}
+      {/* TODO (antes de producción): nombrar expresamente el proveedor de alojamiento
+          (Hostinger) y formalizar el encargo de tratamiento correspondiente. */}
 
-      <h2>7. Seguridad</h2>
+      <h2>7. Analítica web y consentimiento</h2>
+      <p>
+        Para conocer de forma agregada cómo se utiliza la web empleamos{' '}
+        <strong>Google Analytics 4</strong>, gestionado a través de{' '}
+        <strong>Google Tag Manager</strong> (Google Ireland Ltd.). Estas herramientas pueden
+        instalar cookies y tratar datos como la dirección IP (de forma abreviada/anonimizada)
+        y datos de uso, con la finalidad de elaborar estadísticas de navegación.
+      </p>
+      <p>
+        La base jurídica de este tratamiento es tu <strong>consentimiento</strong>, que se
+        solicita mediante el aviso de cookies y se gestiona con el modo de consentimiento de
+        Google (Consent Mode): la analítica <strong>solo se activa si la aceptas</strong> y
+        permanece desactivada en caso contrario. Puedes retirar tu consentimiento en cualquier
+        momento desde «Configurar cookies» en el pie de página o en la{' '}
+        <a href="/cookies">Política de cookies</a>. El uso de estas herramientas puede implicar
+        transferencias internacionales de datos amparadas en las garantías previstas por Google.
+      </p>
+
+      <h2>8. Seguridad</h2>
       <p>
         Aplicamos las medidas técnicas y organizativas razonables para proteger tus datos
         personales y evitar su pérdida, alteración o acceso no autorizado, teniendo en cuenta el
         estado de la técnica y la naturaleza de los datos tratados.
       </p>
 
-      <h2>8. Tus derechos</h2>
+      <h2>9. Tus derechos</h2>
       <p>
         Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación
         y portabilidad escribiendo a <a href={`mailto:${EMAIL}`}>{EMAIL}</a>, indicando el

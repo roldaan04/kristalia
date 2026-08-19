@@ -1,6 +1,7 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.png';
 import { WHATSAPP_URL, PHONE_DISPLAY, EMAIL, ADDRESS } from '../../utils/constants';
+import { openConsentSettings } from '../../utils/consent';
 import './Footer.css';
 
 export default function Footer() {
@@ -170,6 +171,13 @@ export default function Footer() {
             <Link to="/aviso-legal" className="footer__legal-link">Aviso legal</Link>
             <Link to="/privacidad" className="footer__legal-link">Privacidad</Link>
             <Link to="/cookies" className="footer__legal-link">Cookies</Link>
+            <button
+              type="button"
+              className="footer__legal-link footer__legal-button"
+              onClick={openConsentSettings}
+            >
+              Configurar cookies
+            </button>
           </nav>
         </div>
       </div>
