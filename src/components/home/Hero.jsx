@@ -1,5 +1,5 @@
 import Button from '../ui/Button';
-import heroImg from '../../assets/cristales/cristaleraa.webp';
+import heroImg from '../../assets/cristales/kristalia.png';
 import './Hero.css';
 
 export default function Hero() {
@@ -19,17 +19,20 @@ export default function Hero() {
 
       <div className="hero__content container">
         <div className="hero__text">
-          <span className="hero__tag">Limpieza especializada en cristales</span>
+          <span className="hero__tag">
+            Limpieza especializada en cristales
+          </span>
 
           <h1 className="hero__title">
-            Cristales impecables para empresas, comunidades y particulares.
+            <span>Limpieza profesional de cristales en Madrid.</span>
+            <span>Presupuesto sin compromiso.</span>
           </h1>
 
           <p className="hero__subtitle">
-            Servicio rápido, seguro y adaptado a cada espacio. Presupuesto sin compromiso.
+            Disponibilidad inmediata en toda la Comunidad de Madrid.
           </p>
 
-          <div className="hero__actions hero__actions--single">
+          <div className="hero__actions">
             <Button
               variant="outline-light"
               size="lg"
