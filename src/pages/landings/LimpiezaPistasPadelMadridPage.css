@@ -1,0 +1,329 @@
+/* ==========================================================================
+   Landing: Limpieza de cristales de pistas de pádel en Madrid
+   Prefijo BEM propio: .padelmad-*
+   ========================================================================== */
+
+/* --- Hero ---------------------------------------------------------------- */
+.padelmad-hero {
+  position: relative;
+  /* Más alto que el resto de landings para que se vean los cristales de la pista. */
+  min-height: clamp(560px, 85vh, 820px);
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.padelmad-hero__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Encuadre centrado en la pista: se ven los paños de vidrio a ambos lados. */
+  object-position: center 45%;
+}
+
+/* Degradado más suave que --gradient-hero para no tapar el cristal de la
+   izquierda; se oscurece abajo, que es donde va el texto. */
+.padelmad-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(0deg, rgba(26, 39, 68, 0.7) 0%, rgba(26, 39, 68, 0.25) 45%, rgba(26, 39, 68, 0) 70%),
+    linear-gradient(90deg, rgba(26, 39, 68, 0.45) 0%, rgba(26, 39, 68, 0) 60%);
+}
+
+.padelmad-hero__content {
+  position: relative;
+  width: 100%;
+  padding-top: calc(var(--header-height) + var(--spacing-xl));
+  padding-bottom: var(--spacing-xl);
+  max-width: var(--container-max);
+}
+
+.padelmad-hero__breadcrumb {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1rem;
+}
+
+.padelmad-hero__breadcrumb-link {
+  color: rgba(255, 255, 255, 0.85);
+  transition: color var(--transition);
+}
+
+.padelmad-hero__breadcrumb-link:hover {
+  color: var(--color-accent);
+}
+
+.padelmad-hero__title {
+  font-size: clamp(2.1rem, 4.6vw, 3.4rem);
+  color: var(--color-text-light);
+  max-width: 18ch;
+  margin-bottom: 1.25rem;
+}
+
+.padelmad-hero__subtitle {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 56ch;
+  margin-bottom: var(--spacing-md);
+}
+
+.padelmad-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+/* --- Intro a dos columnas ------------------------------------------------ */
+.padelmad-intro__layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--spacing-xl);
+  align-items: center;
+}
+
+.padelmad-intro__text p {
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  margin-bottom: 1.1rem;
+}
+
+.padelmad-intro__text p:last-child {
+  margin-bottom: 0;
+}
+
+.padelmad-link {
+  color: var(--color-secondary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--transition);
+}
+
+.padelmad-link:hover {
+  color: var(--color-accent);
+}
+
+.padelmad-intro__image-wrap {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.padelmad-intro__image {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+/* --- Servicio y frecuencia (rejillas de bloques) -------------------------- */
+.padelmad-servicio__grid,
+.padelmad-frecuencia__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.padelmad-paso {
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.padelmad-paso__title {
+  font-size: 1.2rem;
+  color: var(--color-primary);
+  margin-bottom: 0.45rem;
+}
+
+.padelmad-paso__text {
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  max-width: 52ch;
+}
+
+/* --- Para quién ---------------------------------------------------------- */
+.padelmad-clientes__layout {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: var(--spacing-xl);
+  align-items: start;
+}
+
+.padelmad-clientes__list {
+  display: grid;
+  gap: var(--spacing-md);
+}
+
+.padelmad-cliente {
+  padding-left: var(--spacing-md);
+  border-left: 2px solid var(--color-accent);
+}
+
+.padelmad-cliente__title {
+  font-size: 1.2rem;
+  color: var(--color-primary);
+  margin-bottom: 0.4rem;
+}
+
+.padelmad-cliente__text {
+  color: var(--color-text-muted);
+  line-height: 1.8;
+}
+
+/* --- Zona de servicio ---------------------------------------------------- */
+.padelmad-zona {
+  max-width: 640px;
+  margin: var(--spacing-xl) auto 0;
+  text-align: center;
+}
+
+.padelmad-zona__title {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  margin-bottom: 0.6rem;
+}
+
+.padelmad-zona__text {
+  color: var(--color-text-muted);
+  line-height: 1.8;
+}
+
+/* --- FAQ ----------------------------------------------------------------- */
+.padelmad-faq__container {
+  max-width: 840px;
+}
+
+.padelmad-faq__list {
+  display: grid;
+  gap: var(--spacing-md);
+}
+
+.padelmad-faq__item {
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+}
+
+.padelmad-faq__question {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 0.6rem;
+}
+
+.padelmad-faq__answer {
+  color: var(--color-text-muted);
+  line-height: 1.8;
+}
+
+/* --- CTA final ----------------------------------------------------------- */
+.padelmad-cta {
+  padding: var(--spacing-2xl) 0;
+}
+
+.padelmad-cta__inner {
+  text-align: center;
+  max-width: 760px;
+}
+
+.padelmad-cta__title {
+  font-size: clamp(2rem, 3.4vw, 2.7rem);
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.padelmad-cta__text {
+  max-width: 620px;
+  margin: 0 auto var(--spacing-md);
+  color: var(--color-text-muted);
+  line-height: 1.8;
+}
+
+.padelmad-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.85rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.padelmad-cta__phone {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0.85rem;
+}
+
+.padelmad-cta__phone-link {
+  color: var(--color-secondary);
+  font-weight: 600;
+}
+
+.padelmad-cta__phone-link:hover {
+  color: var(--color-accent);
+}
+
+.padelmad-cta__links {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.padelmad-cta__link {
+  color: var(--color-secondary);
+  transition: color var(--transition);
+}
+
+.padelmad-cta__link:hover {
+  color: var(--color-accent);
+}
+
+/* --- Responsive ---------------------------------------------------------- */
+@media (max-width: 960px) {
+  .padelmad-intro__layout,
+  .padelmad-clientes__layout {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .padelmad-intro__image {
+    aspect-ratio: 16 / 10;
+  }
+}
+
+@media (max-width: 800px) {
+  .padelmad-hero {
+    min-height: clamp(560px, 75vh, 760px);
+  }
+
+  .padelmad-hero__title {
+    max-width: 100%;
+  }
+
+  .padelmad-servicio__grid,
+  .padelmad-frecuencia__grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+}
+
+@media (max-width: 640px) {
+  /* En móvil el texto ocupa casi todo el hero: a pantalla completa queda
+     hueco arriba para que se vea la pista. */
+  .padelmad-hero {
+    min-height: 100vh;
+    min-height: 100svh;
+  }
+
+  .padelmad-hero__content {
+    padding-top: calc(var(--header-height) + var(--spacing-lg));
+    padding-bottom: var(--spacing-lg);
+  }
+
+  .padelmad-hero__actions .btn,
+  .padelmad-cta__actions .btn {
+    width: 100%;
+  }
+}
