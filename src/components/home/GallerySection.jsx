@@ -1,7 +1,7 @@
 import cristaleraImg from '../../assets/cristales/cristalera.webp';
-import cristalera2Img from '../../assets/cristales/cristalera4.webp';
+import cristalera2Img from '../../assets/cristales/atico.webp';
 import cristalera3Img from '../../assets/cristales/cristalera3.webp';
-import escaparateImg from '../../assets/escaparates/escaparate.webp';
+import escaparateImg from '../../assets/escaparates/escaparate2.webp';
 import './GallerySection.css';
 
 const galleryItems = [

@@ -1,5 +1,5 @@
 import Button from '../ui/Button';
-import heroImg from '../../assets/cristales/kristalia.png';
+import heroImg from '../../assets/cristales/kristalia.webp';
 import './Hero.css';
 
 // Iconos SVG inline del hero móvil (mismo patrón que el icono de WhatsApp del

@@ -1,8 +1,8 @@
-import cristaleraImg from '../assets/comunidades/comunidad.webp';
+import cristaleraImg from '../assets/escaparates/escaparateCasa.webp';
 import cristalera2Img from '../assets/cristales/cristalera2.webp';
 import cristalera3Img from '../assets/cristales/empresas.webp';
 import fachada from '../assets/fachadas/fachada-acristalada.webp';
-import escaparateImg from '../assets/escaparates/escaparate-tienda.webp';
+import escaparateImg from '../assets/escaparates/escaparate.webp';
 import panelesImg from '../assets/paneles-solares/paneles.webp';
 import padelImg from '../assets/cristales/pexels-padel-1.webp';
 

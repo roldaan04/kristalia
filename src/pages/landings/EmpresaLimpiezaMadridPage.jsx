@@ -5,10 +5,10 @@ import Button from '../../components/ui/Button';
 import { WHATSAPP_URL, PHONE_DISPLAY } from '../../utils/constants';
 import heroImg from '../../assets/fachadas/edificio-fachada-acristalada.webp';
 import limpiezaImg from '../../assets/cristales/limpieza.webp';
-import cristalesImg from '../../assets/cristales/cristalera-chalet.webp';
+import cristalesImg from '../../assets/cristales/cristalera.jpg';
 import alturaImg from '../../assets/cristales/cristalera3.webp';
 import panelesImg from '../../assets/paneles-solares/paneles2.webp';
-import interiorImg from '../../assets/escaparates/escaparate-cocina.webp';
+import interiorImg from '../../assets/cristales/casa.webp';
 import './EmpresaLimpiezaMadridPage.css';
 
 const PATH = '/empresa-de-limpieza-madrid';

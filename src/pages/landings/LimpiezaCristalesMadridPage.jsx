@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import Seo, { SITE_URL } from '../../components/Seo';
 import Button from '../../components/ui/Button';
 import { WHATSAPP_URL, PHONE_DISPLAY } from '../../utils/constants';
-import heroImg from '../../assets/cristales/cristalera4.webp';
+import heroImg from '../../assets/cristales/fondoImageAtico.webp';
 import aticoImg from '../../assets/cristales/cristalera2.webp';
-import escaparateImg from '../../assets/escaparates/escaparate-calle.webp';
+import escaparateImg from '../../assets/escaparates/escaparateCalle.webp';
 import calleImg from '../../assets/fachadas/fachadaAcristalada.webp';
 import './LimpiezaCristalesMadridPage.css';
 
