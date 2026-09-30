@@ -27,6 +27,7 @@ const PAGES = [
   { location: '/empresa-de-limpieza-de-cristales-madrid', out: 'empresa-de-limpieza-de-cristales-madrid/index.html' },
   { location: '/empresa-de-limpieza-madrid', out: 'empresa-de-limpieza-madrid/index.html' },
   { location: '/limpieza-particulares-madrid', out: 'limpieza-particulares-madrid/index.html' },
+  { location: '/limpieza-cristales-pistas-padel-madrid', out: 'limpieza-cristales-pistas-padel-madrid/index.html' },
   { location: '/aviso-legal', out: 'aviso-legal/index.html' },
   { location: '/privacidad', out: 'privacidad/index.html' },
   { location: '/cookies', out: 'cookies/index.html' },

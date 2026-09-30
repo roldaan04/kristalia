@@ -17,6 +17,7 @@ import NotFoundPage from './pages/NotFoundPage';
 import LimpiezaCristalesMadridPage from './pages/landings/LimpiezaCristalesMadridPage';
 import EmpresaLimpiezaMadridPage from './pages/landings/EmpresaLimpiezaMadridPage';
 import LimpiezaParticularesMadridPage from './pages/landings/LimpiezaParticularesMadridPage';
+import LimpiezaPistasPadelMadridPage from './pages/landings/LimpiezaPistasPadelMadridPage';
 
 export default function App() {
   return (
@@ -40,6 +41,10 @@ export default function App() {
             <Route
               path="/limpieza-particulares-madrid"
               element={<LimpiezaParticularesMadridPage />}
+            />
+            <Route
+              path="/limpieza-cristales-pistas-padel-madrid"
+              element={<LimpiezaPistasPadelMadridPage />}
             />
             <Route path="/aviso-legal" element={<AvisoLegalPage />} />
             <Route path="/privacidad" element={<PrivacidadPage />} />

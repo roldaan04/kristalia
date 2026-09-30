@@ -4,6 +4,7 @@ import cristalera3Img from '../assets/cristales/empresas.webp';
 import fachada from '../assets/fachadas/fachada-acristalada.webp';
 import escaparateImg from '../assets/escaparates/escaparate-tienda.webp';
 import panelesImg from '../assets/paneles-solares/paneles.webp';
+import padelImg from '../assets/cristales/pexels-padel-1.webp';
 
 export const services = [
   {
@@ -47,6 +48,15 @@ export const services = [
     description: 'Los paneles sucios pierden eficiencia. Realizamos la limpieza con agua osmotizada y técnicas específicas que no dañan la superficie ni los sistemas de anclaje.',
     image: panelesImg,
     alt: 'Operario limpiando paneles solares en cubierta industrial',
+  },
+  {
+    id: 7,
+    title: 'Limpieza de cristales de pistas de pádel',
+    description: 'Para clubes, centros deportivos y comunidades con pista propia. Dejamos los cristales de la pista limpios y transparentes, con una limpieza puntual o un mantenimiento periódico.',
+    image: padelImg,
+    alt: 'Pasillo entre dos pistas de pádel cubiertas con cerramiento de cristal',
+    // Opcional: si existe, la tarjeta enlaza a la landing del servicio.
+    href: '/limpieza-cristales-pistas-padel-madrid',
   },
 ];
 

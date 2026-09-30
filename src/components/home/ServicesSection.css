@@ -2,16 +2,83 @@
   background: var(--color-background);
 }
 
-.services__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
+.services__carousel {
+  position: relative;
+}
+
+/* Pista horizontal del carrusel: 3 tarjetas visibles en escritorio,
+   2 en tablet y 1 en móvil. scroll-snap alinea cada tarjeta al deslizar. */
+.services__track {
+  --services-visible: 3;
+  --services-gap: 1.25rem;
+  position: relative;
+  display: flex;
+  gap: var(--services-gap);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding-bottom: 0.5rem;
+}
+
+.services__track::-webkit-scrollbar {
+  display: none;
+}
+
+.services__track > .service-item {
+  flex: 0 0 calc((100% - (var(--services-visible) - 1) * var(--services-gap)) / var(--services-visible));
+  scroll-snap-align: start;
+}
+
+.services__controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.services__arrow {
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  background: var(--color-white);
+  color: var(--color-primary);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: border-color var(--transition), color var(--transition);
+}
+
+.services__arrow:hover,
+.services__arrow:focus-visible {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.services__dots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.services__dot {
+  width: 0.6rem;
+  height: 0.6rem;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
   background: var(--color-border);
-  border: 2px solid var(--color-border);
+  cursor: pointer;
+  transition: width var(--transition), background var(--transition);
+}
+
+.services__dot--active {
+  width: 1.6rem;
+  background: var(--color-accent);
 }
 
 .service-item {
   background: var(--color-white);
+  border: 1px solid var(--color-border);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -72,14 +139,27 @@
   flex: 1;
 }
 
+.service-item__link {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-secondary);
+  transition: color var(--transition);
+}
+
+.service-item__link:hover {
+  color: var(--color-accent);
+}
+
 @media (max-width: 900px) {
-  .services__grid {
-    grid-template-columns: repeat(2, 1fr);
+  .services__track {
+    --services-visible: 2;
   }
 }
 
 @media (max-width: 560px) {
-  .services__grid {
-    grid-template-columns: 1fr;
+  .services__track {
+    --services-visible: 1;
+    --services-gap: 1rem;
   }
 }
