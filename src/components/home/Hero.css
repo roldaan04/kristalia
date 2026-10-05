@@ -153,9 +153,22 @@
     /* La foto ocupa la mitad superior a su altura completa, encuadrada en la
        pértiga y el operario; debajo, navy sólido para el texto. */
     background-color: var(--color-primary);
-    background-size: auto 56vh;
-    background-size: auto 56svh;
+    background-size: auto var(--hero-photo-h);
     background-position: 56% top;
+  }
+
+  /* Altura de la foto: la usan a la vez el fondo y el degradado. Tienen que ir
+     en la MISMA unidad: en iOS 100vh incluye la barra del navegador y no
+     coincide con 100svh (en DevTools sí), y el fundido acababa por debajo de
+     la foto dejando un corte duro. */
+  .hero {
+    --hero-photo-h: 56vh;
+  }
+
+  @supports (height: 100svh) {
+    .hero {
+      --hero-photo-h: 56svh;
+    }
   }
 
   /* Velo suave solo bajo el header; la foto queda limpia y se funde en navy
@@ -164,10 +177,10 @@
     background: linear-gradient(
       180deg,
       rgba(26, 39, 68, 0.45) 0,
-      rgba(26, 39, 68, 0) 14vh,
-      rgba(26, 39, 68, 0) 34vh,
-      rgba(26, 39, 68, 0.75) 47vh,
-      rgba(26, 39, 68, 1) 56vh
+      rgba(26, 39, 68, 0) calc(var(--hero-photo-h) * 0.25),
+      rgba(26, 39, 68, 0) calc(var(--hero-photo-h) * 0.6),
+      rgba(26, 39, 68, 0.75) calc(var(--hero-photo-h) * 0.84),
+      rgba(26, 39, 68, 1) var(--hero-photo-h)
     );
   }
 
