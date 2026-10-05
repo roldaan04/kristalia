@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { services } from '../../data/services';
 import './ServicesSection.css';
 
@@ -122,11 +121,6 @@ export default function ServicesSection() {
                   </span>
                   <h3 className="service-item__title">{service.title}</h3>
                   <p className="service-item__desc">{service.description}</p>
-                  {service.href && (
-                    <Link to={service.href} className="service-item__link">
-                      Ver servicio →
-                    </Link>
-                  )}
                 </div>
               </article>
             ))}

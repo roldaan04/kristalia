@@ -4,6 +4,18 @@ import { WHATSAPP_URL, PHONE_DISPLAY, EMAIL, ADDRESS } from '../../utils/constan
 import { openConsentSettings } from '../../utils/consent';
 import './Footer.css';
 
+// Solo enlazan los servicios con landing propia (enlazado interno para SEO).
+const FOOTER_SERVICES = [
+  { label: 'Limpieza de cristales a particulares', to: '/limpieza-particulares-madrid' },
+  { label: 'Limpieza de cristales en altura' },
+  { label: 'Limpieza de fachadas acristaladas' },
+  { label: 'Limpieza de escaparates y locales comerciales' },
+  { label: 'Lavado de fachadas y suelos exteriores a presión' },
+  { label: 'Mantenimiento de cristales para empresas y oficinas' },
+  { label: 'Limpieza de pistas de pádel', to: '/limpieza-cristales-pistas-padel-madrid' },
+  { label: 'Limpieza de paneles solares' },
+];
+
 export default function Footer() {
   const year = new Date().getFullYear();
   const location = useLocation();
@@ -69,56 +81,15 @@ export default function Footer() {
         <div className="footer__nav-group">
           <h3 className="footer__nav-title">Servicios</h3>
           <ul className="footer__nav-list">
-            <li>
-              <Link to="/empresa-de-limpieza-de-cristales-madrid" className="footer__nav-link">
-                Limpieza de cristales en Madrid
-              </Link>
-            </li>
-            <li>
-              <Link to="/empresa-de-limpieza-madrid" className="footer__nav-link">
-                Empresa de limpieza en Madrid
-              </Link>
-            </li>
-            <li>
-              <Link to="/limpieza-particulares-madrid" className="footer__nav-link">
-                Limpieza para particulares
-              </Link>
-            </li>
-            <li>
-              <Link to="/limpieza-cristales-pistas-padel-madrid" className="footer__nav-link">
-                Cristales de pistas de pádel
-              </Link>
-            </li>
-            <li>
-              <a href="/#servicio-1" className="footer__nav-link" onClick={(e) => handleHashLink(e, '#servicio-1')}>
-                Limpieza de cristales en altura
-              </a>
-            </li>
-            <li>
-              <a href="/#servicio-2" className="footer__nav-link" onClick={(e) => handleHashLink(e, '#servicio-2')}>
-                Escaparates y locales
-              </a>
-            </li>
-            <li>
-              <a href="/#servicio-3" className="footer__nav-link" onClick={(e) => handleHashLink(e, '#servicio-3')}>
-                Comunidades de propietarios
-              </a>
-            </li>
-            <li>
-              <a href="/#servicio-4" className="footer__nav-link" onClick={(e) => handleHashLink(e, '#servicio-4')}>
-                Mantenimiento para empresas
-              </a>
-            </li>
-            <li>
-              <a href="/#servicio-6" className="footer__nav-link" onClick={(e) => handleHashLink(e, '#servicio-6')}>
-                Paneles solares
-              </a>
-            </li>
-            <li>
-              <a href="/#servicio-5" className="footer__nav-link" onClick={(e) => handleHashLink(e, '#servicio-5')}>
-                Fachadas acristaladas
-              </a>
-            </li>
+            {FOOTER_SERVICES.map(({ label, to }) => (
+              <li key={label}>
+                {to ? (
+                  <Link to={to} className="footer__nav-link">{label}</Link>
+                ) : (
+                  <span className="footer__nav-text">{label}</span>
+                )}
+              </li>
+            ))}
           </ul>
         </div>
 
@@ -127,6 +98,8 @@ export default function Footer() {
           <ul className="footer__nav-list">
             <li><a href="/#inicio" className="footer__nav-link" onClick={(e) => handleHashLink(e, '#inicio')}>Inicio</a></li>
             <li><Link to="/quienes-somos" className="footer__nav-link">Quiénes somos</Link></li>
+            <li><Link to="/empresa-de-limpieza-de-cristales-madrid" className="footer__nav-link">Limpieza de cristales en Madrid</Link></li>
+            <li><Link to="/empresa-de-limpieza-madrid" className="footer__nav-link">Empresa de limpieza en Madrid</Link></li>
             <li><a href="/#contacto" className="footer__nav-link" onClick={(e) => handleHashLink(e, '#contacto')}>Contacto</a></li>
           </ul>
         </div>

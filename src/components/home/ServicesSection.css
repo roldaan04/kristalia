@@ -139,18 +139,6 @@
   flex: 1;
 }
 
-.service-item__link {
-  margin-top: 1rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--color-secondary);
-  transition: color var(--transition);
-}
-
-.service-item__link:hover {
-  color: var(--color-accent);
-}
-
 @media (max-width: 900px) {
   .services__track {
     --services-visible: 2;

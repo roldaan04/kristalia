@@ -10,6 +10,10 @@ export const PHONE_DISPLAY = '+34 614 744 754';
 export const EMAIL = 'info@kristalia.es';
 export const ADDRESS = 'Madrid, España';
 
+// Ficha de Google con las reseñas.
+// TODO: sustituir por el enlace directo de la ficha (Google Business Profile → "Compartir" → copiar enlace).
+export const GOOGLE_REVIEWS_URL = 'https://www.google.com/maps/search/?api=1&query=KRISTALIA+Limpieza+de+Cristales+Madrid';
+
 // Datos identificativos del titular para las páginas legales (Aviso legal y Privacidad).
 // "Kristalia" es únicamente el nombre comercial: el titular y responsable es un profesional
 // autónomo, no una sociedad. El teléfono y el correo se reutilizan desde PHONE_DISPLAY y EMAIL.
