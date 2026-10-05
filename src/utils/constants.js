@@ -2,6 +2,10 @@ export const WHATSAPP_NUMBER = '34614744754';
 export const WHATSAPP_MESSAGE = encodeURIComponent('Hola, me gustaría solicitar información sobre vuestros servicios de limpieza de cristales.');
 export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`;
 
+// CTA del hero móvil: mensaje orientado a pedir presupuesto con fotos.
+export const WHATSAPP_QUOTE_MESSAGE = encodeURIComponent('Hola, quiero un presupuesto de limpieza de cristales. Os envío fotos y mi ubicación.');
+export const WHATSAPP_QUOTE_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_QUOTE_MESSAGE}`;
+
 export const PHONE_DISPLAY = '+34 614 744 754';
 export const EMAIL = 'info@kristalia.es';
 export const ADDRESS = 'Madrid, España';

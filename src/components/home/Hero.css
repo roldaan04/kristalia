@@ -150,18 +150,24 @@
     min-height: 100vh;
     min-height: 100svh;
     align-items: flex-end;
-    background-position: 62% center;
+    /* La foto ocupa la mitad superior a su altura completa, encuadrada en la
+       pértiga y el operario; debajo, navy sólido para el texto. */
+    background-color: var(--color-primary);
+    background-size: auto 56vh;
+    background-size: auto 56svh;
+    background-position: 56% top;
   }
 
-  /* Degradado vertical: foto visible arriba, navy sólido donde va el texto */
+  /* Velo suave solo bajo el header; la foto queda limpia y se funde en navy
+     al final de la imagen. */
   .hero__overlay {
     background: linear-gradient(
       180deg,
-      rgba(26, 39, 68, 0.5) 0%,
-      rgba(26, 39, 68, 0.1) 20%,
-      rgba(26, 39, 68, 0.64) 32%,
-      rgba(26, 39, 68, 0.9) 46%,
-      rgba(26, 39, 68, 0.97) 100%
+      rgba(26, 39, 68, 0.45) 0,
+      rgba(26, 39, 68, 0) 14vh,
+      rgba(26, 39, 68, 0) 34vh,
+      rgba(26, 39, 68, 0.75) 47vh,
+      rgba(26, 39, 68, 1) 56vh
     );
   }
 
@@ -212,42 +218,39 @@
     margin-bottom: 1.25rem;
   }
 
-  .hero__mobile-eyebrow {
-    display: block;
-    margin-bottom: 0.7rem;
-    font-family: var(--font-body);
-    font-size: 0.8rem;
-    font-weight: 500;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--color-accent);
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55), 0 0 14px rgba(0, 0, 0, 0.45);
-  }
-
   .hero__mobile-heading {
     display: block;
     font-family: var(--font-heading);
-    font-size: clamp(2.2rem, 10.5vw, 3.4rem);
+    font-size: clamp(2.4rem, 12.5vw, 3.6rem);
     font-weight: 700;
-    line-height: 1.06;
+    line-height: 1.02;
     text-transform: uppercase;
-    text-wrap: balance;
     color: var(--color-white);
-    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.25);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.35), 0 4px 28px rgba(0, 0, 0, 0.45);
   }
 
-  .hero__mobile-lead {
-    max-width: 22rem;
-    font-size: clamp(1.05rem, 4.6vw, 1.25rem);
-    line-height: 1.45;
-    color: rgba(255, 255, 255, 0.92);
+  /* Cada línea en bloque: "LIMPIEZA DE" / "CRISTALES" sin cortes raros */
+  .hero__mobile-heading span {
+    display: block;
+    white-space: nowrap;
+  }
+
+  .hero__mobile-eyebrow {
+    display: block;
+    margin-top: 0.75rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-accent);
   }
 
   .hero__mobile-rule {
     display: block;
     width: 3rem;
     height: 2px;
-    margin: 1.5rem 0 1.25rem;
+    margin: 0 0 1.25rem;
     background: var(--color-accent);
   }
 
@@ -258,6 +261,59 @@
     margin-bottom: 1.5rem;
     font-size: 0.95rem;
     color: rgba(255, 255, 255, 0.9);
+  }
+
+  /* Frase + CTA: bloque del ancho del botón, frase centrada como antetítulo */
+  .hero__mobile-cta-group {
+    width: 100%;
+    max-width: 20rem;
+  }
+
+  .hero__mobile-note {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.7rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    color: rgba(255, 255, 255, 0.72);
+  }
+
+  /* Teléfono bajo el CTA: dato informativo centrado, sin aspecto de enlace */
+  .hero__mobile-phone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.9rem;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  /* iOS convierte los teléfonos en enlace azul: se mantiene el estilo */
+  .hero__mobile-phone a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .hero__mobile-phone svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    color: var(--color-accent);
+  }
+
+  /* Filetes finos a ambos lados que centran la frase sobre el botón */
+  .hero__mobile-note::before,
+  .hero__mobile-note::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
   }
 
   .hero__mobile-stars {
@@ -285,15 +341,16 @@
   }
 
   .hero__mobile-cta svg {
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
   }
 
   .hero__mobile-benefits {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     width: 100%;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     padding-top: 1.25rem;
     border-top: 1px solid rgba(255, 255, 255, 0.16);
   }
@@ -321,5 +378,16 @@
     width: 28px;
     height: 28px;
     color: var(--color-accent);
+  }
+}
+
+/* Móviles bajos: se quitan adornos para que el texto no tape al operario */
+@media (max-width: 768px) and (max-height: 740px) {
+  .hero__mobile-rule {
+    display: none;
+  }
+
+  .hero__mobile-benefits {
+    margin-top: 1.25rem;
   }
 }
