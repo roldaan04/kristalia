@@ -30,6 +30,9 @@ JOBS = [
     ('cristales/fondoImageAtico.webp', None, HERO),
     ('particulares/particular.webp', None, HERO),
     ('cristales/pexels-padel-1.webp', None, HERO),
+    ('servicios-extra/sofa.png', None, HERO),
+    ('servicios-extra/moqueta.png', None, HERO),
+    ('servicios-extra/suelo.png', None, HERO),
     # Contenido apaisado
     ('paneles-solares/paneles2.webp', None, LANDSCAPE),
     ('paneles-solares/paneles.webp', None, LANDSCAPE),
@@ -45,6 +48,17 @@ JOBS = [
     ('cristales/cristaleraChalet.webp', None, PORTRAIT),
     ('cristales/cristaleraCerrado.webp', None, PORTRAIT),
     ('cristales/pexels-padel-2.webp', None, PORTRAIT),
+    ('cristales/atico.webp', None, PORTRAIT),
+    ('cristales/empresas.webp', None, PORTRAIT),
+    ('cristales/nosotros.webp', None, PORTRAIT),
+    ('escaparates/escaparate.webp', None, PORTRAIT),
+    ('escaparates/escaparate2.webp', None, PORTRAIT),
+    ('escaparates/escaparateCasa.webp', None, PORTRAIT),
+    ('fachadas/fachada-acristalada.webp', None, PORTRAIT),
+    # Carrusel «Resultados reales» (BenefitsSection): sin srcSet, una sola variante
+    ('antes-despues/cristalAntes.jpeg', None, (900,)),
+    ('antes-despues/cristalDespues.jpeg', None, (900,)),
+    ('antes-despues/antesDespues.webp', None, (900,)),
     # Logo (se muestra a 44-62 px; 128 px cubre pantallas 2x)
     ('logo.png', 'logo', (128,)),
 ]

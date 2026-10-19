@@ -15,6 +15,9 @@ const FOOTER_SERVICES = [
   { label: 'Mantenimiento de cristales para empresas y oficinas' },
   { label: 'Limpieza de pistas de pádel', to: '/limpieza-cristales-pistas-padel-madrid' },
   { label: 'Limpieza de paneles solares' },
+  { label: 'Limpieza de sofás', to: '/limpieza-sofas-madrid' },
+  { label: 'Limpieza de moquetas', to: '/limpieza-moquetas-madrid' },
+  { label: 'Abrillantado de suelos', to: '/abrillantado-cristalizado-suelos-madrid' },
 ];
 
 export default function Footer() {

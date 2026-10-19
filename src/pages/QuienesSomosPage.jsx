@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import Seo, { SITE_URL } from '../components/Seo';
 import Button from '../components/ui/Button';
 import { WHATSAPP_URL } from '../utils/constants';
-import cristalera2Img from '../assets/particulares/particular.webp';
-import cristaleraImg from '../assets/cristales/nosotros.webp';
+// Variantes generadas con scripts/optimize-images.py
+import cristalera2Img from '../assets/particulares/particular-1920.webp';
+import nosotros600 from '../assets/cristales/nosotros-600.webp';
+import nosotros900 from '../assets/cristales/nosotros-900.webp';
 import heroIllustration from '../assets/hero.png';
 import './QuienesSomosPage.css';
 
@@ -92,7 +94,11 @@ export default function QuienesSomosPage() {
             </div>
             <div className="about-intro__image-wrap">
               <img
-                src={cristaleraImg}
+                src={nosotros900}
+                srcSet={`${nosotros600} 600w, ${nosotros900} 900w`}
+                sizes="(max-width: 960px) 100vw, 480px"
+                width={900}
+                height={1599}
                 alt="Limpieza profesional de fachada acristalada con pértiga telescópica"
                 className="about-intro__image"
                 loading="eager"

@@ -1,0 +1,234 @@
+/* ==========================================================================
+   Plantilla: landings de servicios adicionales (sofás, moquetas, suelos)
+   Prefijo BEM propio: .extra-*
+   Hero y responsive replican LimpiezaParticularesMadridPage.css
+   ========================================================================== */
+
+/* --- Hero ---------------------------------------------------------------- */
+.extra-hero {
+  position: relative;
+  min-height: 560px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.extra-hero__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.extra-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-hero);
+}
+
+.extra-hero__content {
+  position: relative;
+  width: 100%;
+  padding-top: calc(var(--header-height) + var(--spacing-xl));
+  padding-bottom: var(--spacing-xl);
+  max-width: var(--container-max);
+}
+
+.extra-hero__breadcrumb {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1rem;
+}
+
+.extra-hero__breadcrumb-link {
+  display: inline-block;
+  padding: 0.35rem 0;
+  color: rgba(255, 255, 255, 0.85);
+  transition: color var(--transition);
+}
+
+.extra-hero__breadcrumb-link:hover {
+  color: var(--color-accent);
+}
+
+.extra-hero__title {
+  font-size: clamp(2.1rem, 4.6vw, 3.4rem);
+  color: var(--color-text-light);
+  max-width: 18ch;
+  margin-bottom: 1.25rem;
+}
+
+.extra-hero__subtitle {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 56ch;
+  margin-bottom: var(--spacing-md);
+}
+
+/* Versión breve del subtítulo: solo en móvil (ver media query de 640px) */
+.extra-hero__subtitle-short {
+  display: none;
+}
+
+/* --- Intro a dos columnas ------------------------------------------------ */
+.extra-intro__layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--spacing-xl);
+  align-items: center;
+}
+
+.extra-intro__text p {
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  margin-bottom: 1.1rem;
+}
+
+.extra-intro__text p:last-child {
+  margin-bottom: 0;
+}
+
+.extra-intro__aside {
+  background: var(--color-background-alt);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+}
+
+.extra-intro__aside-title {
+  font-size: 1.35rem;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.extra-intro__list {
+  display: grid;
+  gap: var(--spacing-md);
+}
+
+.extra-incluye {
+  padding-left: var(--spacing-md);
+  border-left: 2px solid var(--color-accent);
+}
+
+.extra-incluye__title {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: var(--color-primary);
+  margin-bottom: 0.3rem;
+}
+
+.extra-incluye__text {
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+/* --- Dónde trabajamos ---------------------------------------------------- */
+.extra-espacios__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.extra-espacio {
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.extra-espacio__title {
+  font-size: 1.2rem;
+  color: var(--color-primary);
+  margin-bottom: 0.45rem;
+}
+
+.extra-espacio__text {
+  color: var(--color-text-muted);
+  line-height: 1.8;
+}
+
+/* --- FAQ ----------------------------------------------------------------- */
+.extra-faq__container {
+  max-width: 840px;
+}
+
+.extra-faq__list {
+  display: grid;
+  gap: var(--spacing-md);
+}
+
+.extra-faq__item {
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+}
+
+.extra-faq__question {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 0.6rem;
+}
+
+.extra-faq__answer {
+  color: var(--color-text-muted);
+  line-height: 1.8;
+}
+
+/* --- Responsive ---------------------------------------------------------- */
+@media (max-width: 960px) {
+  .extra-intro__layout {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .extra-espacios__grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+}
+
+@media (max-width: 800px) {
+  .extra-hero {
+    min-height: 480px;
+  }
+
+  .extra-hero__title {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .extra-hero__subtitle-full {
+    display: none;
+  }
+
+  .extra-hero__subtitle-short {
+    display: inline;
+  }
+
+  .extra-hero {
+    min-height: 420px;
+  }
+
+  .extra-hero__content {
+    padding-top: calc(var(--header-height) + var(--spacing-lg));
+    padding-bottom: var(--spacing-lg);
+  }
+
+  /* El texto ocupa todo el ancho: el velo oscurece de abajo arriba */
+  .extra-hero__overlay {
+    background: linear-gradient(0deg, rgba(26, 39, 68, 0.9) 0%, rgba(26, 39, 68, 0.62) 55%, rgba(26, 39, 68, 0.3) 100%);
+  }
+
+  .extra-intro__aside {
+    padding: var(--spacing-md);
+  }
+
+  .extra-page .section {
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+  }
+}

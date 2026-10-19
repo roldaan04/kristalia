@@ -106,7 +106,11 @@ export default function ServicesSection() {
               >
                 <div className="service-item__image-wrap">
                   <img
-                    src={service.image}
+                    src={service.image.src}
+                    srcSet={service.image.srcSet}
+                    sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 380px"
+                    width={service.image.width}
+                    height={service.image.height}
                     alt={service.alt}
                     className="service-item__image"
                     loading={idx < 2 ? 'eager' : 'lazy'}
