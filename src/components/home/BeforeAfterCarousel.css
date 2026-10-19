@@ -224,6 +224,33 @@
   to { opacity: 1; transform: none; }
 }
 
+/* Escritorio (columna izquierda del bloque de ventajas): una sola diapositiva */
+@media (min-width: 1024px) {
+  .ba-carousel {
+    --ba-slide-w: 100%;
+    max-width: none;
+    margin: 0;
+  }
+
+  .ba-carousel__head {
+    margin-bottom: 1rem;
+  }
+
+  /* Esquinas inferiores: no tapan las etiquetas ni el tirador del comparador */
+  .ba-carousel__arrow {
+    top: auto;
+    bottom: 0.85rem;
+    transform: none;
+  }
+
+  .ba-carousel__arrow--prev { left: 0.85rem; }
+  .ba-carousel__arrow--next { right: 0.85rem; }
+
+  .ba-carousel__arrow:not(:hover) {
+    background: rgba(255, 255, 255, 0.92);
+  }
+}
+
 /* Móvil: una sola diapositiva visible a todo el ancho */
 @media (max-width: 640px) {
   .ba-carousel {

@@ -6,6 +6,9 @@ import escaparateImg from '../assets/escaparates/escaparate.webp';
 import panelesImg from '../assets/paneles-solares/paneles.webp';
 import padelImg from '../assets/cristales/pexels-padel-1.webp';
 import aticoImg from '../assets/cristales/atico.webp';
+import sofaImg from '../assets/servicios-extra/sofa.webp';
+import moquetaImg from '../assets/servicios-extra/moqueta.webp';
+import sueloImg from '../assets/servicios-extra/suelo.webp';
 
 export const services = [
   {
@@ -63,6 +66,27 @@ export const services = [
     description: 'Para clubes, centros deportivos y comunidades con pista propia. Dejamos los cristales de la pista limpios y transparentes, con una limpieza puntual o un mantenimiento periódico.',
     image: padelImg,
     alt: 'Pasillo entre dos pistas de pádel cubiertas con cerramiento de cristal',
+  },
+  {
+    id: 9,
+    title: 'Limpieza profesional de sofás',
+    description: 'Limpieza en profundidad de sofás y tapizados en tu propia casa. Eliminamos manchas, olores y ácaros con productos adecuados para cada tejido.',
+    image: sofaImg,
+    alt: 'Sofá de tela clara limpio en un salón luminoso con cojines y alfombra',
+  },
+  {
+    id: 10,
+    title: 'Limpieza y desinfección de moquetas',
+    description: 'Limpieza a fondo y desinfección de moquetas en oficinas, hoteles y viviendas. Recuperamos el color del tejido y eliminamos la suciedad acumulada en las fibras.',
+    image: moquetaImg,
+    alt: 'Moqueta gris limpia en un despacho de oficina con escritorio y estantería',
+  },
+  {
+    id: 11,
+    title: 'Abrillantado y cristalizado de suelos',
+    description: 'Devolvemos el brillo a suelos de mármol, terrazo y piedra natural en portales, locales y viviendas. Un acabado protegido y duradero que realza todo el espacio.',
+    image: sueloImg,
+    alt: 'Portal de comunidad con suelo de terrazo abrillantado que refleja la puerta de entrada',
   },
 ];
 
