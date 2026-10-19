@@ -1,0 +1,261 @@
+.ba-carousel {
+  --ba-slide-w: 60%;
+  --ba-gap: 1.5rem;
+  max-width: 760px;
+  margin: 0 auto var(--spacing-xl);
+}
+
+/* Encabezado: «Resultados reales» + contador */
+.ba-carousel__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  width: var(--ba-slide-w);
+  margin: 0 auto 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.ba-carousel__heading {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.ba-carousel__count {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.ba-carousel__count-current {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+/* Escenario con flechas laterales */
+.ba-carousel__stage {
+  position: relative;
+}
+
+.ba-carousel__viewport {
+  overflow: hidden;
+}
+
+.ba-carousel__track {
+  display: flex;
+  gap: var(--ba-gap);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  /* La diapositiva activa queda centrada; la vecina asoma a un lado */
+  transform: translateX(
+    calc((100% - var(--ba-slide-w)) / 2 - var(--ba-index) * (var(--ba-slide-w) + var(--ba-gap)))
+  );
+  transition: transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.ba-carousel__slide {
+  flex: 0 0 var(--ba-slide-w);
+  min-width: 0;
+  opacity: 0.35;
+  transition: opacity var(--transition-slow);
+  cursor: pointer;
+}
+
+.ba-carousel__slide.is-active {
+  opacity: 1;
+  cursor: default;
+}
+
+/* Marco vertical común a todas las fotos: mismo tamaño en todas las diapositivas */
+.ba-carousel__frame {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--color-silver);
+  box-shadow: var(--shadow-soft);
+}
+
+.ba-carousel__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Etiquetas para la foto con antes (arriba) y después (abajo) */
+.ba-carousel__label {
+  position: absolute;
+  left: 0.85rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.ba-carousel__label--before {
+  top: 0.85rem;
+  background: var(--color-navy);
+  color: var(--color-white);
+}
+
+.ba-carousel__label--after {
+  top: calc(50% + 0.85rem);
+  background: var(--color-gold);
+  color: var(--color-navy);
+}
+
+/* Flechas */
+.ba-carousel__arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  background: var(--color-white);
+  color: var(--color-primary);
+  cursor: pointer;
+  transform: translateY(-50%);
+  box-shadow: var(--shadow-soft);
+  transition: background var(--transition), color var(--transition), border-color var(--transition), opacity var(--transition);
+}
+
+.ba-carousel__arrow--prev {
+  left: calc((100% - var(--ba-slide-w)) / 2 - 24px);
+}
+
+.ba-carousel__arrow--next {
+  right: calc((100% - var(--ba-slide-w)) / 2 - 24px);
+}
+
+.ba-carousel__arrow:hover:not(:disabled) {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.ba-carousel__arrow:disabled {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.ba-carousel__arrow:focus-visible,
+.ba-carousel__dot:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* Texto de la diapositiva activa */
+.ba-carousel__caption {
+  text-align: center;
+  margin-top: 1.5rem;
+  animation: ba-fade-in 0.5s ease both;
+}
+
+.ba-carousel__title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.2rem, 2vw, 1.45rem);
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 0.35rem;
+}
+
+.ba-carousel__desc {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+/* Indicadores */
+.ba-carousel__dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+  margin-top: 1.25rem;
+}
+
+.ba-carousel__dot {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.ba-carousel__dot::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--color-primary);
+  opacity: 0.25;
+  transform: translate(-50%, -50%);
+  transition: width var(--transition), opacity var(--transition), background var(--transition);
+}
+
+.ba-carousel__dot.is-active::before {
+  width: 22px;
+  background: var(--color-accent);
+  opacity: 1;
+}
+
+@keyframes ba-fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Móvil: una sola diapositiva visible a todo el ancho */
+@media (max-width: 640px) {
+  .ba-carousel {
+    --ba-slide-w: 100%;
+    --ba-gap: 1rem;
+  }
+
+  .ba-carousel__slide {
+    opacity: 1;
+  }
+
+  .ba-carousel__arrow {
+    top: auto;
+    bottom: 0.75rem;
+    width: 40px;
+    height: 40px;
+    transform: none;
+    background: rgba(255, 255, 255, 0.92);
+  }
+
+  .ba-carousel__arrow--prev { left: 0.75rem; }
+  .ba-carousel__arrow--next { right: 0.75rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ba-carousel__track,
+  .ba-carousel__slide,
+  .ba-carousel__dot::before {
+    transition: none;
+  }
+
+  .ba-carousel__caption {
+    animation: none;
+  }
+}

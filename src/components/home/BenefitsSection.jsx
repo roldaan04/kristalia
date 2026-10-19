@@ -1,4 +1,6 @@
 import { benefits } from '../../data/benefits';
+import { beforeAfterSlides } from '../../data/beforeAfter';
+import BeforeAfterCarousel from './BeforeAfterCarousel';
 import './BenefitsSection.css';
 
 export default function BenefitsSection() {
@@ -8,11 +10,13 @@ export default function BenefitsSection() {
         <header className="section-header--center">
           <span className="section-tag">Por qué elegirnos</span>
           <div className="gold-line gold-line--center" />
-          <h2 className="section-title">Un servicio que se nota</h2>
+          <h2 className="section-title">Un servicio que se nota. Y se ve.</h2>
           <p className="section-subtitle section-subtitle--center">
-            No solo limpiamos cristales. Cuidamos la imagen de tu espacio y te damos la tranquilidad de que el trabajo queda bien hecho.
+            Descubre cómo cambia un espacio después de una limpieza profesional de cristales.
           </p>
         </header>
+
+        <BeforeAfterCarousel slides={beforeAfterSlides} />
 
         <div className="benefits__grid">
           {benefits.map((item) => (
