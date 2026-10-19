@@ -20,6 +20,13 @@
   transform: none;
 }
 
+/* Oculto mientras se ve un bloque de conversión con su propio WhatsApp */
+.wa-float--visible.wa-float--cta-in-view {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(14px) scale(0.9);
+}
+
 .wa-float__link {
   display: flex;
   align-items: center;

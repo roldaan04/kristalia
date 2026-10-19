@@ -48,6 +48,8 @@
 }
 
 .padelmad-hero__breadcrumb-link {
+  display: inline-block;
+  padding: 0.35rem 0;
   color: rgba(255, 255, 255, 0.85);
   transition: color var(--transition);
 }
@@ -71,10 +73,9 @@
   margin-bottom: var(--spacing-md);
 }
 
-.padelmad-hero__actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.85rem;
+/* Versión breve del subtítulo: solo en móvil (ver media query de 640px) */
+.padelmad-hero__subtitle-short {
+  display: none;
 }
 
 /* --- Intro a dos columnas ------------------------------------------------ */
@@ -220,66 +221,6 @@
   line-height: 1.8;
 }
 
-/* --- CTA final ----------------------------------------------------------- */
-.padelmad-cta {
-  padding: var(--spacing-2xl) 0;
-}
-
-.padelmad-cta__inner {
-  text-align: center;
-  max-width: 760px;
-}
-
-.padelmad-cta__title {
-  font-size: clamp(2rem, 3.4vw, 2.7rem);
-  color: var(--color-primary);
-  margin-bottom: 1rem;
-}
-
-.padelmad-cta__text {
-  max-width: 620px;
-  margin: 0 auto var(--spacing-md);
-  color: var(--color-text-muted);
-  line-height: 1.8;
-}
-
-.padelmad-cta__actions {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.85rem;
-  margin-bottom: var(--spacing-md);
-}
-
-.padelmad-cta__phone {
-  font-size: 0.95rem;
-  color: var(--color-text-muted);
-  margin-bottom: 0.85rem;
-}
-
-.padelmad-cta__phone-link {
-  color: var(--color-secondary);
-  font-weight: 600;
-}
-
-.padelmad-cta__phone-link:hover {
-  color: var(--color-accent);
-}
-
-.padelmad-cta__links {
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
-}
-
-.padelmad-cta__link {
-  color: var(--color-secondary);
-  transition: color var(--transition);
-}
-
-.padelmad-cta__link:hover {
-  color: var(--color-accent);
-}
-
 /* --- Responsive ---------------------------------------------------------- */
 @media (max-width: 960px) {
   .padelmad-intro__layout,
@@ -288,8 +229,9 @@
     gap: var(--spacing-lg);
   }
 
+  /* Foto vertical: 4/3 recorta menos que 16/10 en una sola columna */
   .padelmad-intro__image {
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 4 / 3;
   }
 }
 
@@ -310,6 +252,14 @@
 }
 
 @media (max-width: 640px) {
+  .padelmad-hero__subtitle-full {
+    display: none;
+  }
+
+  .padelmad-hero__subtitle-short {
+    display: inline;
+  }
+
   /* En móvil el texto ocupa casi todo el hero: a pantalla completa queda
      hueco arriba para que se vea la pista. */
   .padelmad-hero {
@@ -322,8 +272,8 @@
     padding-bottom: var(--spacing-lg);
   }
 
-  .padelmad-hero__actions .btn,
-  .padelmad-cta__actions .btn {
-    width: 100%;
+  .padelmad-page .section {
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
   }
 }

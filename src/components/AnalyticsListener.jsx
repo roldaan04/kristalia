@@ -19,6 +19,8 @@ import { classifyLink, trackEvent } from '../utils/analytics';
 // Zona de la página desde la que se hace clic, para segmentar en GA4.
 function areaFromElement(el) {
   if (el.closest('.wa-float')) return 'boton_flotante';
+  if (el.closest('.quote-cta--hero')) return 'hero';
+  if (el.closest('.conversion')) return 'bloque_conversion';
   if (el.closest('header')) return 'header';
   if (el.closest('footer')) return 'footer';
   if (el.closest('.contact')) return 'seccion_contacto';
