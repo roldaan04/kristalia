@@ -41,6 +41,8 @@
 }
 
 .crismad-hero__breadcrumb-link {
+  display: inline-block;
+  padding: 0.35rem 0;
   color: rgba(255, 255, 255, 0.85);
   transition: color var(--transition);
 }
@@ -64,40 +66,9 @@
   margin-bottom: var(--spacing-md);
 }
 
-.crismad-hero__actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.85rem;
-}
-
-/* --- Intro a dos columnas ------------------------------------------------ */
-.crismad-intro__layout {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: var(--spacing-xl);
-  align-items: center;
-}
-
-.crismad-intro__text p {
-  color: var(--color-text-muted);
-  line-height: 1.8;
-  margin-bottom: 1.1rem;
-}
-
-.crismad-intro__text p:last-child {
-  margin-bottom: 0;
-}
-
-.crismad-intro__image-wrap {
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-card);
-}
-
-.crismad-intro__image {
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
+/* Versión breve del subtítulo: solo en móvil (ver media query de 640px) */
+.crismad-hero__subtitle-short {
+  display: none;
 }
 
 /* --- Tipologías de edificio ---------------------------------------------- */
@@ -200,69 +171,8 @@
   line-height: 1.8;
 }
 
-/* --- CTA final ----------------------------------------------------------- */
-.crismad-cta {
-  padding: var(--spacing-2xl) 0;
-}
-
-.crismad-cta__inner {
-  text-align: center;
-  max-width: 760px;
-}
-
-.crismad-cta__title {
-  font-size: clamp(2rem, 3.4vw, 2.7rem);
-  color: var(--color-primary);
-  margin-bottom: 1rem;
-}
-
-.crismad-cta__text {
-  max-width: 620px;
-  margin: 0 auto var(--spacing-md);
-  color: var(--color-text-muted);
-  line-height: 1.8;
-}
-
-.crismad-cta__actions {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.85rem;
-  margin-bottom: var(--spacing-md);
-}
-
-.crismad-cta__phone {
-  font-size: 0.95rem;
-  color: var(--color-text-muted);
-  margin-bottom: 0.85rem;
-}
-
-.crismad-cta__phone-link {
-  color: var(--color-secondary);
-  font-weight: 600;
-}
-
-.crismad-cta__phone-link:hover {
-  color: var(--color-accent);
-}
-
-.crismad-cta__links {
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
-}
-
-.crismad-cta__link {
-  color: var(--color-secondary);
-  transition: color var(--transition);
-}
-
-.crismad-cta__link:hover {
-  color: var(--color-accent);
-}
-
 /* --- Responsive ---------------------------------------------------------- */
 @media (max-width: 960px) {
-  .crismad-intro__layout,
   .crismad-acceso__layout {
     grid-template-columns: 1fr;
     gap: var(--spacing-lg);
@@ -278,12 +188,9 @@
     order: 0;
   }
 
+  /* Fotos verticales: 4/3 recorta menos que 16/10 en una sola columna */
   .crismad-tipologia__image {
-    aspect-ratio: 16 / 10;
-  }
-
-  .crismad-intro__image {
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 4 / 3;
   }
 }
 
@@ -298,6 +205,14 @@
 }
 
 @media (max-width: 640px) {
+  .crismad-hero__subtitle-full {
+    display: none;
+  }
+
+  .crismad-hero__subtitle-short {
+    display: inline;
+  }
+
   .crismad-hero {
     min-height: 420px;
   }
@@ -307,21 +222,13 @@
     padding-bottom: var(--spacing-lg);
   }
 
-  .crismad-hero__actions .btn,
-  .crismad-cta__actions .btn {
-    width: 100%;
+  /* El texto ocupa todo el ancho: el velo oscurece de abajo arriba */
+  .crismad-hero__overlay {
+    background: linear-gradient(0deg, rgba(26, 39, 68, 0.9) 0%, rgba(26, 39, 68, 0.62) 55%, rgba(26, 39, 68, 0.3) 100%);
   }
 
-  .crismad-factor {
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
-  }
-
-  .crismad-factor__number {
-    font-size: 1.5rem;
-  }
-
-  .crismad-zonas__grid {
-    justify-content: flex-start;
+  .crismad-page .section {
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
   }
 }

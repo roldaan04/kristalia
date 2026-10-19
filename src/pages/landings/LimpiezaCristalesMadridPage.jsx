@@ -1,15 +1,27 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Seo, { SITE_URL } from '../../components/Seo';
-import Button from '../../components/ui/Button';
-import { WHATSAPP_URL, PHONE_DISPLAY } from '../../utils/constants';
-import heroImg from '../../assets/cristales/fondoImageAtico.webp';
-import aticoImg from '../../assets/cristales/cristalera2.webp';
-import escaparateImg from '../../assets/escaparates/escaparateCalle.webp';
-import calleImg from '../../assets/fachadas/fachadaAcristalada.webp';
+import ResponsiveImage from '../../components/ui/ResponsiveImage';
+import ConversionBlock, { HeroQuoteActions } from '../../components/conversion/ConversionBlock';
+import { responsiveImage } from '../../utils/images';
+import hero828 from '../../assets/cristales/fondoImageAtico-828.webp';
+import hero1280 from '../../assets/cristales/fondoImageAtico-1280.webp';
+import hero1672 from '../../assets/cristales/fondoImageAtico-1672.webp';
+import atico600 from '../../assets/cristales/cristalera2-600.webp';
+import atico900 from '../../assets/cristales/cristalera2-900.webp';
+import escaparate800 from '../../assets/escaparates/escaparateCalle-800.webp';
+import escaparate1200 from '../../assets/escaparates/escaparateCalle-1200.webp';
+import calle600 from '../../assets/fachadas/fachadaAcristalada-600.webp';
+import calle900 from '../../assets/fachadas/fachadaAcristalada-900.webp';
 import './LimpiezaCristalesMadridPage.css';
 
 const PATH = '/empresa-de-limpieza-de-cristales-madrid';
+
+// Variantes generadas con scripts/optimize-images.py
+const heroImg = responsiveImage({ 828: hero828, 1280: hero1280, 1672: hero1672 }, 1672, 941);
+const aticoImg = responsiveImage({ 600: atico600, 900: atico900 }, 900, 1599);
+const escaparateImg = responsiveImage({ 800: escaparate800, 1200: escaparate1200 }, 1200, 900);
+const calleImg = responsiveImage({ 600: calle600, 900: calle900 }, 900, 1599);
 
 // Definido fuera del componente a propósito: Seo.jsx incluye `jsonLd` en las
 // dependencias de su useEffect, así que una referencia nueva en cada render
@@ -119,13 +131,12 @@ export default function LimpiezaCristalesMadridPage() {
       />
 
       <section className="crismad-hero" aria-labelledby="crismad-hero-title">
-        <img
-          src={heroImg}
+        <ResponsiveImage
+          image={heroImg}
+          sizes="100vw"
           alt="Techo y cerramiento acristalado de una terraza de ático en Madrid tras la limpieza"
           className="crismad-hero__img"
-          loading="eager"
-          fetchPriority="high"
-          decoding="async"
+          priority
         />
         <div className="crismad-hero__overlay" aria-hidden="true" />
 
@@ -141,25 +152,18 @@ export default function LimpiezaCristalesMadridPage() {
           </h1>
 
           <p className="crismad-hero__subtitle">
-            Especialistas en limpieza profesional de cristales para viviendas,
-            comunidades, oficinas y locales. Desde escaparates y ventanales hasta
-            cerramientos y cristales de difícil acceso.
+            {/* Escritorio: texto completo. Móvil (≤640px): versión breve. */}
+            <span className="crismad-hero__subtitle-full">
+              Especialistas en limpieza profesional de cristales para viviendas,
+              comunidades, oficinas y locales. Desde escaparates y ventanales hasta
+              cerramientos y cristales de difícil acceso.
+            </span>
+            <span className="crismad-hero__subtitle-short">
+              Ventanas, escaparates, cerramientos y cristales de difícil acceso, para viviendas, comunidades y negocios.
+            </span>
           </p>
 
-          <div className="crismad-hero__actions">
-            <Button variant="gold" size="lg" href="/#contacto">
-              Pedir presupuesto
-            </Button>
-            <Button
-              variant="outline-light"
-              size="lg"
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Escribir por WhatsApp
-            </Button>
-          </div>
+          <HeroQuoteActions />
         </div>
       </section>
 
@@ -181,12 +185,11 @@ export default function LimpiezaCristalesMadridPage() {
             {tipologias.map((item) => (
               <article key={item.id} className="crismad-tipologia">
                 <div className="crismad-tipologia__image-wrap">
-                  <img
-                    src={item.imagen}
+                  <ResponsiveImage
+                    image={item.imagen}
+                    sizes="(max-width: 960px) 100vw, 480px"
                     alt={item.alt}
                     className="crismad-tipologia__image"
-                    loading="lazy"
-                    decoding="async"
                   />
                 </div>
                 <div className="crismad-tipologia__body">
@@ -276,63 +279,17 @@ export default function LimpiezaCristalesMadridPage() {
         </div>
       </section>
 
-      <section className="crismad-cta bg-alt" aria-labelledby="crismad-cta-title">
-        <div className="container crismad-cta__inner">
-
-          <span className="section-tag">Presupuesto sin compromiso</span>
-          <div className="gold-line gold-line--center" />
-
-          <h2 id="crismad-cta-title" className="crismad-cta__title">
-            Dinos qué edificio es y te decimos cómo se limpia
-          </h2>
-
-          <p className="crismad-cta__text">
-            Con la dirección, la planta y una foto tenemos suficiente para darte
-            un precio cerrado. Sin visita comercial y sin compromiso.
-          </p>
-
-          <div className="crismad-cta__actions">
-            <Button variant="gold" size="lg" href="/#contacto">
-              Solicitar presupuesto
-            </Button>
-
-            <Button
-              variant="outline"
-              size="lg"
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Hablar por WhatsApp
-            </Button>
-          </div>
-
-          <p className="crismad-cta__phone">
-            O llámanos directamente al{' '}
-            <a
-              href={`tel:${PHONE_DISPLAY.replace(/\s/g, '')}`}
-              className="crismad-cta__phone-link"
-            >
-              {PHONE_DISPLAY}
-            </a>
-          </p>
-
-          <p className="crismad-cta__links">
-            <Link to="/quienes-somos" className="crismad-cta__link">
-              Conoce a Kristalia
-            </Link>
-
-            <span aria-hidden="true"> · </span>
-
-            <Link
-              to="/empresa-de-limpieza-madrid"
-              className="crismad-cta__link"
-            >
-              Empresa de limpieza en Madrid
-            </Link>
-          </p>
-        </div>
-      </section>
+      <ConversionBlock
+        titleId="crismad-cta-title"
+        title="Dinos qué edificio es y te decimos cómo se limpia"
+        text="Con la dirección, la planta y una foto tenemos suficiente para darte un precio cerrado. Sin visita comercial y sin compromiso."
+      >
+        <p>
+          <Link to="/quienes-somos">Conoce a Kristalia</Link>
+          <span aria-hidden="true"> · </span>
+          <Link to="/empresa-de-limpieza-madrid">Empresa de limpieza en Madrid</Link>
+        </p>
+      </ConversionBlock>
     </main>
   );
 }

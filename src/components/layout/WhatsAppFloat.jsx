@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { WHATSAPP_URL } from '../../utils/constants';
 import './WhatsAppFloat.css';
 
@@ -14,6 +15,8 @@ const LABEL_DURATION = 7000;
 export default function WhatsAppFloat() {
   const [visible, setVisible] = useState(false);
   const [labelOpen, setLabelOpen] = useState(false);
+  const [ctaInView, setCtaInView] = useState(false);
+  const { pathname } = useLocation();
 
   useEffect(() => {
     const showBtn = setTimeout(() => setVisible(true), APPEAR_DELAY);
@@ -27,10 +30,34 @@ export default function WhatsAppFloat() {
     };
   }, []);
 
+  // Mientras haya en pantalla un bloque de conversión ([data-conversion]), que
+  // ya tiene su propio botón de WhatsApp, el flotante se oculta para no
+  // duplicarlo ni tapar el bloque. Se vuelve a observar en cada ruta.
+  useEffect(() => {
+    if (typeof IntersectionObserver === 'undefined') return undefined;
+
+    const inView = new Set();
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) inView.add(entry.target);
+        else inView.delete(entry.target);
+      });
+      setCtaInView(inView.size > 0);
+    });
+
+    document.querySelectorAll('[data-conversion]').forEach((el) => observer.observe(el));
+
+    return () => {
+      observer.disconnect();
+      setCtaInView(false);
+    };
+  }, [pathname]);
+
   const className = [
     'wa-float',
     visible ? 'wa-float--visible' : '',
     labelOpen ? 'wa-float--label-open' : '',
+    ctaInView ? 'wa-float--cta-in-view' : '',
   ].filter(Boolean).join(' ');
 
   return (

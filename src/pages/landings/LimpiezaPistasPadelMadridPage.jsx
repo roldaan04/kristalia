@@ -1,15 +1,28 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Seo, { SITE_URL } from '../../components/Seo';
-import Button from '../../components/ui/Button';
-import { WHATSAPP_URL, PHONE_DISPLAY } from '../../utils/constants';
+import ResponsiveImage from '../../components/ui/ResponsiveImage';
+import ConversionBlock, { HeroQuoteActions } from '../../components/conversion/ConversionBlock';
+import { buildWhatsAppUrl } from '../../utils/constants';
+import { responsiveImage } from '../../utils/images';
 // TODO: sustituir por foto real de pista de pádel (imagen provisional).
-import heroImg from '../../assets/cristales/pexels-padel-1.webp';
+import hero828 from '../../assets/cristales/pexels-padel-1-828.webp';
+import hero1280 from '../../assets/cristales/pexels-padel-1-1280.webp';
+import hero1920 from '../../assets/cristales/pexels-padel-1-1920.webp';
 // TODO: sustituir por foto real de pista de pádel (imagen provisional).
-import introImg from '../../assets/cristales/pexels-padel-2.webp';
+import intro600 from '../../assets/cristales/pexels-padel-2-600.webp';
+import intro900 from '../../assets/cristales/pexels-padel-2-900.webp';
 import './LimpiezaPistasPadelMadridPage.css';
 
 const PATH = '/limpieza-cristales-pistas-padel-madrid';
+
+const WHATSAPP_QUOTE = buildWhatsAppUrl(
+  'Hola, quiero un presupuesto de limpieza de cristales de pistas de pádel. Os envío fotos y la ubicación de la instalación.',
+);
+
+// Variantes generadas con scripts/optimize-images.py
+const heroImg = responsiveImage({ 828: hero828, 1280: hero1280, 1920: hero1920 }, 1920, 1440);
+const introImg = responsiveImage({ 600: intro600, 900: intro900 }, 900, 1164);
 
 // Definido fuera del componente a propósito: Seo.jsx incluye `jsonLd` en las
 // dependencias de su useEffect, así que una referencia nueva en cada render
@@ -133,13 +146,12 @@ export default function LimpiezaPistasPadelMadridPage() {
       />
 
       <section className="padelmad-hero" aria-labelledby="padelmad-hero-title">
-        <img
-          src={heroImg}
+        <ResponsiveImage
+          image={heroImg}
+          sizes="100vw"
           alt="Pasillo entre dos pistas de pádel cubiertas con cerramiento de cristal"
           className="padelmad-hero__img"
-          loading="eager"
-          fetchPriority="high"
-          decoding="async"
+          priority
         />
         <div className="padelmad-hero__overlay" aria-hidden="true" />
 
@@ -155,25 +167,18 @@ export default function LimpiezaPistasPadelMadridPage() {
           </h1>
 
           <p className="padelmad-hero__subtitle">
-            Para clubes, centros deportivos y comunidades con pista propia.
-            Dejamos los cristales de tus pistas limpios y transparentes, con una
-            limpieza puntual o un mantenimiento periódico.
+            {/* Escritorio: texto completo. Móvil (≤640px): versión breve. */}
+            <span className="padelmad-hero__subtitle-full">
+              Para clubes, centros deportivos y comunidades con pista propia.
+              Dejamos los cristales de tus pistas limpios y transparentes, con una
+              limpieza puntual o un mantenimiento periódico.
+            </span>
+            <span className="padelmad-hero__subtitle-short">
+              Cristales de pista limpios y transparentes para clubes y centros deportivos. Limpieza puntual o mantenimiento periódico.
+            </span>
           </p>
 
-          <div className="padelmad-hero__actions">
-            <Button variant="gold" size="lg" href="/#contacto">
-              Pedir presupuesto
-            </Button>
-            <Button
-              variant="outline-light"
-              size="lg"
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Escribir por WhatsApp
-            </Button>
-          </div>
+          <HeroQuoteActions whatsappUrl={WHATSAPP_QUOTE} />
         </div>
       </section>
 
@@ -208,12 +213,11 @@ export default function LimpiezaPistasPadelMadridPage() {
             </div>
 
             <div className="padelmad-intro__image-wrap">
-              <img
-                src={introImg}
+              <ResponsiveImage
+                image={introImg}
+                sizes="(max-width: 960px) 100vw, 500px"
                 alt="Pistas de pádel con cerramiento de cristal y malla en un club deportivo al atardecer"
                 className="padelmad-intro__image"
-                loading="lazy"
-                decoding="async"
               />
             </div>
           </div>
@@ -332,69 +336,22 @@ export default function LimpiezaPistasPadelMadridPage() {
         </div>
       </section>
 
-      <section className="padelmad-cta bg-alt" aria-labelledby="padelmad-cta-title">
-        <div className="container padelmad-cta__inner">
-          <span className="section-tag">Presupuesto sin compromiso</span>
-          <div className="gold-line gold-line--center" />
-
-          <h2 id="padelmad-cta-title" className="padelmad-cta__title">
-            Pide presupuesto para tus pistas
-          </h2>
-
-          <p className="padelmad-cta__text">
-            Cuéntanos dónde está la instalación y cuántas pistas tiene, y
-            envíanos unas fotos. Te damos una valoración sin coste y sin
-            compromiso.
-          </p>
-
-          <div className="padelmad-cta__actions">
-            <Button variant="gold" size="lg" href="/#contacto">
-              Solicitar presupuesto
-            </Button>
-
-            <Button
-              variant="outline"
-              size="lg"
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Hablar por WhatsApp
-            </Button>
-          </div>
-
-          <p className="padelmad-cta__phone">
-            O llámanos directamente al{' '}
-            <a
-              href={`tel:${PHONE_DISPLAY.replace(/\s/g, '')}`}
-              className="padelmad-cta__phone-link"
-            >
-              {PHONE_DISPLAY}
-            </a>
-          </p>
-
-          <p className="padelmad-cta__links">
-            <Link to="/quienes-somos" className="padelmad-cta__link">
-              Conoce a Kristalia
-            </Link>
-
-            <span aria-hidden="true"> · </span>
-
-            <Link
-              to="/empresa-de-limpieza-de-cristales-madrid"
-              className="padelmad-cta__link"
-            >
-              Limpieza de cristales en Madrid
-            </Link>
-
-            <span aria-hidden="true"> · </span>
-
-            <Link to="/empresa-de-limpieza-madrid" className="padelmad-cta__link">
-              Empresa de limpieza en Madrid
-            </Link>
-          </p>
-        </div>
-      </section>
+      <ConversionBlock
+        titleId="padelmad-cta-title"
+        title="Pide presupuesto para tus pistas"
+        text="Cuéntanos dónde está la instalación y cuántas pistas tiene, y envíanos unas fotos. Te damos una valoración sin coste y sin compromiso."
+        whatsappUrl={WHATSAPP_QUOTE}
+      >
+        <p>
+          <Link to="/quienes-somos">Conoce a Kristalia</Link>
+          <span aria-hidden="true"> · </span>
+          <Link to="/empresa-de-limpieza-de-cristales-madrid">
+            Limpieza de cristales en Madrid
+          </Link>
+          <span aria-hidden="true"> · </span>
+          <Link to="/empresa-de-limpieza-madrid">Empresa de limpieza en Madrid</Link>
+        </p>
+      </ConversionBlock>
     </main>
   );
 }

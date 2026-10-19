@@ -1,17 +1,38 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Seo, { SITE_URL } from '../../components/Seo';
-import Button from '../../components/ui/Button';
-import { WHATSAPP_URL, PHONE_DISPLAY } from '../../utils/constants';
-import heroImg from '../../assets/particulares/particular.webp';
-import introImg from '../../assets/cristales/cristaleraChalet.webp';
-import cristalesImg from '../../assets/cristales/cristaleraCerrado.webp';
-import cerramientoImg from '../../assets/cristales/cristalera2.webp';
-import panelesImg from '../../assets/paneles-solares/paneles.webp';
-import viviendaImg from '../../assets/cristales/cristalera.webp';
+import ResponsiveImage from '../../components/ui/ResponsiveImage';
+import ConversionBlock, { HeroQuoteActions } from '../../components/conversion/ConversionBlock';
+import { buildWhatsAppUrl } from '../../utils/constants';
+import { responsiveImage } from '../../utils/images';
+import hero828 from '../../assets/particulares/particular-828.webp';
+import hero1280 from '../../assets/particulares/particular-1280.webp';
+import hero1920 from '../../assets/particulares/particular-1920.webp';
+import chalet600 from '../../assets/cristales/cristaleraChalet-600.webp';
+import chalet900 from '../../assets/cristales/cristaleraChalet-900.webp';
+import cerrado600 from '../../assets/cristales/cristaleraCerrado-600.webp';
+import cerrado900 from '../../assets/cristales/cristaleraCerrado-900.webp';
+import cerramiento600 from '../../assets/cristales/cristalera2-600.webp';
+import cerramiento900 from '../../assets/cristales/cristalera2-900.webp';
+import paneles800 from '../../assets/paneles-solares/paneles-800.webp';
+import paneles1200 from '../../assets/paneles-solares/paneles-1200.webp';
+import vivienda800 from '../../assets/cristales/cristalera-800.webp';
+import vivienda1200 from '../../assets/cristales/cristalera-1200.webp';
 import './LimpiezaParticularesMadridPage.css';
 
 const PATH = '/limpieza-particulares-madrid';
+
+const WHATSAPP_QUOTE = buildWhatsAppUrl(
+  'Hola, quiero un presupuesto de limpieza para mi vivienda. Os envío fotos y mi ubicación.',
+);
+
+// Variantes generadas con scripts/optimize-images.py
+const heroImg = responsiveImage({ 828: hero828, 1280: hero1280, 1920: hero1920 }, 1920, 1081);
+const introImg = responsiveImage({ 600: chalet600, 900: chalet900 }, 900, 1125);
+const cristalesImg = responsiveImage({ 600: cerrado600, 900: cerrado900 }, 900, 1125);
+const cerramientoImg = responsiveImage({ 600: cerramiento600, 900: cerramiento900 }, 900, 1599);
+const panelesImg = responsiveImage({ 800: paneles800, 1200: paneles1200 }, 1200, 676);
+const viviendaImg = responsiveImage({ 800: vivienda800, 1200: vivienda1200 }, 1200, 676);
 
 // Definido fuera del componente a propósito: Seo.jsx incluye `jsonLd` en las
 // dependencias de su useEffect, así que una referencia nueva en cada render
@@ -183,13 +204,12 @@ export default function LimpiezaParticularesMadridPage() {
       />
 
       <section className="partmad-hero" aria-labelledby="partmad-hero-title">
-        <img
-          src={heroImg}
+        <ResponsiveImage
+          image={heroImg}
+          sizes="100vw"
           alt="Piscina de un chalet en la sierra de Madrid rodeada de una valla de cristal transparente"
           className="partmad-hero__img"
-          loading="eager"
-          fetchPriority="high"
-          decoding="async"
+          priority
         />
         <div className="partmad-hero__overlay" aria-hidden="true" />
 
@@ -205,25 +225,18 @@ export default function LimpiezaParticularesMadridPage() {
           </h1>
 
           <p className="partmad-hero__subtitle">
-            Servicios de limpieza especializada para tu vivienda. Cristales,
-            ventanales, cerramientos, zonas de difícil acceso y otros trabajos
-            puntuales que necesitan medios, técnica o acceso específicos.
+            {/* Escritorio: texto completo. Móvil (≤640px): versión breve. */}
+            <span className="partmad-hero__subtitle-full">
+              Servicios de limpieza especializada para tu vivienda. Cristales,
+              ventanales, cerramientos, zonas de difícil acceso y otros trabajos
+              puntuales que necesitan medios, técnica o acceso específicos.
+            </span>
+            <span className="partmad-hero__subtitle-short">
+              Cristales, ventanales y cerramientos de tu piso, ático o chalet, incluidos los de difícil acceso. Sin contrato ni permanencia.
+            </span>
           </p>
 
-          <div className="partmad-hero__actions">
-            <Button variant="gold" size="lg" href="/#contacto">
-              Pedir presupuesto
-            </Button>
-            <Button
-              variant="outline-light"
-              size="lg"
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Escribir por WhatsApp
-            </Button>
-          </div>
+          <HeroQuoteActions whatsappUrl={WHATSAPP_QUOTE} />
         </div>
       </section>
 
@@ -259,12 +272,11 @@ export default function LimpiezaParticularesMadridPage() {
             </div>
 
             <div className="partmad-intro__image-wrap">
-              <img
-                src={introImg}
+              <ResponsiveImage
+                image={introImg}
+                sizes="(max-width: 960px) 100vw, 500px"
                 alt="Patio de una vivienda con una habitación acristalada y una piscina en primer término"
                 className="partmad-intro__image"
-                loading="lazy"
-                decoding="async"
               />
             </div>
           </div>
@@ -290,12 +302,11 @@ export default function LimpiezaParticularesMadridPage() {
             {servicios.map((servicio) => (
               <article key={servicio.id} className="partmad-servicio">
                 <div className="partmad-servicio__image-wrap">
-                  <img
-                    src={servicio.imagen}
+                  <ResponsiveImage
+                    image={servicio.imagen}
+                    sizes="(max-width: 960px) 100vw, 380px"
                     alt={servicio.alt}
                     className="partmad-servicio__image"
-                    loading="lazy"
-                    decoding="async"
                   />
                 </div>
                 <h3 className="partmad-servicio__title">{servicio.titulo}</h3>
@@ -310,12 +321,11 @@ export default function LimpiezaParticularesMadridPage() {
         <div className="container">
           <div className="partmad-viviendas__layout">
             <div className="partmad-viviendas__image-wrap">
-              <img
-                src={viviendaImg}
+              <ResponsiveImage
+                image={viviendaImg}
+                sizes="(max-width: 960px) 100vw, 500px"
                 alt="Porche acristalado de una vivienda unifamiliar durante la limpieza de los cristales, con el jardín al fondo"
                 className="partmad-viviendas__image"
-                loading="lazy"
-                decoding="async"
               />
             </div>
 
@@ -389,68 +399,22 @@ export default function LimpiezaParticularesMadridPage() {
         </div>
       </section>
 
-      <section className="partmad-cta bg-alt" aria-labelledby="partmad-cta-title">
-        <div className="container partmad-cta__inner">
-          <span className="section-tag">Presupuesto sin compromiso</span>
-          <div className="gold-line gold-line--center" />
-
-          <h2 id="partmad-cta-title" className="partmad-cta__title">
-            Cuéntanos qué necesitas limpiar en casa
-          </h2>
-
-          <p className="partmad-cta__text">
-            Con la dirección, un par de fotos y lo que quieres limpiar te damos
-            una valoración clara. Sin visita comercial y sin compromiso.
-          </p>
-
-          <div className="partmad-cta__actions">
-            <Button variant="gold" size="lg" href="/#contacto">
-              Solicitar presupuesto
-            </Button>
-
-            <Button
-              variant="outline"
-              size="lg"
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Hablar por WhatsApp
-            </Button>
-          </div>
-
-          <p className="partmad-cta__phone">
-            O llámanos directamente al{' '}
-            <a
-              href={`tel:${PHONE_DISPLAY.replace(/\s/g, '')}`}
-              className="partmad-cta__phone-link"
-            >
-              {PHONE_DISPLAY}
-            </a>
-          </p>
-
-          <p className="partmad-cta__links">
-            <Link to="/quienes-somos" className="partmad-cta__link">
-              Conoce a Kristalia
-            </Link>
-
-            <span aria-hidden="true"> · </span>
-
-            <Link
-              to="/empresa-de-limpieza-de-cristales-madrid"
-              className="partmad-cta__link"
-            >
-              Limpieza de cristales en Madrid
-            </Link>
-
-            <span aria-hidden="true"> · </span>
-
-            <Link to="/empresa-de-limpieza-madrid" className="partmad-cta__link">
-              Empresa de limpieza en Madrid
-            </Link>
-          </p>
-        </div>
-      </section>
+      <ConversionBlock
+        titleId="partmad-cta-title"
+        title="Cuéntanos qué necesitas limpiar en casa"
+        text="Con la dirección, un par de fotos y lo que quieres limpiar te damos una valoración clara. Sin visita comercial y sin compromiso."
+        whatsappUrl={WHATSAPP_QUOTE}
+      >
+        <p>
+          <Link to="/quienes-somos">Conoce a Kristalia</Link>
+          <span aria-hidden="true"> · </span>
+          <Link to="/empresa-de-limpieza-de-cristales-madrid">
+            Limpieza de cristales en Madrid
+          </Link>
+          <span aria-hidden="true"> · </span>
+          <Link to="/empresa-de-limpieza-madrid">Empresa de limpieza en Madrid</Link>
+        </p>
+      </ConversionBlock>
     </main>
   );
 }

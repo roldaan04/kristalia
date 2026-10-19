@@ -1,0 +1,325 @@
+/* ==========================================================================
+   Bloques de conversión (landings)
+   - .quote-cta: valoración + botón de presupuesto por WhatsApp + teléfono.
+     Variante --hero (dentro del hero) y --block (dentro de .conversion).
+   - .conversion: sección navy que cierra cada landing.
+   Misma composición que el hero móvil de la home.
+   ========================================================================== */
+
+/* --- Piezas comunes ------------------------------------------------------- */
+.quote-cta__rating {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.quote-cta__stars {
+  display: flex;
+  gap: 2px;
+  color: var(--color-accent);
+}
+
+.quote-cta__stars svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Frase entre filetes, centrada sobre el botón */
+.quote-cta__note {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 22rem;
+  margin-bottom: 0.7rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.quote-cta__note::before,
+.quote-cta__note::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.quote-cta__group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 22rem;
+}
+
+.quote-cta__button {
+  width: 100%;
+  gap: 0.75rem;
+  padding: 1.05rem 1.5rem;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.3);
+}
+
+.quote-cta__button svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+.quote-cta__button:focus-visible,
+.quote-cta__phone:focus-visible,
+.quote-cta__form-link:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* Teléfono: enlace tel: con aspecto de dato, zona táctil holgada */
+.quote-cta__phone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.6rem;
+  padding: 0.4rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.92);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.quote-cta__phone svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: var(--color-accent);
+}
+
+.quote-cta__phone:hover {
+  color: var(--color-accent);
+}
+
+.quote-cta__form {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.quote-cta__form-link {
+  color: var(--color-text-light);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--transition);
+}
+
+.quote-cta__form-link:hover {
+  color: var(--color-accent);
+}
+
+/* --- Variante hero -------------------------------------------------------- */
+.quote-cta--hero {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.quote-cta--hero .quote-cta__rating {
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+}
+
+/* Escritorio: botón y teléfono en la misma línea */
+.quote-cta--hero .quote-cta__group {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  width: auto;
+  max-width: none;
+}
+
+.quote-cta--hero .quote-cta__button {
+  width: auto;
+  padding: 1.05rem 2.25rem;
+}
+
+.quote-cta--hero .quote-cta__phone {
+  margin-top: 0;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+}
+
+/* --- Sección de cierre ---------------------------------------------------- */
+.conversion {
+  padding: var(--spacing-2xl) 0;
+  /* El footer también es navy: el filete marca dónde acaba el bloque */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.conversion__inner {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: var(--spacing-xl);
+  max-width: 1120px;
+}
+
+.conversion__title {
+  font-size: clamp(2rem, 3.4vw, 2.7rem);
+  color: var(--color-text-light);
+  margin-bottom: 1rem;
+}
+
+.conversion__text {
+  max-width: 52ch;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.8;
+}
+
+/* Columna de acción separada por un filete vertical */
+.quote-cta--block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-left: var(--spacing-xl);
+  border-left: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.quote-cta--block .quote-cta__rating {
+  margin-bottom: 1.5rem;
+}
+
+/* Garantías: fila a todo el ancho, icono a la izquierda del texto */
+.conversion__trust {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.conversion__trust-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  padding: 0 1rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  line-height: 1.35;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.conversion__trust-item + .conversion__trust-item {
+  border-left: 1px solid rgba(201, 168, 76, 0.4);
+}
+
+.conversion__trust-item svg {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  color: var(--color-accent);
+}
+
+/* Enlaces internos de cada landing */
+.conversion__links {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.conversion__links a {
+  color: rgba(255, 255, 255, 0.85);
+  transition: color var(--transition);
+}
+
+.conversion__links a:hover {
+  color: var(--color-accent);
+}
+
+/* --- Responsive ----------------------------------------------------------- */
+@media (max-width: 960px) {
+  .conversion__inner {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    max-width: 640px;
+    text-align: center;
+  }
+
+  .conversion__line {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .conversion__text {
+    margin: 0 auto;
+  }
+
+  .quote-cta--block {
+    padding-left: 0;
+    border-left: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .conversion {
+    padding: var(--spacing-xl) 0;
+  }
+
+  .conversion__title {
+    font-size: clamp(1.75rem, 7.5vw, 2.1rem);
+  }
+
+  .quote-cta__group,
+  .quote-cta__note {
+    max-width: 20rem;
+  }
+
+  /* Hero: bloque del ancho del botón, teléfono centrado debajo */
+  .quote-cta--hero .quote-cta__group {
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+    max-width: 20rem;
+  }
+
+  .quote-cta--hero .quote-cta__button {
+    width: 100%;
+    padding: 1.05rem 1.5rem;
+  }
+
+  .quote-cta--hero .quote-cta__phone {
+    margin-top: 0.6rem;
+  }
+
+  /* Garantías: tres columnas con el icono encima del texto */
+  .conversion__trust {
+    padding-top: 1.25rem;
+  }
+
+  .conversion__trust-item {
+    flex-direction: column;
+    gap: 0.55rem;
+    padding: 0 0.35rem;
+    font-size: clamp(0.68rem, 2.9vw, 0.75rem);
+    letter-spacing: 0.05em;
+    text-align: center;
+  }
+
+  .conversion__trust-item svg {
+    width: 28px;
+    height: 28px;
+  }
+}
