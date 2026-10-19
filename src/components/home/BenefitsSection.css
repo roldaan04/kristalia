@@ -1,3 +1,8 @@
+/* Mismo fondo que «Cómo trabajamos», justo debajo: evita sumar dos rellenos grandes */
+.benefits.section {
+  padding-bottom: var(--spacing-lg);
+}
+
 .benefits__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -46,6 +51,30 @@
   font-size: 0.9rem;
   color: var(--color-text-muted);
   line-height: 1.6;
+}
+
+/* Escritorio: carrusel a la izquierda, ventajas apiladas a la derecha */
+@media (min-width: 1024px) {
+  .benefits__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 1.75rem;
+    align-items: stretch;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+
+  .benefits__grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    gap: 1rem;
+    max-width: none;
+    margin: 0;
+  }
+
+  .benefit-item {
+    align-content: center;
+  }
 }
 
 /* Responsive */

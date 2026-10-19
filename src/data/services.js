@@ -15,6 +15,12 @@ import padel828 from '../assets/cristales/pexels-padel-1-828.webp';
 import padel1280 from '../assets/cristales/pexels-padel-1-1280.webp';
 import atico600 from '../assets/cristales/atico-600.webp';
 import atico900 from '../assets/cristales/atico-900.webp';
+import sofa800 from '../assets/servicios-extra/sofa-800.webp';
+import sofa1200 from '../assets/servicios-extra/sofa-1200.webp';
+import moqueta800 from '../assets/servicios-extra/moqueta-800.webp';
+import moqueta1200 from '../assets/servicios-extra/moqueta-1200.webp';
+import suelo800 from '../assets/servicios-extra/suelo-800.webp';
+import suelo1200 from '../assets/servicios-extra/suelo-1200.webp';
 
 // Variantes generadas con scripts/optimize-images.py. Las tarjetas se muestran
 // a ~400px de ancho como máximo (100vw en móvil), así que basta con 900/1200.
@@ -26,6 +32,9 @@ const escaparateImg = responsiveImage({ 600: escaparate600, 900: escaparate900 }
 const panelesImg = responsiveImage({ 800: paneles800, 1200: paneles1200 }, 1200, 676);
 const padelImg = responsiveImage({ 828: padel828, 1280: padel1280 }, 1280, 960);
 const aticoImg = responsiveImage({ 600: atico600, 900: atico900 }, 900, 1125);
+const sofaImg = responsiveImage({ 800: sofa800, 1200: sofa1200 }, 1200, 800);
+const moquetaImg = responsiveImage({ 800: moqueta800, 1200: moqueta1200 }, 1200, 800);
+const sueloImg = responsiveImage({ 800: suelo800, 1200: suelo1200 }, 1200, 800);
 
 export const services = [
   {
@@ -83,6 +92,27 @@ export const services = [
     description: 'Para clubes, centros deportivos y comunidades con pista propia. Dejamos los cristales de la pista limpios y transparentes, con una limpieza puntual o un mantenimiento periódico.',
     image: padelImg,
     alt: 'Pasillo entre dos pistas de pádel cubiertas con cerramiento de cristal',
+  },
+  {
+    id: 9,
+    title: 'Limpieza profesional de sofás',
+    description: 'Limpieza en profundidad de sofás y tapizados en tu propia casa. Eliminamos manchas, olores y ácaros con productos adecuados para cada tejido.',
+    image: sofaImg,
+    alt: 'Sofá de tela clara limpio en un salón luminoso con cojines y alfombra',
+  },
+  {
+    id: 10,
+    title: 'Limpieza y desinfección de moquetas',
+    description: 'Limpieza a fondo y desinfección de moquetas en oficinas, hoteles y viviendas. Recuperamos el color del tejido y eliminamos la suciedad acumulada en las fibras.',
+    image: moquetaImg,
+    alt: 'Moqueta gris limpia en un despacho de oficina con escritorio y estantería',
+  },
+  {
+    id: 11,
+    title: 'Abrillantado y cristalizado de suelos',
+    description: 'Devolvemos el brillo a suelos de mármol, terrazo y piedra natural en portales, locales y viviendas. Un acabado protegido y duradero que realza todo el espacio.',
+    image: sueloImg,
+    alt: 'Portal de comunidad con suelo de terrazo abrillantado que refleja la puerta de entrada',
   },
 ];
 

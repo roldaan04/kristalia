@@ -54,6 +54,9 @@ JOBS = [
     ('cristales/atico.webp', None, (600, 900, 1122)),
     ('cristales/empresas.webp', None, PORTRAIT),
     ('fachadas/fachada-acristalada.webp', None, PORTRAIT),
+    ('servicios-extra/sofa.webp', None, LANDSCAPE),
+    ('servicios-extra/moqueta.webp', None, LANDSCAPE),
+    ('servicios-extra/suelo.webp', None, LANDSCAPE),
     # Home: antes/después. Mucho detalle fino (gotas, polvo): más calidad.
     ('antes-despues/cristalAntes.jpeg', None, PORTRAIT, 82),
     ('antes-despues/cristalDespues.jpeg', None, PORTRAIT, 82),

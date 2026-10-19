@@ -7,15 +7,16 @@ import cristalDespues600 from '../assets/antes-despues/cristalDespues-600.webp';
 import cristalDespues900 from '../assets/antes-despues/cristalDespues-900.webp';
 
 // Variantes generadas con scripts/optimize-images.py ({ src, srcSet }).
-// El marco mide ~460px en escritorio y el ancho de pantalla en móvil.
+// El marco mide el ancho de pantalla en móvil, ~460px en tablet y ~530px en
+// escritorio (columna izquierda del bloque de ventajas, ≥1024px).
 const antesDespuesImg = responsiveImage({ 800: antesDespues800, 1298: antesDespues1298 }, 1298, 1212);
 const cristalAntesImg = responsiveImage({ 600: cristalAntes600, 900: cristalAntes900 }, 900, 1599);
 const cristalDespuesImg = responsiveImage({ 600: cristalDespues600, 900: cristalDespues900 }, 900, 1599);
 
 // Ancho al que se pinta cada foto dentro del marco 4/5 (object-fit: cover):
 // las verticales llenan el ancho; la cuadrada (stacked) se amplía por el alto.
-export const BA_SIZES_PORTRAIT = '(max-width: 640px) 100vw, 460px';
-export const BA_SIZES_STACKED = '(max-width: 640px) 125vw, 610px';
+export const BA_SIZES_PORTRAIT = '(max-width: 640px) 100vw, (max-width: 1023px) 460px, 530px';
+export const BA_SIZES_STACKED = '(max-width: 640px) 125vw, (max-width: 1023px) 610px, 710px';
 
 // Diapositivas del carrusel «Resultados reales».
 // Todas se muestran en el mismo marco vertical (ver BeforeAfterCarousel.css).

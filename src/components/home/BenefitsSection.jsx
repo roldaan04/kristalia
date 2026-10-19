@@ -16,16 +16,18 @@ export default function BenefitsSection() {
           </p>
         </header>
 
-        <BeforeAfterCarousel slides={beforeAfterSlides} />
+        <div className="benefits__layout">
+          <BeforeAfterCarousel slides={beforeAfterSlides} />
 
-        <div className="benefits__grid">
-          {benefits.map((item) => (
-            <div key={item.id} className="benefit-item">
-              <span className="benefit-item__number">{item.number}</span>
-              <h3 className="benefit-item__title">{item.title}</h3>
-              <p className="benefit-item__desc">{item.description}</p>
-            </div>
-          ))}
+          <div className="benefits__grid">
+            {benefits.map((item) => (
+              <div key={item.id} className="benefit-item">
+                <span className="benefit-item__number">{item.number}</span>
+                <h3 className="benefit-item__title">{item.title}</h3>
+                <p className="benefit-item__desc">{item.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
