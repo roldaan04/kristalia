@@ -1,4 +1,5 @@
 import { useCallback, useRef, useState } from 'react';
+import { BA_SIZES_PORTRAIT } from '../../data/beforeAfter';
 import './BeforeAfterSlider.css';
 
 const KEY_STEP = 5;
@@ -69,7 +70,9 @@ export default function BeforeAfterSlider({
     >
       <img
         className="ba-slider__img"
-        src={after}
+        src={after.src}
+        srcSet={after.srcSet}
+        sizes={BA_SIZES_PORTRAIT}
         alt={afterAlt}
         width={width}
         height={height}
@@ -80,7 +83,9 @@ export default function BeforeAfterSlider({
       <div className="ba-slider__before">
         <img
           className="ba-slider__img"
-          src={before}
+          src={before.src}
+          srcSet={before.srcSet}
+          sizes={BA_SIZES_PORTRAIT}
           alt={beforeAlt}
           width={width}
           height={height}

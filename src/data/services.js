@@ -1,14 +1,40 @@
-import cristaleraImg from '../assets/escaparates/escaparateCasa.webp';
-import cristalera2Img from '../assets/cristales/cristalera2.webp';
-import cristalera3Img from '../assets/cristales/empresas.webp';
-import fachada from '../assets/fachadas/fachada-acristalada.webp';
-import escaparateImg from '../assets/escaparates/escaparate.webp';
-import panelesImg from '../assets/paneles-solares/paneles.webp';
-import padelImg from '../assets/cristales/pexels-padel-1.webp';
-import aticoImg from '../assets/cristales/atico.webp';
-import sofaImg from '../assets/servicios-extra/sofa.webp';
-import moquetaImg from '../assets/servicios-extra/moqueta.webp';
-import sueloImg from '../assets/servicios-extra/suelo.webp';
+import { responsiveImage } from '../utils/images';
+import escaparateCasa800 from '../assets/escaparates/escaparateCasa-800.webp';
+import escaparateCasa1200 from '../assets/escaparates/escaparateCasa-1200.webp';
+import cristalera2600 from '../assets/cristales/cristalera2-600.webp';
+import cristalera2900 from '../assets/cristales/cristalera2-900.webp';
+import empresas600 from '../assets/cristales/empresas-600.webp';
+import empresas900 from '../assets/cristales/empresas-900.webp';
+import fachada600 from '../assets/fachadas/fachada-acristalada-600.webp';
+import fachada900 from '../assets/fachadas/fachada-acristalada-900.webp';
+import escaparate600 from '../assets/escaparates/escaparate-600.webp';
+import escaparate900 from '../assets/escaparates/escaparate-900.webp';
+import paneles800 from '../assets/paneles-solares/paneles-800.webp';
+import paneles1200 from '../assets/paneles-solares/paneles-1200.webp';
+import padel828 from '../assets/cristales/pexels-padel-1-828.webp';
+import padel1280 from '../assets/cristales/pexels-padel-1-1280.webp';
+import atico600 from '../assets/cristales/atico-600.webp';
+import atico900 from '../assets/cristales/atico-900.webp';
+import sofa800 from '../assets/servicios-extra/sofa-800.webp';
+import sofa1200 from '../assets/servicios-extra/sofa-1200.webp';
+import moqueta800 from '../assets/servicios-extra/moqueta-800.webp';
+import moqueta1200 from '../assets/servicios-extra/moqueta-1200.webp';
+import suelo800 from '../assets/servicios-extra/suelo-800.webp';
+import suelo1200 from '../assets/servicios-extra/suelo-1200.webp';
+
+// Variantes generadas con scripts/optimize-images.py. Las tarjetas se muestran
+// a ~400px de ancho como máximo (100vw en móvil), así que basta con 900/1200.
+const cristaleraImg = responsiveImage({ 800: escaparateCasa800, 1200: escaparateCasa1200 }, 1200, 900);
+const cristalera2Img = responsiveImage({ 600: cristalera2600, 900: cristalera2900 }, 900, 1599);
+const cristalera3Img = responsiveImage({ 600: empresas600, 900: empresas900 }, 900, 1599);
+const fachada = responsiveImage({ 600: fachada600, 900: fachada900 }, 900, 1599);
+const escaparateImg = responsiveImage({ 600: escaparate600, 900: escaparate900 }, 900, 1350);
+const panelesImg = responsiveImage({ 800: paneles800, 1200: paneles1200 }, 1200, 676);
+const padelImg = responsiveImage({ 828: padel828, 1280: padel1280 }, 1280, 960);
+const aticoImg = responsiveImage({ 600: atico600, 900: atico900 }, 900, 1125);
+const sofaImg = responsiveImage({ 800: sofa800, 1200: sofa1200 }, 1200, 800);
+const moquetaImg = responsiveImage({ 800: moqueta800, 1200: moqueta1200 }, 1200, 800);
+const sueloImg = responsiveImage({ 800: suelo800, 1200: suelo1200 }, 1200, 800);
 
 export const services = [
   {

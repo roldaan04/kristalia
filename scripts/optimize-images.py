@@ -23,7 +23,7 @@ HERO = (828, 1280, 1920)
 LANDSCAPE = (800, 1200)
 PORTRAIT = (600, 900)
 
-# (origen relativo a src/assets, nombre base de salida o None, anchos)
+# (origen relativo a src/assets, nombre base de salida o None, anchos[, calidad])
 JOBS = [
     # Heroes (LCP)
     ('fachadas/edificio-fachada-acristalada.webp', None, HERO),
@@ -33,18 +33,36 @@ JOBS = [
     # Contenido apaisado
     ('paneles-solares/paneles2.webp', None, LANDSCAPE),
     ('paneles-solares/paneles.webp', None, LANDSCAPE),
-    ('cristales/cristalera.webp', None, LANDSCAPE),
+    # 2000: la galería de la home la muestra muy ampliada (ocupa dos filas)
+    ('cristales/cristalera.webp', None, (800, 1200, 2000)),
     ('escaparates/escaparateCalle.webp', None, LANDSCAPE),
     # Contenido vertical
     ('cristales/cristalera.jpg', 'cristalera-porche', PORTRAIT),
     ('cristales/limpieza.webp', None, PORTRAIT),
-    ('cristales/cristalera3.webp', None, PORTRAIT),
+    ('cristales/cristalera3.webp', None, (600, 900, 1126)),
     ('cristales/casa.webp', None, PORTRAIT),
     ('cristales/cristalera2.webp', None, PORTRAIT),
     ('fachadas/fachadaAcristalada.webp', None, PORTRAIT),
     ('cristales/cristaleraChalet.webp', None, PORTRAIT),
     ('cristales/cristaleraCerrado.webp', None, PORTRAIT),
     ('cristales/pexels-padel-2.webp', None, PORTRAIT),
+    # Home: hero, servicios, galería y sección de empresas
+    ('cristales/kristalia.webp', None, HERO),
+    ('escaparates/escaparate.webp', None, (600, 900, 1024)),
+    ('escaparates/escaparateCasa.webp', None, LANDSCAPE),
+    ('escaparates/escaparate2.webp', None, (600, 971)),
+    ('cristales/atico.webp', None, (600, 900, 1122)),
+    ('cristales/empresas.webp', None, PORTRAIT),
+    ('fachadas/fachada-acristalada.webp', None, PORTRAIT),
+    ('servicios-extra/sofa.webp', None, LANDSCAPE),
+    ('servicios-extra/moqueta.webp', None, LANDSCAPE),
+    ('servicios-extra/suelo.webp', None, LANDSCAPE),
+    # Home: antes/después. Mucho detalle fino (gotas, polvo): más calidad.
+    ('antes-despues/cristalAntes.jpeg', None, PORTRAIT, 82),
+    ('antes-despues/cristalDespues.jpeg', None, PORTRAIT, 82),
+    ('antes-despues/antesDespues.webp', None, (800, 1298), 82),
+    # Quiénes somos
+    ('cristales/nosotros.webp', None, (600, 941)),
     # Logo (se muestra a 44-62 px; 128 px cubre pantallas 2x)
     ('logo.png', 'logo', (128,)),
 ]
@@ -57,7 +75,8 @@ def quality_for(width):
 
 def main():
     total_in = total_out = 0
-    for src_rel, out_stem, widths in JOBS:
+    for src_rel, out_stem, widths, *extra in JOBS:
+        fixed_q = extra[0] if extra else None
         src = ASSETS / src_rel
         im = ImageOps.exif_transpose(Image.open(src))
         has_alpha = im.mode in ('RGBA', 'LA') or 'transparency' in im.info
@@ -69,7 +88,7 @@ def main():
             h = round(im.height * w / im.width)
             out = src.with_name(f'{stem}-{w}.webp')
             resized = im if w == im.width else im.resize((w, h), Image.Resampling.LANCZOS)
-            q = 90 if has_alpha else quality_for(w)
+            q = 90 if has_alpha else (fixed_q or quality_for(w))
             resized.save(out, 'WEBP', quality=q, method=6)
             size = out.stat().st_size
             total_out += size

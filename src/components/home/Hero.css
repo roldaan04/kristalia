@@ -8,6 +8,15 @@
   align-items: center;
 }
 
+.hero__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
+
 .hero__overlay {
   position: absolute;
   inset: 0;
@@ -169,6 +178,13 @@
     .hero {
       --hero-photo-h: 56svh;
     }
+  }
+
+  /* Misma composición que tenía el fondo (background-size: auto
+     var(--hero-photo-h); background-position: 56% top) */
+  .hero__img {
+    height: var(--hero-photo-h);
+    object-position: 56% top;
   }
 
   /* Velo suave solo bajo el header; la foto queda limpia y se funde en navy

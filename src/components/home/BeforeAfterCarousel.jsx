@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 import BeforeAfterSlider from './BeforeAfterSlider';
+import { BA_SIZES_STACKED } from '../../data/beforeAfter';
 import './BeforeAfterCarousel.css';
 
 const SWIPE_THRESHOLD = 50;
@@ -91,7 +92,9 @@ export default function BeforeAfterCarousel({ slides }) {
                       <>
                         <img
                           className="ba-carousel__img"
-                          src={slide.image}
+                          src={slide.image.src}
+                          srcSet={slide.image.srcSet}
+                          sizes={BA_SIZES_STACKED}
                           alt={slide.alt}
                           width={slide.width}
                           height={slide.height}
