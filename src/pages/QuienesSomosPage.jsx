@@ -3,10 +3,19 @@ import { Link } from 'react-router-dom';
 import Seo, { SITE_URL } from '../components/Seo';
 import Button from '../components/ui/Button';
 import { WHATSAPP_URL } from '../utils/constants';
-import cristalera2Img from '../assets/particulares/particular.webp';
-import cristaleraImg from '../assets/cristales/nosotros.webp';
+import ResponsiveImage from '../components/ui/ResponsiveImage';
+import { responsiveImage } from '../utils/images';
+import hero828 from '../assets/particulares/particular-828.webp';
+import hero1280 from '../assets/particulares/particular-1280.webp';
+import hero1920 from '../assets/particulares/particular-1920.webp';
+import nosotros600 from '../assets/cristales/nosotros-600.webp';
+import nosotros941 from '../assets/cristales/nosotros-941.webp';
 import heroIllustration from '../assets/hero.png';
 import './QuienesSomosPage.css';
+
+// Variantes generadas con scripts/optimize-images.py
+const heroImg = responsiveImage({ 828: hero828, 1280: hero1280, 1920: hero1920 }, 1920, 1081);
+const nosotrosImg = responsiveImage({ 600: nosotros600, 941: nosotros941 }, 941, 1672);
 
 const values = [
   {
@@ -56,9 +65,17 @@ export default function QuienesSomosPage() {
       />
       <section
         className="about-hero"
-        style={{ backgroundImage: `url(${cristalera2Img})` }}
         aria-label="Quiénes somos — Kristalia"
       >
+        {/* Foto de fondo como <img> (antes background-image) para que se
+            precargue desde el HTML y se sirva a cada pantalla su tamaño. */}
+        <ResponsiveImage
+          image={heroImg}
+          sizes="100vw"
+          alt=""
+          className="about-hero__img"
+          priority
+        />
         <div className="about-hero__overlay" aria-hidden="true" />
         <div className="about-hero__content container">
           <nav className="about-hero__breadcrumb" aria-label="Migas de pan">
@@ -91,12 +108,11 @@ export default function QuienesSomosPage() {
               </p>
             </div>
             <div className="about-intro__image-wrap">
-              <img
-                src={cristaleraImg}
+              <ResponsiveImage
+                image={nosotrosImg}
+                sizes="(max-width: 960px) 100vw, 520px"
                 alt="Limpieza profesional de fachada acristalada con pértiga telescópica"
                 className="about-intro__image"
-                loading="eager"
-                decoding="async"
               />
             </div>
           </div>
@@ -171,6 +187,8 @@ export default function QuienesSomosPage() {
               alt="Ilustración de cristal Kristalia"
               className="about-cta__illustration-img"
               aria-hidden="true"
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <div className="about-cta__content container">

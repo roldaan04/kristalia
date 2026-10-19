@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { services } from '../../data/services';
+import ResponsiveImage from '../ui/ResponsiveImage';
 import './ServicesSection.css';
 
 // Tiempo entre cada avance automático del carrusel (ms).
@@ -105,13 +106,12 @@ export default function ServicesSection() {
                 aria-label={`${idx + 1} de ${services.length}`}
               >
                 <div className="service-item__image-wrap">
-                  <img
-                    src={service.image}
+                  {/* Diferida: el carrusel está por debajo del hero, que es el LCP */}
+                  <ResponsiveImage
+                    image={service.image}
+                    sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 400px"
                     alt={service.alt}
                     className="service-item__image"
-                    loading={idx < 2 ? 'eager' : 'lazy'}
-                    decoding="async"
-                    fetchPriority={idx < 2 ? 'high' : 'auto'}
                   />
                 </div>
 

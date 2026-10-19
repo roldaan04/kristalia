@@ -1,6 +1,8 @@
 import Button from '../ui/Button';
 import { WHATSAPP_URL } from '../../utils/constants';
-import escaparateImg from '../../assets/escaparates/escaparate.webp';
+// Recomprimida a su tamaño original (scripts/optimize-images.py). Sigue como
+// fondo CSS por el efecto parallax (background-attachment: fixed).
+import escaparateImg from '../../assets/escaparates/escaparate-1024.webp';
 import './BusinessSection.css';
 
 export default function BusinessSection() {

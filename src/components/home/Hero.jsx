@@ -1,9 +1,16 @@
 import Button from '../ui/Button';
-import heroImg from '../../assets/cristales/kristalia.webp';
+import ResponsiveImage from '../ui/ResponsiveImage';
+import { responsiveImage } from '../../utils/images';
+import hero828 from '../../assets/cristales/kristalia-828.webp';
+import hero1280 from '../../assets/cristales/kristalia-1280.webp';
+import hero1672 from '../../assets/cristales/kristalia-1672.webp';
 import { WHATSAPP_QUOTE_URL, PHONE_LOCAL, PHONE_TEL } from '../../utils/constants';
 import { trustItems } from '../../data/trustItems';
 import { PhoneIcon, StarIcon, TrustIcon, WhatsAppIcon } from '../conversion/ConversionIcons';
 import './Hero.css';
+
+// Variantes generadas con scripts/optimize-images.py
+const heroImg = responsiveImage({ 828: hero828, 1280: hero1280, 1672: hero1672 }, 1672, 941);
 
 export default function Hero() {
   const scrollToSection = (hash) => {
@@ -15,9 +22,19 @@ export default function Hero() {
     <section
       id="inicio"
       className="hero"
-      style={{ backgroundImage: `url(${heroImg})` }}
       aria-label="Bienvenida a Kristalia"
     >
+      {/* Foto de fondo como <img> (antes background-image): el navegador la
+          descubre y precarga desde el HTML prerenderizado, y elige tamaño.
+          En móvil se muestra a la altura de --hero-photo-h, que equivale a
+          ~100vh de ancho por la proporción de la foto. */}
+      <ResponsiveImage
+        image={heroImg}
+        sizes="(max-width: 768px) 100vh, 100vw"
+        alt=""
+        className="hero__img"
+        priority
+      />
       <div className="hero__overlay" aria-hidden="true" />
 
       <div className="hero__content container">
