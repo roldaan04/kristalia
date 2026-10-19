@@ -6,7 +6,15 @@ export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_ME
 export const WHATSAPP_QUOTE_MESSAGE = encodeURIComponent('Hola, quiero un presupuesto de limpieza de cristales. Os envío fotos y mi ubicación.');
 export const WHATSAPP_QUOTE_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_QUOTE_MESSAGE}`;
 
+// Enlace de WhatsApp con un mensaje inicial propio (cada landing pide
+// presupuesto de su servicio).
+export const buildWhatsAppUrl = (message) =>
+  `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+
 export const PHONE_DISPLAY = '+34 614 744 754';
+// Formato corto para los bloques de conversión y valor para href="tel:".
+export const PHONE_LOCAL = '614 744 754';
+export const PHONE_TEL = '+34614744754';
 export const EMAIL = 'info@kristalia.es';
 export const ADDRESS = 'Madrid, España';
 

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import logo from '../../assets/logo.png';
+// Variante de 128 px (scripts/optimize-images.py): el PNG original pesa 467 KB.
+import logo from '../../assets/logo-128.webp';
 import Button from '../ui/Button';
 import { WHATSAPP_URL } from '../../utils/constants';
 import './Header.css';

@@ -1,5 +1,6 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import logo from '../../assets/logo.png';
+// Variante de 128 px (scripts/optimize-images.py): el PNG original pesa 467 KB.
+import logo from '../../assets/logo-128.webp';
 import { WHATSAPP_URL, PHONE_DISPLAY, EMAIL, ADDRESS } from '../../utils/constants';
 import { openConsentSettings } from '../../utils/consent';
 import './Footer.css';

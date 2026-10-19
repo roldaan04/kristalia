@@ -41,6 +41,8 @@
 }
 
 .partmad-hero__breadcrumb-link {
+  display: inline-block;
+  padding: 0.35rem 0;
   color: rgba(255, 255, 255, 0.85);
   transition: color var(--transition);
 }
@@ -64,10 +66,9 @@
   margin-bottom: var(--spacing-md);
 }
 
-.partmad-hero__actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.85rem;
+/* Versión breve del subtítulo: solo en móvil (ver media query de 640px) */
+.partmad-hero__subtitle-short {
+  display: none;
 }
 
 /* --- Intro a dos columnas ------------------------------------------------ */
@@ -243,66 +244,6 @@
   line-height: 1.8;
 }
 
-/* --- CTA final ----------------------------------------------------------- */
-.partmad-cta {
-  padding: var(--spacing-2xl) 0;
-}
-
-.partmad-cta__inner {
-  text-align: center;
-  max-width: 760px;
-}
-
-.partmad-cta__title {
-  font-size: clamp(2rem, 3.4vw, 2.7rem);
-  color: var(--color-primary);
-  margin-bottom: 1rem;
-}
-
-.partmad-cta__text {
-  max-width: 620px;
-  margin: 0 auto var(--spacing-md);
-  color: var(--color-text-muted);
-  line-height: 1.8;
-}
-
-.partmad-cta__actions {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.85rem;
-  margin-bottom: var(--spacing-md);
-}
-
-.partmad-cta__phone {
-  font-size: 0.95rem;
-  color: var(--color-text-muted);
-  margin-bottom: 0.85rem;
-}
-
-.partmad-cta__phone-link {
-  color: var(--color-secondary);
-  font-weight: 600;
-}
-
-.partmad-cta__phone-link:hover {
-  color: var(--color-accent);
-}
-
-.partmad-cta__links {
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
-}
-
-.partmad-cta__link {
-  color: var(--color-secondary);
-  transition: color var(--transition);
-}
-
-.partmad-cta__link:hover {
-  color: var(--color-accent);
-}
-
 /* --- Responsive ---------------------------------------------------------- */
 @media (max-width: 960px) {
   .partmad-intro__layout,
@@ -316,11 +257,12 @@
     gap: var(--spacing-md);
   }
 
-  .partmad-servicio__image {
-    aspect-ratio: 16 / 9;
+  /* Fotos verticales: 4/3 recorta menos que 16/9 en una sola columna */
+  .partmad-servicio__image,
+  .partmad-intro__image {
+    aspect-ratio: 4 / 3;
   }
 
-  .partmad-intro__image,
   .partmad-viviendas__image {
     aspect-ratio: 16 / 10;
   }
@@ -342,6 +284,14 @@
 }
 
 @media (max-width: 640px) {
+  .partmad-hero__subtitle-full {
+    display: none;
+  }
+
+  .partmad-hero__subtitle-short {
+    display: inline;
+  }
+
   .partmad-hero {
     min-height: 420px;
   }
@@ -351,8 +301,13 @@
     padding-bottom: var(--spacing-lg);
   }
 
-  .partmad-hero__actions .btn,
-  .partmad-cta__actions .btn {
-    width: 100%;
+  /* El texto ocupa todo el ancho: el velo oscurece de abajo arriba */
+  .partmad-hero__overlay {
+    background: linear-gradient(0deg, rgba(26, 39, 68, 0.9) 0%, rgba(26, 39, 68, 0.62) 55%, rgba(26, 39, 68, 0.3) 100%);
+  }
+
+  .partmad-page .section {
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
   }
 }

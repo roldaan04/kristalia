@@ -1,17 +1,38 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Seo, { SITE_URL } from '../../components/Seo';
-import Button from '../../components/ui/Button';
-import { WHATSAPP_URL, PHONE_DISPLAY } from '../../utils/constants';
-import heroImg from '../../assets/fachadas/edificio-fachada-acristalada.webp';
-import limpiezaImg from '../../assets/cristales/limpieza.webp';
-import cristalesImg from '../../assets/cristales/cristalera.jpg';
-import alturaImg from '../../assets/cristales/cristalera3.webp';
-import panelesImg from '../../assets/paneles-solares/paneles2.webp';
-import interiorImg from '../../assets/cristales/casa.webp';
+import ResponsiveImage from '../../components/ui/ResponsiveImage';
+import ConversionBlock, { HeroQuoteActions } from '../../components/conversion/ConversionBlock';
+import { buildWhatsAppUrl } from '../../utils/constants';
+import { responsiveImage } from '../../utils/images';
+import hero828 from '../../assets/fachadas/edificio-fachada-acristalada-828.webp';
+import hero1280 from '../../assets/fachadas/edificio-fachada-acristalada-1280.webp';
+import hero1920 from '../../assets/fachadas/edificio-fachada-acristalada-1920.webp';
+import limpieza600 from '../../assets/cristales/limpieza-600.webp';
+import limpieza900 from '../../assets/cristales/limpieza-900.webp';
+import porche600 from '../../assets/cristales/cristalera-porche-600.webp';
+import porche900 from '../../assets/cristales/cristalera-porche-900.webp';
+import altura600 from '../../assets/cristales/cristalera3-600.webp';
+import altura900 from '../../assets/cristales/cristalera3-900.webp';
+import paneles800 from '../../assets/paneles-solares/paneles2-800.webp';
+import paneles1200 from '../../assets/paneles-solares/paneles2-1200.webp';
+import casa600 from '../../assets/cristales/casa-600.webp';
+import casa900 from '../../assets/cristales/casa-900.webp';
 import './EmpresaLimpiezaMadridPage.css';
 
 const PATH = '/empresa-de-limpieza-madrid';
+
+const WHATSAPP_QUOTE = buildWhatsAppUrl(
+  'Hola, quiero un presupuesto de limpieza. Os envío fotos y mi ubicación.',
+);
+
+// Variantes generadas con scripts/optimize-images.py
+const heroImg = responsiveImage({ 828: hero828, 1280: hero1280, 1920: hero1920 }, 1920, 1081);
+const limpiezaImg = responsiveImage({ 600: limpieza600, 900: limpieza900 }, 900, 1599);
+const cristalesImg = responsiveImage({ 600: porche600, 900: porche900 }, 900, 1352);
+const alturaImg = responsiveImage({ 600: altura600, 900: altura900 }, 900, 1599);
+const panelesImg = responsiveImage({ 800: paneles800, 1200: paneles1200 }, 1200, 676);
+const interiorImg = responsiveImage({ 600: casa600, 900: casa900 }, 900, 1125);
 
 // Fuera del componente: Seo.jsx lleva `jsonLd` en las dependencias de su
 // useEffect y una referencia nueva por render dispararía el efecto en bucle.
@@ -195,13 +216,12 @@ export default function EmpresaLimpiezaMadridPage() {
       />
 
       <section className="limpmad-hero" aria-labelledby="limpmad-hero-title">
-        <img
-          src={heroImg}
+        <ResponsiveImage
+          image={heroImg}
+          sizes="100vw"
           alt="Fachada de un edificio de oficinas en Madrid con grandes ventanales de vidrio reflectante limpios"
           className="limpmad-hero__img"
-          loading="eager"
-          fetchPriority="high"
-          decoding="async"
+          priority
         />
         <div className="limpmad-hero__overlay" aria-hidden="true" />
 
@@ -217,25 +237,18 @@ export default function EmpresaLimpiezaMadridPage() {
           </h1>
 
           <p className="limpmad-hero__subtitle">
-            Comunidades, oficinas, locales y particulares. Cristales y trabajo en
-            altura como especialidad, más los servicios que suelen quedarse sin
-            hacer: suelos, textiles, canalones, toldos y grafitis.
+            {/* Escritorio: texto completo. Móvil (≤640px): versión breve. */}
+            <span className="limpmad-hero__subtitle-full">
+              Comunidades, oficinas, locales y particulares. Cristales y trabajo en
+              altura como especialidad, más los servicios que suelen quedarse sin
+              hacer: suelos, textiles, canalones, toldos y grafitis.
+            </span>
+            <span className="limpmad-hero__subtitle-short">
+              Cristales, trabajos en altura y limpiezas especiales para comunidades, oficinas y locales. Presupuesto cerrado por escrito.
+            </span>
           </p>
 
-          <div className="limpmad-hero__actions">
-            <Button variant="gold" size="lg" href="/#contacto">
-              Pedir presupuesto
-            </Button>
-            <Button
-              variant="outline-light"
-              size="lg"
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Escribir por WhatsApp
-            </Button>
-          </div>
+          <HeroQuoteActions whatsappUrl={WHATSAPP_QUOTE} />
         </div>
       </section>
 
@@ -268,12 +281,11 @@ export default function EmpresaLimpiezaMadridPage() {
             </div>
 
             <div className="limpmad-intro__image-wrap">
-              <img
-                src={limpiezaImg}
+              <ResponsiveImage
+                image={limpiezaImg}
+                sizes="(max-width: 960px) 100vw, 480px"
                 alt="Portal de una comunidad de vecinos con puerta acristalada y suelo de mármol pulido"
                 className="limpmad-intro__image"
-                loading="lazy"
-                decoding="async"
               />
             </div>
           </div>
@@ -298,12 +310,11 @@ export default function EmpresaLimpiezaMadridPage() {
             {serviciosPrincipales.map((servicio) => (
               <article key={servicio.id} className="limpmad-servicio">
                 <div className="limpmad-servicio__image-wrap">
-                  <img
-                    src={servicio.imagen}
+                  <ResponsiveImage
+                    image={servicio.imagen}
+                    sizes="(max-width: 960px) 100vw, 380px"
                     alt={servicio.alt}
                     className="limpmad-servicio__image"
-                    loading="lazy"
-                    decoding="async"
                   />
                 </div>
                 <h3 className="limpmad-servicio__title">{servicio.titulo}</h3>
@@ -346,12 +357,11 @@ export default function EmpresaLimpiezaMadridPage() {
         <div className="container">
           <div className="limpmad-clientes__layout">
             <div className="limpmad-clientes__image-wrap">
-              <img
-                src={interiorImg}
+              <ResponsiveImage
+                image={interiorImg}
+                sizes="(max-width: 960px) 100vw, 440px"
                 alt="Interior de una vivienda reformada con mampara de vidrio y suelo hidráulico"
                 className="limpmad-clientes__image"
-                loading="lazy"
-                decoding="async"
               />
             </div>
 
@@ -396,60 +406,20 @@ export default function EmpresaLimpiezaMadridPage() {
         </div>
       </section>
 
-      <section className="limpmad-cta bg-alt" aria-labelledby="limpmad-cta-title">
-        <div className="container limpmad-cta__inner">
-          <h2 id="limpmad-cta-title" className="limpmad-cta__title">
-            Cuéntanos qué hay que limpiar
-          </h2>
-
-          <p className="limpmad-cta__text">
-            Con la dirección, un par de fotos y lo que necesitas te damos un
-            presupuesto por escrito con precio cerrado. Sin visita comercial y sin
-            compromiso.
-          </p>
-
-          <div className="limpmad-cta__actions">
-            <Button variant="gold" size="lg" href="/#contacto">
-              Solicitar presupuesto
-            </Button>
-
-            <Button
-              variant="outline"
-              size="lg"
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Hablar por WhatsApp
-            </Button>
-          </div>
-
-          <p className="limpmad-cta__phone">
-            O llámanos al{' '}
-            <a
-              href={`tel:${PHONE_DISPLAY.replace(/\s/g, '')}`}
-              className="limpmad-cta__phone-link"
-            >
-              {PHONE_DISPLAY}
-            </a>
-          </p>
-
-          <p className="limpmad-cta__links">
-            <Link to="/quienes-somos" className="limpmad-cta__link">
-              Conoce a Kristalia
-            </Link>
-
-            <span aria-hidden="true"> · </span>
-
-            <Link
-              to="/empresa-de-limpieza-de-cristales-madrid"
-              className="limpmad-cta__link"
-            >
-              Limpieza de cristales en Madrid
-            </Link>
-          </p>
-        </div>
-      </section>
+      <ConversionBlock
+        titleId="limpmad-cta-title"
+        title="Cuéntanos qué hay que limpiar"
+        text="Con la dirección, un par de fotos y lo que necesitas te damos un presupuesto por escrito con precio cerrado. Sin visita comercial y sin compromiso."
+        whatsappUrl={WHATSAPP_QUOTE}
+      >
+        <p>
+          <Link to="/quienes-somos">Conoce a Kristalia</Link>
+          <span aria-hidden="true"> · </span>
+          <Link to="/empresa-de-limpieza-de-cristales-madrid">
+            Limpieza de cristales en Madrid
+          </Link>
+        </p>
+      </ConversionBlock>
     </main>
   );
 }

@@ -309,6 +309,10 @@
 
   /* iOS convierte los teléfonos en enlace azul: se mantiene el estilo */
   .hero__mobile-phone a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.5rem;
     color: inherit;
     text-decoration: none;
   }
