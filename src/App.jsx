@@ -18,6 +18,9 @@ import LimpiezaCristalesMadridPage from './pages/landings/LimpiezaCristalesMadri
 import EmpresaLimpiezaMadridPage from './pages/landings/EmpresaLimpiezaMadridPage';
 import LimpiezaParticularesMadridPage from './pages/landings/LimpiezaParticularesMadridPage';
 import LimpiezaPistasPadelMadridPage from './pages/landings/LimpiezaPistasPadelMadridPage';
+import LimpiezaSofasMadridPage from './pages/landings/LimpiezaSofasMadridPage';
+import LimpiezaMoquetasMadridPage from './pages/landings/LimpiezaMoquetasMadridPage';
+import AbrillantadoSuelosMadridPage from './pages/landings/AbrillantadoSuelosMadridPage';
 
 export default function App() {
   return (
@@ -45,6 +48,12 @@ export default function App() {
             <Route
               path="/limpieza-cristales-pistas-padel-madrid"
               element={<LimpiezaPistasPadelMadridPage />}
+            />
+            <Route path="/limpieza-sofas-madrid" element={<LimpiezaSofasMadridPage />} />
+            <Route path="/limpieza-moquetas-madrid" element={<LimpiezaMoquetasMadridPage />} />
+            <Route
+              path="/abrillantado-cristalizado-suelos-madrid"
+              element={<AbrillantadoSuelosMadridPage />}
             />
             <Route path="/aviso-legal" element={<AvisoLegalPage />} />
             <Route path="/privacidad" element={<PrivacidadPage />} />

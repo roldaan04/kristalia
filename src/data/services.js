@@ -15,12 +15,12 @@ import padel828 from '../assets/cristales/pexels-padel-1-828.webp';
 import padel1280 from '../assets/cristales/pexels-padel-1-1280.webp';
 import atico600 from '../assets/cristales/atico-600.webp';
 import atico900 from '../assets/cristales/atico-900.webp';
-import sofa800 from '../assets/servicios-extra/sofa-800.webp';
-import sofa1200 from '../assets/servicios-extra/sofa-1200.webp';
-import moqueta800 from '../assets/servicios-extra/moqueta-800.webp';
-import moqueta1200 from '../assets/servicios-extra/moqueta-1200.webp';
-import suelo800 from '../assets/servicios-extra/suelo-800.webp';
-import suelo1200 from '../assets/servicios-extra/suelo-1200.webp';
+import sofa828 from '../assets/servicios-extra/sofa-828.webp';
+import sofa1280 from '../assets/servicios-extra/sofa-1280.webp';
+import moqueta828 from '../assets/servicios-extra/moqueta-828.webp';
+import moqueta1280 from '../assets/servicios-extra/moqueta-1280.webp';
+import suelo828 from '../assets/servicios-extra/suelo-828.webp';
+import suelo1280 from '../assets/servicios-extra/suelo-1280.webp';
 
 // Variantes generadas con scripts/optimize-images.py. Las tarjetas se muestran
 // a ~400px de ancho como máximo (100vw en móvil), así que basta con 900/1200.
@@ -32,9 +32,9 @@ const escaparateImg = responsiveImage({ 600: escaparate600, 900: escaparate900 }
 const panelesImg = responsiveImage({ 800: paneles800, 1200: paneles1200 }, 1200, 676);
 const padelImg = responsiveImage({ 828: padel828, 1280: padel1280 }, 1280, 960);
 const aticoImg = responsiveImage({ 600: atico600, 900: atico900 }, 900, 1125);
-const sofaImg = responsiveImage({ 800: sofa800, 1200: sofa1200 }, 1200, 800);
-const moquetaImg = responsiveImage({ 800: moqueta800, 1200: moqueta1200 }, 1200, 800);
-const sueloImg = responsiveImage({ 800: suelo800, 1200: suelo1200 }, 1200, 800);
+const sofaImg = responsiveImage({ 828: sofa828, 1280: sofa1280 }, 1280, 853);
+const moquetaImg = responsiveImage({ 828: moqueta828, 1280: moqueta1280 }, 1280, 853);
+const sueloImg = responsiveImage({ 828: suelo828, 1280: suelo1280 }, 1280, 853);
 
 export const services = [
   {
