@@ -33,6 +33,10 @@ JOBS = [
     ('servicios-extra/sofa.png', None, HERO),
     ('servicios-extra/moqueta.png', None, HERO),
     ('servicios-extra/suelo.png', None, HERO),
+    # Servicios extra: imagen de apoyo en el bloque de introducción (~540 px)
+    ('servicios-extra/salon.png', None, LANDSCAPE),
+    ('servicios-extra/oficina.png', None, LANDSCAPE),
+    ('servicios-extra/entrada.png', None, LANDSCAPE),
     # Contenido apaisado
     ('paneles-solares/paneles2.webp', None, LANDSCAPE),
     ('paneles-solares/paneles.webp', None, LANDSCAPE),

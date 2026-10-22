@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Seo, { SITE_URL } from '../../components/Seo';
 import ResponsiveImage from '../../components/ui/ResponsiveImage';
 import ConversionBlock, { HeroQuoteActions } from '../../components/conversion/ConversionBlock';
-import { buildWhatsAppUrl } from '../../utils/constants';
+import { WHATSAPP_QUOTE_URL } from '../../utils/constants';
 import { responsiveImage } from '../../utils/images';
 import hero828 from '../../assets/fachadas/edificio-fachada-acristalada-828.webp';
 import hero1280 from '../../assets/fachadas/edificio-fachada-acristalada-1280.webp';
@@ -22,9 +22,7 @@ import './EmpresaLimpiezaMadridPage.css';
 
 const PATH = '/empresa-de-limpieza-madrid';
 
-const WHATSAPP_QUOTE = buildWhatsAppUrl(
-  'Hola, quiero un presupuesto de limpieza. Os envío fotos y mi ubicación.',
-);
+const WHATSAPP_QUOTE = WHATSAPP_QUOTE_URL;
 
 // Variantes generadas con scripts/optimize-images.py
 const heroImg = responsiveImage({ 828: hero828, 1280: hero1280, 1920: hero1920 }, 1920, 1081);

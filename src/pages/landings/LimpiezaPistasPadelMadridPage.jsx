@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Seo, { SITE_URL } from '../../components/Seo';
 import ResponsiveImage from '../../components/ui/ResponsiveImage';
 import ConversionBlock, { HeroQuoteActions } from '../../components/conversion/ConversionBlock';
-import { buildWhatsAppUrl } from '../../utils/constants';
+import { buildWhatsAppUrl, buildQuoteMessage } from '../../utils/constants';
 import { responsiveImage } from '../../utils/images';
 // TODO: sustituir por foto real de pista de pádel (imagen provisional).
 import hero828 from '../../assets/cristales/pexels-padel-1-828.webp';
@@ -17,7 +17,12 @@ import './LimpiezaPistasPadelMadridPage.css';
 const PATH = '/limpieza-cristales-pistas-padel-madrid';
 
 const WHATSAPP_QUOTE = buildWhatsAppUrl(
-  'Hola, quiero un presupuesto de limpieza de cristales de pistas de pádel. Os envío fotos y la ubicación de la instalación.',
+  buildQuoteMessage({
+    subject: 'tu presupuesto de limpieza de pistas de pádel',
+    placeQuestion: '🏢 ¿Es para un club, centro deportivo o instalación privada?',
+    sizeQuestion:
+      '🪟 ¿Cuántas pistas son, aproximadamente? (Indícanos si son cubiertas o exteriores y si hay zonas de difícil acceso).',
+  }),
 );
 
 // Variantes generadas con scripts/optimize-images.py

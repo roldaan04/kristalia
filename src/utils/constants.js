@@ -1,15 +1,31 @@
 export const WHATSAPP_NUMBER = '34614744754';
-export const WHATSAPP_MESSAGE = encodeURIComponent('Hola, me gustaría solicitar información sobre vuestros servicios de limpieza de cristales.');
-export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`;
 
-// CTA del hero móvil: mensaje orientado a pedir presupuesto con fotos.
-export const WHATSAPP_QUOTE_MESSAGE = encodeURIComponent('Hola, quiero un presupuesto de limpieza de cristales. Os envío fotos y mi ubicación.');
-export const WHATSAPP_QUOTE_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_QUOTE_MESSAGE}`;
-
-// Enlace de WhatsApp con un mensaje inicial propio (cada landing pide
-// presupuesto de su servicio).
+// Enlace de WhatsApp con un mensaje inicial propio.
 export const buildWhatsAppUrl = (message) =>
-  `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+  `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(message)}`;
+
+// Mensaje inicial de WhatsApp: siempre la misma dinámica (zona, tipo de
+// inmueble, tamaño y fotos). Las landings de servicios concretos solo
+// adaptan el asunto y las preguntas de tipo de inmueble y tamaño.
+export const buildQuoteMessage = ({
+  subject = 'tu presupuesto personalizado',
+  placeQuestion = '🏢 ¿Es para una casa, comunidad, oficina o local comercial?',
+  sizeQuestion = '🪟 ¿Cuántos cristales o ventanales son, aproximadamente? (Indícanos si hay zonas de difícil acceso o en altura).',
+} = {}) =>
+  [
+    '¡Hola! Bienvenido/a a Kristalia ✨',
+    'Queremos darte la respuesta más rápida y precisa posible.',
+    `Para calcular ${subject} en unos minutos, cuéntanos:`,
+    '📍 ¿En qué zona/municipio de Madrid estás?',
+    placeQuestion,
+    sizeQuestion,
+    '📸 Fotos: Si puedes enviarnos un par de fotos o un vídeo rápido, ¡mucho mejor! Nos ayuda a ver el acceso exacto y darte la mejor tarifa cerrada sin sorpresas.',
+    'Tan pronto como nos leas, analizamos tu caso y te responderemos. ¡Gracias por confiar en nosotros!',
+  ].join('\n\n');
+
+// Mensaje por defecto: botón flotante, cabecera, footer, hero y bloques de conversión.
+export const WHATSAPP_URL = buildWhatsAppUrl(buildQuoteMessage());
+export const WHATSAPP_QUOTE_URL = WHATSAPP_URL;
 
 export const PHONE_DISPLAY = '+34 614 744 754';
 // Formato corto para los bloques de conversión y valor para href="tel:".

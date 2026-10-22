@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import Seo, { SITE_URL } from '../../components/Seo';
 import ResponsiveImage from '../../components/ui/ResponsiveImage';
 import ConversionBlock, { HeroQuoteActions } from '../../components/conversion/ConversionBlock';
-import { buildWhatsAppUrl } from '../../utils/constants';
+import { WHATSAPP_QUOTE_URL } from '../../utils/constants';
 import { responsiveImage } from '../../utils/images';
-import hero828 from '../../assets/particulares/particular-828.webp';
-import hero1280 from '../../assets/particulares/particular-1280.webp';
-import hero1920 from '../../assets/particulares/particular-1920.webp';
+import hero828 from '../../assets/cristales/kristalia-828.webp';
+import hero1280 from '../../assets/cristales/kristalia-1280.webp';
+import hero1672 from '../../assets/cristales/kristalia-1672.webp';
 import chalet600 from '../../assets/cristales/cristaleraChalet-600.webp';
 import chalet900 from '../../assets/cristales/cristaleraChalet-900.webp';
 import cerrado600 from '../../assets/cristales/cristaleraCerrado-600.webp';
@@ -22,12 +22,10 @@ import './LimpiezaParticularesMadridPage.css';
 
 const PATH = '/limpieza-particulares-madrid';
 
-const WHATSAPP_QUOTE = buildWhatsAppUrl(
-  'Hola, quiero un presupuesto de limpieza para mi vivienda. Os envío fotos y mi ubicación.',
-);
+const WHATSAPP_QUOTE = WHATSAPP_QUOTE_URL;
 
 // Variantes generadas con scripts/optimize-images.py
-const heroImg = responsiveImage({ 828: hero828, 1280: hero1280, 1920: hero1920 }, 1920, 1081);
+const heroImg = responsiveImage({ 828: hero828, 1280: hero1280, 1672: hero1672 }, 1672, 941);
 const introImg = responsiveImage({ 600: chalet600, 900: chalet900 }, 900, 1125);
 const cristalesImg = responsiveImage({ 600: cerrado600, 900: cerrado900 }, 900, 1125);
 const cerramientoImg = responsiveImage({ 600: cerramiento600, 900: cerramiento900 }, 900, 1599);
@@ -207,7 +205,7 @@ export default function LimpiezaParticularesMadridPage() {
         <ResponsiveImage
           image={heroImg}
           sizes="100vw"
-          alt="Piscina de un chalet en la sierra de Madrid rodeada de una valla de cristal transparente"
+          alt="Operario de Kristalia limpiando con pértiga la fachada acristalada de un edificio"
           className="partmad-hero__img"
           priority
         />

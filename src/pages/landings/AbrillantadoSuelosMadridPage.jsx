@@ -1,20 +1,27 @@
 import ServicioExtraLanding from './ServicioExtraLanding';
 import { buildServiceJsonLd } from '../../utils/serviceJsonLd';
-import { buildWhatsAppUrl } from '../../utils/constants';
+import { buildWhatsAppUrl, buildQuoteMessage } from '../../utils/constants';
 import { responsiveImage } from '../../utils/images';
 import hero828 from '../../assets/servicios-extra/suelo-828.webp';
 import hero1280 from '../../assets/servicios-extra/suelo-1280.webp';
 import hero1536 from '../../assets/servicios-extra/suelo-1536.webp';
+import entrada800 from '../../assets/servicios-extra/entrada-800.webp';
+import entrada1200 from '../../assets/servicios-extra/entrada-1200.webp';
 
 const PATH = '/abrillantado-cristalizado-suelos-madrid';
 const NAME = 'Abrillantado y cristalizado de suelos en Madrid';
 
 const WHATSAPP_QUOTE = buildWhatsAppUrl(
-  'Hola, quiero un presupuesto para abrillantar un suelo. Os envío fotos, los metros aproximados y la ubicación.',
+  buildQuoteMessage({
+    subject: 'tu presupuesto de abrillantado de suelos',
+    sizeQuestion:
+      '📐 ¿Qué tipo de suelo es (mármol, terrazo, gres, parquet...) y cuántos metros cuadrados tiene, aproximadamente? (Indícanos si está rayado, con manchas o desgastado).',
+  }),
 );
 
 // Variantes generadas con scripts/optimize-images.py
 const heroImg = responsiveImage({ 828: hero828, 1280: hero1280, 1536: hero1536 }, 1536, 1024);
+const introImg = responsiveImage({ 800: entrada800, 1200: entrada1200 }, 1200, 900);
 
 const jsonLd = buildServiceJsonLd({
   path: PATH,
@@ -49,6 +56,10 @@ const content = {
       'Suelos de mármol y terrazo con brillo y protección en portales, locales y viviendas.',
   },
   intro: {
+    image: {
+      image: introImg,
+      alt: 'Portal de un edificio de Madrid con suelo de mármol abrillantado que refleja la puerta de cristal de la entrada',
+    },
     tag: 'Suelos',
     title: 'El suelo es lo primero que se ve al entrar',
     paragraphs: [

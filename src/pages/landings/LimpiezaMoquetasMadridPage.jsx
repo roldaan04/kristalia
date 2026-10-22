@@ -1,20 +1,27 @@
 import ServicioExtraLanding from './ServicioExtraLanding';
 import { buildServiceJsonLd } from '../../utils/serviceJsonLd';
-import { buildWhatsAppUrl } from '../../utils/constants';
+import { buildWhatsAppUrl, buildQuoteMessage } from '../../utils/constants';
 import { responsiveImage } from '../../utils/images';
 import hero828 from '../../assets/servicios-extra/moqueta-828.webp';
 import hero1280 from '../../assets/servicios-extra/moqueta-1280.webp';
 import hero1536 from '../../assets/servicios-extra/moqueta-1536.webp';
+import oficina800 from '../../assets/servicios-extra/oficina-800.webp';
+import oficina1200 from '../../assets/servicios-extra/oficina-1200.webp';
 
 const PATH = '/limpieza-moquetas-madrid';
 const NAME = 'Limpieza y desinfección de moquetas en Madrid';
 
 const WHATSAPP_QUOTE = buildWhatsAppUrl(
-  'Hola, quiero un presupuesto para limpiar moqueta. Os envío fotos, los metros aproximados y la ubicación.',
+  buildQuoteMessage({
+    subject: 'tu presupuesto de limpieza de moqueta',
+    sizeQuestion:
+      '📐 ¿Cuántos metros cuadrados de moqueta son, aproximadamente? (Indícanos si hay manchas difíciles, malos olores o zonas de mucho tránsito).',
+  }),
 );
 
 // Variantes generadas con scripts/optimize-images.py
 const heroImg = responsiveImage({ 828: hero828, 1280: hero1280, 1536: hero1536 }, 1536, 1024);
+const introImg = responsiveImage({ 800: oficina800, 1200: oficina1200 }, 1200, 800);
 
 const jsonLd = buildServiceJsonLd({
   path: PATH,
@@ -49,6 +56,10 @@ const content = {
       'Moquetas limpias y desinfectadas en oficinas, locales y viviendas. Puntual o con mantenimiento periódico.',
   },
   intro: {
+    image: {
+      image: introImg,
+      alt: 'Oficina diáfana con moqueta gris limpia, mesas de trabajo, sala de reuniones acristalada y grandes ventanales',
+    },
     tag: 'Moquetas',
     title: 'La moqueta guarda más suciedad de la que se ve',
     paragraphs: [

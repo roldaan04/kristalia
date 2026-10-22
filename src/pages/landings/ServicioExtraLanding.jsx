@@ -73,22 +73,43 @@ export default function ServicioExtraLanding({
               ))}
             </div>
 
-            <div className="extra-intro__aside">
-              <h3 className="extra-intro__aside-title">{intro.listTitle}</h3>
-              <ul className="extra-intro__list">
-                {intro.list.map((item) => (
-                  <li key={item.titulo} className="extra-incluye">
-                    <h4 className="extra-incluye__title">{item.titulo}</h4>
-                    <p className="extra-incluye__text">{item.texto}</p>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            {intro.image && (
+              <div className="extra-intro__image-wrap">
+                <ResponsiveImage
+                  image={intro.image.image}
+                  sizes="(max-width: 960px) 100vw, 500px"
+                  alt={intro.image.alt}
+                  className="extra-intro__image"
+                />
+              </div>
+            )}
           </div>
         </div>
       </section>
 
-      <section className="extra-espacios section bg-alt" aria-labelledby="extra-espacios-title">
+      <section className="extra-lista section bg-alt" aria-labelledby="extra-lista-title">
+        <div className="container">
+          <div className="extra-lista__layout">
+            <header className="extra-lista__header">
+              <div className="gold-line" />
+              <h2 id="extra-lista-title" className="section-title">
+                {intro.listTitle}
+              </h2>
+            </header>
+
+            <ul className="extra-lista__list">
+              {intro.list.map((item) => (
+                <li key={item.titulo} className="extra-incluye">
+                  <h3 className="extra-incluye__title">{item.titulo}</h3>
+                  <p className="extra-incluye__text">{item.texto}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className="extra-espacios section" aria-labelledby="extra-espacios-title">
         <div className="container">
           <header className="section-header--center">
             <span className="section-tag">{espacios.tag}</span>
@@ -110,7 +131,7 @@ export default function ServicioExtraLanding({
         </div>
       </section>
 
-      <section className="extra-faq section" aria-labelledby="extra-faq-title">
+      <section className="extra-faq section bg-alt" aria-labelledby="extra-faq-title">
         <div className="container extra-faq__container">
           <header className="section-header--center">
             <span className="section-tag">Dudas frecuentes</span>

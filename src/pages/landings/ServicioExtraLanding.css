@@ -90,19 +90,32 @@
   margin-bottom: 0;
 }
 
-.extra-intro__aside {
-  background: var(--color-background-alt);
+.extra-intro__image-wrap {
   border-radius: var(--radius-lg);
-  padding: var(--spacing-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
 }
 
-.extra-intro__aside-title {
-  font-size: 1.35rem;
-  color: var(--color-primary);
-  margin-bottom: var(--spacing-md);
+.extra-intro__image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 5 / 4;
+  object-fit: cover;
 }
 
-.extra-intro__list {
+/* --- Qué limpiamos: título a la izquierda, elementos a la derecha -------- */
+.extra-lista__layout {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: var(--spacing-xl);
+  align-items: start;
+}
+
+.extra-lista__header .section-title {
+  margin-bottom: 0;
+}
+
+.extra-lista__list {
   display: grid;
   gap: var(--spacing-md);
 }
@@ -179,9 +192,14 @@
 
 /* --- Responsive ---------------------------------------------------------- */
 @media (max-width: 960px) {
-  .extra-intro__layout {
+  .extra-intro__layout,
+  .extra-lista__layout {
     grid-template-columns: 1fr;
     gap: var(--spacing-lg);
+  }
+
+  .extra-intro__image {
+    aspect-ratio: 4 / 3;
   }
 
   .extra-espacios__grid {
@@ -221,10 +239,6 @@
   /* El texto ocupa todo el ancho: el velo oscurece de abajo arriba */
   .extra-hero__overlay {
     background: linear-gradient(0deg, rgba(26, 39, 68, 0.9) 0%, rgba(26, 39, 68, 0.62) 55%, rgba(26, 39, 68, 0.3) 100%);
-  }
-
-  .extra-intro__aside {
-    padding: var(--spacing-md);
   }
 
   .extra-page .section {

@@ -1,20 +1,28 @@
 import ServicioExtraLanding from './ServicioExtraLanding';
 import { buildServiceJsonLd } from '../../utils/serviceJsonLd';
-import { buildWhatsAppUrl } from '../../utils/constants';
+import { buildWhatsAppUrl, buildQuoteMessage } from '../../utils/constants';
 import { responsiveImage } from '../../utils/images';
 import hero828 from '../../assets/servicios-extra/sofa-828.webp';
 import hero1280 from '../../assets/servicios-extra/sofa-1280.webp';
 import hero1536 from '../../assets/servicios-extra/sofa-1536.webp';
+import salon800 from '../../assets/servicios-extra/salon-800.webp';
+import salon1200 from '../../assets/servicios-extra/salon-1200.webp';
 
 const PATH = '/limpieza-sofas-madrid';
 const NAME = 'Limpieza profesional de sofás en Madrid';
 
 const WHATSAPP_QUOTE = buildWhatsAppUrl(
-  'Hola, quiero un presupuesto para limpiar un sofá. Os envío fotos y mi ubicación.',
+  buildQuoteMessage({
+    subject: 'tu presupuesto de limpieza de sofás',
+    placeQuestion: '🏠 ¿Es para una vivienda, oficina o local comercial?',
+    sizeQuestion:
+      '🛋️ ¿Cuántos sofás o plazas son y de qué tejido (tela, piel...)? (Indícanos si hay manchas concretas, olores o mascotas).',
+  }),
 );
 
 // Variantes generadas con scripts/optimize-images.py
 const heroImg = responsiveImage({ 828: hero828, 1280: hero1280, 1536: hero1536 }, 1536, 1024);
+const introImg = responsiveImage({ 800: salon800, 1200: salon1200 }, 1200, 800);
 
 const jsonLd = buildServiceJsonLd({
   path: PATH,
@@ -49,6 +57,10 @@ const content = {
       'Sofás, sillones y tapicerías limpios en tu casa, sin moverlos de sitio. Sin contrato ni permanencia.',
   },
   intro: {
+    image: {
+      image: introImg,
+      alt: 'Salón luminoso con un sofá de tela clara limpio, cojines verdes y crema y vistas a edificios de ladrillo de Madrid',
+    },
     tag: 'Sofás y tapicerías',
     title: 'Un sofá limpio se nota en todo el salón',
     paragraphs: [

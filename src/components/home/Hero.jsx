@@ -5,6 +5,7 @@ import hero828 from '../../assets/cristales/kristalia-828.webp';
 import hero1280 from '../../assets/cristales/kristalia-1280.webp';
 import hero1672 from '../../assets/cristales/kristalia-1672.webp';
 import { WHATSAPP_QUOTE_URL, PHONE_LOCAL, PHONE_TEL } from '../../utils/constants';
+import { HeroQuoteActions } from '../conversion/ConversionBlock';
 import { trustItems } from '../../data/trustItems';
 import { PhoneIcon, StarIcon, TrustIcon, WhatsAppIcon } from '../conversion/ConversionIcons';
 import './Hero.css';
@@ -13,11 +14,6 @@ import './Hero.css';
 const heroImg = responsiveImage({ 828: hero828, 1280: hero1280, 1672: hero1672 }, 1672, 941);
 
 export default function Hero() {
-  const scrollToSection = (hash) => {
-    const el = document.querySelector(hash);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <section
       id="inicio"
@@ -52,15 +48,11 @@ export default function Hero() {
             Disponibilidad inmediata en toda la Comunidad de Madrid.
           </p>
 
+          {/* Misma composición que el hero de las landings (valoración, botón de
+              WhatsApp y teléfono). Solo escritorio: en móvil se oculta y se usa
+              el bloque .hero__mobile. */}
           <div className="hero__actions">
-            <Button
-              variant="outline-light"
-              size="lg"
-              className="hero__services-btn"
-              onClick={() => scrollToSection('#servicios')}
-            >
-              Ver servicios
-            </Button>
+            <HeroQuoteActions />
           </div>
         </div>
       </div>
