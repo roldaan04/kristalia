@@ -4,6 +4,7 @@ import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import WhatsAppFloat from './components/layout/WhatsAppFloat';
 import AnalyticsListener from './components/AnalyticsListener';
+import WhatsAppEmojiListener from './components/WhatsAppEmojiListener';
 import CookieConsent from './components/consent/CookieConsent';
 import HomePage from './pages/HomePage';
 import QuienesSomosPage from './pages/QuienesSomosPage';
@@ -26,6 +27,7 @@ export default function App() {
   return (
     <>
       <AnalyticsListener />
+      <WhatsAppEmojiListener />
       <a href="#contenido" className="skip-link">Saltar al contenido</a>
       <Header />
       <div id="contenido" tabIndex={-1}>

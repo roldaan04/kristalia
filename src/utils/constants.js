@@ -1,8 +1,29 @@
 export const WHATSAPP_NUMBER = '34614744754';
 
-// Enlace de WhatsApp con un mensaje inicial propio.
-export const buildWhatsAppUrl = (message) =>
-  `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(message)}`;
+const whatsappUrl = (text) =>
+  `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(text)}`;
+
+// WhatsApp Web pierde los emojis que vienen en el enlace, el móvil no. Por eso
+// el href que se renderiza (y se prerenderiza) lleva siempre la versión sin
+// emojis, y WhatsAppEmojiListener la cambia por la versión con emojis al pulsar
+// en un móvil. Este mapa relaciona una con otra.
+const EMOJI = '[\\u{1F300}-\\u{1FAFF}\\u{2600}-\\u{27BF}]\\uFE0F?';
+export const stripEmojis = (text) =>
+  text
+    .replace(new RegExp(`^${EMOJI}[ \\t]*`, 'gmu'), '- ')
+    .replace(new RegExp(`[ \\t]*${EMOJI}`, 'gu'), '');
+
+const emojiUrlByPlainUrl = new Map();
+export const getEmojiUrl = (plainUrl) => emojiUrlByPlainUrl.get(plainUrl);
+
+// Enlace de WhatsApp con un mensaje inicial propio. El mensaje puede llevar
+// emojis; el enlace devuelto es la versión segura (sin emojis).
+export const buildWhatsAppUrl = (message) => {
+  const plainUrl = whatsappUrl(stripEmojis(message));
+  const emojiUrl = whatsappUrl(message);
+  if (emojiUrl !== plainUrl) emojiUrlByPlainUrl.set(plainUrl, emojiUrl);
+  return plainUrl;
+};
 
 // Mensaje inicial de WhatsApp: siempre la misma dinámica (zona, tipo de
 // inmueble, tamaño y fotos). Las landings de servicios concretos solo
