@@ -15,7 +15,7 @@ const WHATSAPP_QUOTE = buildWhatsAppUrl(
   buildQuoteMessage({
     subject: 'tu presupuesto de abrillantado de suelos',
     sizeQuestion:
-      '📐 ¿Qué tipo de suelo es (mármol, terrazo, gres, parquet...) y cuántos metros cuadrados tiene, aproximadamente? (Indícanos si está rayado, con manchas o desgastado).',
+      '📐 ¿Qué tipo de suelo es (mármol, terrazo, granito...) y cuántos metros cuadrados tiene, aproximadamente? (Indícanos si está rayado, con manchas o desgastado).',
   }),
 );
 
