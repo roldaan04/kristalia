@@ -1,64 +1,30 @@
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
 import { WHATSAPP_URL } from '../../utils/constants';
 import './WhatsAppFloat.css';
 
-// Retardo antes de mostrar el botón: evita que aparezca encima del hero
-// nada más entrar y que compita con la primera impresión de la página.
-const APPEAR_DELAY = 1200;
-
-// La etiqueta se muestra sola unos segundos a modo de CTA y luego se repliega,
-// para no tapar contenido mientras el usuario navega (sobre todo en móvil).
+// El botón está siempre visible, en todas las páginas y desde la primera
+// pantalla. La etiqueta se despliega sola unos segundos a modo de CTA y luego
+// se repliega, para no tapar contenido mientras el usuario navega (sobre todo
+// en móvil).
 const LABEL_DELAY = 2000;
 const LABEL_DURATION = 7000;
 
 export default function WhatsAppFloat() {
-  const [visible, setVisible] = useState(false);
   const [labelOpen, setLabelOpen] = useState(false);
-  const [ctaInView, setCtaInView] = useState(false);
-  const { pathname } = useLocation();
 
   useEffect(() => {
-    const showBtn = setTimeout(() => setVisible(true), APPEAR_DELAY);
     const showLabel = setTimeout(() => setLabelOpen(true), LABEL_DELAY);
     const hideLabel = setTimeout(() => setLabelOpen(false), LABEL_DELAY + LABEL_DURATION);
 
     return () => {
-      clearTimeout(showBtn);
       clearTimeout(showLabel);
       clearTimeout(hideLabel);
     };
   }, []);
 
-  // Mientras haya en pantalla un bloque de conversión ([data-conversion]), que
-  // ya tiene su propio botón de WhatsApp, el flotante se oculta para no
-  // duplicarlo ni tapar el bloque. Se vuelve a observar en cada ruta.
-  useEffect(() => {
-    if (typeof IntersectionObserver === 'undefined') return undefined;
-
-    const inView = new Set();
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) inView.add(entry.target);
-        else inView.delete(entry.target);
-      });
-      setCtaInView(inView.size > 0);
-    });
-
-    document.querySelectorAll('[data-conversion]').forEach((el) => observer.observe(el));
-
-    return () => {
-      observer.disconnect();
-      setCtaInView(false);
-    };
-  }, [pathname]);
-
-  const className = [
-    'wa-float',
-    visible ? 'wa-float--visible' : '',
-    labelOpen ? 'wa-float--label-open' : '',
-    ctaInView ? 'wa-float--cta-in-view' : '',
-  ].filter(Boolean).join(' ');
+  const className = ['wa-float', labelOpen ? 'wa-float--label-open' : '']
+    .filter(Boolean)
+    .join(' ');
 
   return (
     <div className={className}>

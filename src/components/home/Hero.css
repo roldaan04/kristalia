@@ -218,8 +218,9 @@
     max-width: 34rem;
     margin-left: 0;
     padding-top: calc(var(--header-height) + 2rem);
-    /* Deja libre la zona del botón flotante de WhatsApp (abajo a la derecha) */
-    padding-bottom: calc(4.75rem + env(safe-area-inset-bottom, 0px));
+    /* Deja libre la zona del botón flotante de WhatsApp (abajo a la derecha,
+       siempre visible: 54px de botón + su margen inferior) */
+    padding-bottom: calc(5.75rem + env(safe-area-inset-bottom, 0px));
   }
 
   .hero__mobile-title {

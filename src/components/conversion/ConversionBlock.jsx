@@ -54,7 +54,7 @@ function PhoneLink() {
  */
 export function HeroQuoteActions({ whatsappUrl = WHATSAPP_QUOTE_URL }) {
   return (
-    <div className="quote-cta quote-cta--hero" data-conversion>
+    <div className="quote-cta quote-cta--hero">
       <GoogleRating />
       <div className="quote-cta__group">
         <QuoteButton whatsappUrl={whatsappUrl} />
@@ -77,7 +77,7 @@ export default function ConversionBlock({
   children,
 }) {
   return (
-    <section className="conversion bg-dark" aria-labelledby={titleId} data-conversion>
+    <section className="conversion bg-dark" aria-labelledby={titleId}>
       <div className="container conversion__inner">
         <div className="conversion__intro">
           <span className="section-tag">{tag}</span>

@@ -5,26 +5,8 @@
   position: fixed;
   right: clamp(1rem, 3vw, 1.75rem);
   bottom: calc(clamp(1rem, 3vw, 1.75rem) + env(safe-area-inset-bottom, 0px));
+  /* Visible siempre, desde la primera pantalla y en todas las páginas */
   z-index: 90;
-
-  /* Oculto hasta que el componente lo activa tras el retardo inicial */
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(14px) scale(0.9);
-  transition: opacity var(--transition-slow), transform var(--transition-slow), visibility var(--transition-slow);
-}
-
-.wa-float--visible {
-  opacity: 1;
-  visibility: visible;
-  transform: none;
-}
-
-/* Oculto mientras se ve un bloque de conversión con su propio WhatsApp */
-.wa-float--visible.wa-float--cta-in-view {
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(14px) scale(0.9);
 }
 
 .wa-float__link {
@@ -175,7 +157,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .wa-float,
   .wa-float__label,
   .wa-float__icon {
     transition: none;
