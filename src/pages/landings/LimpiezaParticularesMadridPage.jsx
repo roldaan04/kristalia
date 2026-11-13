@@ -5,9 +5,9 @@ import ResponsiveImage from '../../components/ui/ResponsiveImage';
 import ConversionBlock, { HeroQuoteActions } from '../../components/conversion/ConversionBlock';
 import { WHATSAPP_QUOTE_URL } from '../../utils/constants';
 import { responsiveImage } from '../../utils/images';
-import hero828 from '../../assets/cristales/kristalia-828.webp';
-import hero1280 from '../../assets/cristales/kristalia-1280.webp';
-import hero1672 from '../../assets/cristales/kristalia-1672.webp';
+import hero800 from '../../assets/cristales/cristalera-800.webp';
+import hero1200 from '../../assets/cristales/cristalera-1200.webp';
+import hero2000 from '../../assets/cristales/cristalera-2000.webp';
 import chalet600 from '../../assets/cristales/cristaleraChalet-600.webp';
 import chalet900 from '../../assets/cristales/cristaleraChalet-900.webp';
 import cerrado600 from '../../assets/cristales/cristaleraCerrado-600.webp';
@@ -25,7 +25,7 @@ const PATH = '/limpieza-particulares-madrid';
 const WHATSAPP_QUOTE = WHATSAPP_QUOTE_URL;
 
 // Variantes generadas con scripts/optimize-images.py
-const heroImg = responsiveImage({ 828: hero828, 1280: hero1280, 1672: hero1672 }, 1672, 941);
+const heroImg = responsiveImage({ 800: hero800, 1200: hero1200, 2000: hero2000 }, 2000, 1126);
 const introImg = responsiveImage({ 600: chalet600, 900: chalet900 }, 900, 1125);
 const cristalesImg = responsiveImage({ 600: cerrado600, 900: cerrado900 }, 900, 1125);
 const cerramientoImg = responsiveImage({ 600: cerramiento600, 900: cerramiento900 }, 900, 1599);
@@ -43,7 +43,7 @@ const jsonLd = [
     serviceType: 'Limpieza especializada para viviendas',
     name: 'Limpieza para particulares en Madrid',
     description:
-      'Servicios de limpieza especializada para pisos, áticos y chalets en Madrid: cristales, ventanales, cerramientos, cristales de difícil acceso, paneles solares, persianas, toldos y canalones.',
+      'Empresa de limpieza especializada para pisos, áticos y chalets en Madrid: cristales, ventanales, cerramientos, cristales de difícil acceso, paneles solares, persianas, toldos y canalones.',
     url: `${SITE_URL}${PATH}`,
     provider: { '@id': `${SITE_URL}/#business` },
     areaServed: { '@type': 'City', name: 'Madrid' },
@@ -194,7 +194,7 @@ export default function LimpiezaParticularesMadridPage() {
     <main className="partmad-page">
       <Seo
         title="Limpieza para particulares en Madrid | Kristalia"
-        description="Servicios de limpieza especializada para pisos, áticos y chalets en Madrid: cristales, ventanales, cerramientos, cristales de difícil acceso y paneles solares."
+        description="Empresa de limpieza especializada para pisos, áticos y chalets en Madrid: cristales, ventanales, cerramientos, cristales de difícil acceso y paneles solares."
         path={PATH}
         image="/og-image.jpg"
         jsonLd={jsonLd}
@@ -205,7 +205,7 @@ export default function LimpiezaParticularesMadridPage() {
         <ResponsiveImage
           image={heroImg}
           sizes="100vw"
-          alt="Operario de Kristalia limpiando con pértiga la fachada acristalada de un edificio"
+          alt="Operario de Kristalia limpiando con escalera telescópica una cristalera de una vivienda con jardín"
           className="partmad-hero__img"
           priority
         />
@@ -225,7 +225,7 @@ export default function LimpiezaParticularesMadridPage() {
           <p className="partmad-hero__subtitle">
             {/* Escritorio: texto completo. Móvil (≤640px): versión breve. */}
             <span className="partmad-hero__subtitle-full">
-              Servicios de limpieza especializada para tu vivienda. Cristales,
+              Empresa de limpieza especializada para tu vivienda. Cristales,
               ventanales, cerramientos, zonas de difícil acceso y otros trabajos
               puntuales que necesitan medios, técnica o acceso específicos.
             </span>
