@@ -25,24 +25,12 @@ export const buildWhatsAppUrl = (message) => {
   return plainUrl;
 };
 
-// Mensaje inicial de WhatsApp: siempre la misma dinámica (zona, tipo de
-// inmueble, tamaño y fotos). Las landings de servicios concretos solo
-// adaptan el asunto y las preguntas de tipo de inmueble y tamaño.
-export const buildQuoteMessage = ({
-  subject = 'tu presupuesto personalizado',
-  placeQuestion = '🏢 ¿Es para una casa, comunidad, oficina o local comercial?',
-  sizeQuestion = '🪟 ¿Cuántos cristales o ventanales son, aproximadamente? (Indícanos si hay zonas de difícil acceso o en altura).',
-} = {}) =>
-  [
-    '¡Hola! Bienvenido/a a Kristalia ✨',
-    'Queremos darte la respuesta más rápida y precisa posible.',
-    `Para calcular ${subject} en unos minutos, cuéntanos:`,
-    '📍 ¿En qué zona/municipio de Madrid estás?',
-    placeQuestion,
-    sizeQuestion,
-    '📸 Fotos: Si puedes enviarnos un par de fotos o un vídeo rápido, ¡mucho mejor! Nos ayuda a ver el acceso exacto y darte la mejor tarifa cerrada sin sorpresas.',
-    'Tan pronto como nos leas, analizamos tu caso y te responderemos. ¡Gracias por confiar en nosotros!',
-  ].join('\n\n');
+// Mensaje inicial de WhatsApp: lo escribe el CLIENTE, así que va en su voz y
+// es corto. NO debe repetir el texto de bienvenida/preguntas: eso lo envía
+// WhatsApp Business como "Mensaje de bienvenida" (Herramientas de empresa >
+// Mensaje de bienvenida). Si ambos coinciden, el cliente ve el texto duplicado.
+export const buildQuoteMessage = ({ service = 'limpieza' } = {}) =>
+  `Hola, quisiera pedir presupuesto de ${service}.`;
 
 // Mensaje por defecto: botón flotante, cabecera, footer, hero y bloques de conversión.
 export const WHATSAPP_URL = buildWhatsAppUrl(buildQuoteMessage());

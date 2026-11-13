@@ -11,14 +11,7 @@ import salon1200 from '../../assets/servicios-extra/salon-1200.webp';
 const PATH = '/limpieza-sofas-madrid';
 const NAME = 'Limpieza profesional de sofás en Madrid';
 
-const WHATSAPP_QUOTE = buildWhatsAppUrl(
-  buildQuoteMessage({
-    subject: 'tu presupuesto de limpieza de sofás',
-    placeQuestion: '🏠 ¿Es para una vivienda, oficina o local comercial?',
-    sizeQuestion:
-      '🛋️ ¿Cuántos sofás o plazas son y de qué tejido (tela, piel...)? (Indícanos si hay manchas concretas, olores o mascotas).',
-  }),
-);
+const WHATSAPP_QUOTE = buildWhatsAppUrl(buildQuoteMessage({ service: 'limpieza de sofás' }));
 
 // Variantes generadas con scripts/optimize-images.py
 const heroImg = responsiveImage({ 828: hero828, 1280: hero1280, 1536: hero1536 }, 1536, 1024);

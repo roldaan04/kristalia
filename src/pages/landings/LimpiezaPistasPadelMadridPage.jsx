@@ -17,12 +17,7 @@ import './LimpiezaPistasPadelMadridPage.css';
 const PATH = '/limpieza-cristales-pistas-padel-madrid';
 
 const WHATSAPP_QUOTE = buildWhatsAppUrl(
-  buildQuoteMessage({
-    subject: 'tu presupuesto de limpieza de pistas de pádel',
-    placeQuestion: '🏢 ¿Es para un club, centro deportivo o instalación privada?',
-    sizeQuestion:
-      '🪟 ¿Cuántas pistas son, aproximadamente? (Indícanos si son cubiertas o exteriores y si hay zonas de difícil acceso).',
-  }),
+  buildQuoteMessage({ service: 'limpieza de pistas de pádel' }),
 );
 
 // Variantes generadas con scripts/optimize-images.py

@@ -9,14 +9,10 @@ import entrada800 from '../../assets/servicios-extra/entrada-800.webp';
 import entrada1200 from '../../assets/servicios-extra/entrada-1200.webp';
 
 const PATH = '/abrillantado-cristalizado-suelos-madrid';
-const NAME = 'Abrillantado y cristalizado de suelos en Madrid';
+const NAME = 'Pulido y abrillantado de terrazo y mármol en Madrid';
 
 const WHATSAPP_QUOTE = buildWhatsAppUrl(
-  buildQuoteMessage({
-    subject: 'tu presupuesto de abrillantado de suelos',
-    sizeQuestion:
-      '📐 ¿Qué tipo de suelo es (mármol, terrazo, granito...) y cuántos metros cuadrados tiene, aproximadamente? (Indícanos si está rayado, con manchas o desgastado).',
-  }),
+  buildQuoteMessage({ service: 'abrillantado de suelos' }),
 );
 
 // Variantes generadas con scripts/optimize-images.py
@@ -26,10 +22,11 @@ const introImg = responsiveImage({ 800: entrada800, 1200: entrada1200 }, 1200, 9
 const jsonLd = buildServiceJsonLd({
   path: PATH,
   name: NAME,
-  serviceType: 'Abrillantado y cristalizado de suelos',
+  serviceType: 'Pulido y abrillantado de suelos',
   description:
-    'Abrillantado y cristalizado de suelos de mármol y terrazo en portales, comunidades, locales, oficinas y viviendas de Madrid.',
+    'Pulido, abrillantado y cristalizado de suelos de terrazo y mármol en portales, comunidades, locales, oficinas y viviendas de Madrid.',
   offers: [
+    'Pulido de suelos de terrazo',
     'Cristalizado de suelos de mármol',
     'Cristalizado de suelos de terrazo',
     'Abrillantado de suelos',
@@ -39,21 +36,21 @@ const jsonLd = buildServiceJsonLd({
 
 const content = {
   seo: {
-    title: 'Abrillantado y cristalizado de suelos en Madrid | Kristalia',
+    title: 'Pulido y abrillantado de terrazo y mármol en Madrid | Kristalia',
     description:
-      'Abrillantado y cristalizado de suelos de mármol y terrazo en Madrid. Portales, comunidades, locales y viviendas con un suelo brillante y protegido.',
+      'Pulido y abrillantado de terrazo y mármol en Madrid, también cristalizado. Portales, comunidades, locales y viviendas con un suelo brillante y protegido. Presupuesto sin compromiso.',
     path: PATH,
     jsonLd,
   },
-  breadcrumb: 'Abrillantado de suelos en Madrid',
+  breadcrumb: 'Pulido y abrillantado de suelos en Madrid',
   hero: {
     image: heroImg,
     alt: 'Portal de comunidad con suelo de terrazo abrillantado que refleja la puerta de entrada',
-    title: 'Abrillantado y cristalizado de suelos en Madrid',
+    title: 'Pulido y abrillantado de terrazo y mármol en Madrid',
     subtitle:
-      'Devolvemos el brillo a suelos de mármol y terrazo en portales, comunidades, locales y viviendas. Un acabado que realza todo el espacio y protege el suelo del desgaste diario.',
+      'Recuperamos el brillo de suelos de terrazo y mármol en portales, comunidades, locales y viviendas. Presupuesto sin compromiso por WhatsApp.',
     subtitleShort:
-      'Suelos de mármol y terrazo con brillo y protección en portales, locales y viviendas.',
+      'Pulido y abrillantado de suelos de terrazo y mármol en portales, locales y viviendas. Presupuesto por WhatsApp.',
   },
   intro: {
     image: {
@@ -69,6 +66,10 @@ const content = {
     ],
     listTitle: 'Qué hacemos',
     list: [
+      {
+        titulo: 'Pulido',
+        texto: 'Igualamos la superficie de suelos de terrazo y mármol desgastados o con marcas antes de abrillantar.',
+      },
       {
         titulo: 'Abrillantado',
         texto: 'Recuperamos el brillo de suelos apagados por el uso y el paso del tiempo.',
@@ -104,9 +105,9 @@ const content = {
   },
   faqs: [
     {
-      pregunta: '¿Qué diferencia hay entre abrillantar y cristalizar?',
+      pregunta: '¿Qué diferencia hay entre pulir, abrillantar y cristalizar?',
       respuesta:
-        'El abrillantado recupera el brillo de un suelo apagado por el uso. El cristalizado deja además una capa más dura y brillante sobre la piedra, que la protege y aguanta mejor el paso. Te recomendamos uno u otro según el suelo y el uso que tenga.',
+        'El pulido iguala la superficie del suelo cuando está desgastado o marcado. El abrillantado recupera el brillo de un suelo apagado por el uso. El cristalizado deja además una capa más dura y brillante sobre la piedra, que la protege y aguanta mejor el paso. Te recomendamos uno u otro según el suelo y el uso que tenga.',
     },
     {
       pregunta: '¿En qué suelos se puede hacer?',

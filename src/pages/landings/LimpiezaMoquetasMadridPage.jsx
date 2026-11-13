@@ -12,11 +12,7 @@ const PATH = '/limpieza-moquetas-madrid';
 const NAME = 'Limpieza y desinfección de moquetas en Madrid';
 
 const WHATSAPP_QUOTE = buildWhatsAppUrl(
-  buildQuoteMessage({
-    subject: 'tu presupuesto de limpieza de moqueta',
-    sizeQuestion:
-      '📐 ¿Cuántos metros cuadrados de moqueta son, aproximadamente? (Indícanos si hay manchas difíciles, malos olores o zonas de mucho tránsito).',
-  }),
+  buildQuoteMessage({ service: 'limpieza de moquetas' }),
 );
 
 // Variantes generadas con scripts/optimize-images.py
