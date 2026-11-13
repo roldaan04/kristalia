@@ -75,8 +75,13 @@
   display: block;
 }
 
+/* Segunda línea ("Presupuesto sin compromiso."): secundaria, más pequeña que
+   el titular principal. El h1 solo se ve en escritorio; en móvil está oculto. */
 .hero__title span + span {
-  margin-top: 0.12em;
+  margin-top: 0.3em;
+  font-size: 0.55em;
+  font-weight: 600;
+  line-height: 1.2;
 }
 
 .hero__subtitle {
@@ -327,17 +332,6 @@
     flex: 1;
     height: 1px;
     background: rgba(255, 255, 255, 0.2);
-  }
-
-  .hero__mobile-stars {
-    display: flex;
-    gap: 2px;
-    color: var(--color-accent);
-  }
-
-  .hero__mobile-stars svg {
-    width: 18px;
-    height: 18px;
   }
 
   .hero__mobile-cta {

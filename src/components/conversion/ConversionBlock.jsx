@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { googleRating } from '../../data/testimonials';
 import { trustItems } from '../../data/trustItems';
 import { PHONE_LOCAL, PHONE_TEL, WHATSAPP_QUOTE_URL } from '../../utils/constants';
-import { PhoneIcon, StarIcon, TrustIcon, WhatsAppIcon } from './ConversionIcons';
+import { GoogleIcon, PhoneIcon, StarIcon, TrustIcon, WhatsAppIcon } from './ConversionIcons';
 import './ConversionBlock.css';
 
 // Valoración de Google confirmada por el titular (data/testimonials.js). Solo
@@ -11,15 +11,23 @@ const ratingLabel = Number.isInteger(googleRating.rating)
   ? String(googleRating.rating)
   : googleRating.rating.toFixed(1).replace('.', ',');
 
-function GoogleRating() {
+// Logotipo de Google + 5 estrellas + "5/5 +40 Reseñas verificadas". Se usa en el
+// hero de la home (también en móvil, con su propia className) y en el de las
+// landings, así que el texto vive solo aquí.
+export function GoogleRating({ className = 'quote-cta__rating' }) {
   return (
-    <p className="quote-cta__rating">
+    <p className={className}>
+      <span className="quote-cta__google" aria-hidden="true">
+        <GoogleIcon />
+      </span>
       <span className="quote-cta__stars" aria-hidden="true">
         {[1, 2, 3, 4, 5].map((n) => (
           <StarIcon key={n} />
         ))}
       </span>
-      Google Rating {ratingLabel}/5
+      <span className="quote-cta__rating-text">
+        {ratingLabel}/5 +40 Reseñas verificadas
+      </span>
     </p>
   );
 }

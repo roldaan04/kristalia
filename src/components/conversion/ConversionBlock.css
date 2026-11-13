@@ -15,6 +15,21 @@
   color: rgba(255, 255, 255, 0.9);
 }
 
+.quote-cta__rating {
+  flex-wrap: wrap;
+  row-gap: 0.3rem;
+}
+
+.quote-cta__google {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.quote-cta__google svg {
+  width: 22px;
+  height: 22px;
+}
+
 .quote-cta__stars {
   display: flex;
   gap: 2px;
