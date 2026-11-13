@@ -4,10 +4,10 @@ import { responsiveImage } from '../../utils/images';
 import hero828 from '../../assets/cristales/kristalia-828.webp';
 import hero1280 from '../../assets/cristales/kristalia-1280.webp';
 import hero1672 from '../../assets/cristales/kristalia-1672.webp';
-import { WHATSAPP_QUOTE_URL, PHONE_LOCAL, PHONE_TEL } from '../../utils/constants';
-import { GoogleRating, HeroQuoteActions } from '../conversion/ConversionBlock';
+import { WHATSAPP_QUOTE_URL } from '../../utils/constants';
+import { GoogleRating, HeroQuoteActions, PhoneLink } from '../conversion/ConversionBlock';
 import { trustItems } from '../../data/trustItems';
-import { PhoneIcon, TrustIcon, WhatsAppIcon } from '../conversion/ConversionIcons';
+import { TrustIcon, WhatsAppIcon } from '../conversion/ConversionIcons';
 import './Hero.css';
 
 // Variantes generadas con scripts/optimize-images.py
@@ -93,13 +93,8 @@ export default function Hero() {
             Pedir presupuesto
           </Button>
 
-          {/* Teléfono enlazado (tel:), igual que en la sección de contacto. */}
-          <p className="hero__mobile-phone">
-            <a href={`tel:${PHONE_TEL}`} aria-label={`Llamar al ${PHONE_LOCAL}`}>
-              <PhoneIcon />
-              {PHONE_LOCAL}
-            </a>
-          </p>
+          {/* Botón de llamada (tel:), el mismo que en el hero de las landings. */}
+          <PhoneLink />
         </div>
 
         <ul className="hero__mobile-benefits">

@@ -47,11 +47,13 @@ function QuoteButton({ whatsappUrl }) {
   );
 }
 
-function PhoneLink() {
+// Botón de llamada: mismo tamaño que el de presupuesto y texto explícito
+// ("Llamar: ..."), pensado para que personas mayores lo identifiquen sin dudar.
+export function PhoneLink() {
   return (
     <a href={`tel:${PHONE_TEL}`} className="quote-cta__phone" aria-label={`Llamar al ${PHONE_LOCAL}`}>
       <PhoneIcon />
-      {PHONE_LOCAL}
+      Llamar: {PHONE_LOCAL}
     </a>
   );
 }
