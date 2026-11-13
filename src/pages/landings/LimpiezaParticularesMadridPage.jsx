@@ -193,8 +193,8 @@ export default function LimpiezaParticularesMadridPage() {
   return (
     <main className="partmad-page">
       <Seo
-        title="Limpieza para particulares en Madrid | Kristalia"
-        description="Empresa de limpieza especializada para pisos, áticos y chalets en Madrid: cristales, ventanales, cerramientos, cristales de difícil acceso y paneles solares."
+        title="Empresa de limpieza para particulares en Madrid | Kristalia"
+        description="Empresa de limpieza de cristales para pisos, áticos y chalets en Madrid: ventanales, cerramientos, cristales de difícil acceso y paneles solares."
         path={PATH}
         image="/og-image.jpg"
         jsonLd={jsonLd}
@@ -225,12 +225,12 @@ export default function LimpiezaParticularesMadridPage() {
           <p className="partmad-hero__subtitle">
             {/* Escritorio: texto completo. Móvil (≤640px): versión breve. */}
             <span className="partmad-hero__subtitle-full">
-              Empresa de limpieza especializada para tu vivienda. Cristales,
-              ventanales, cerramientos, zonas de difícil acceso y otros trabajos
-              puntuales que necesitan medios, técnica o acceso específicos.
+              Empresa de limpieza de cristales para tu vivienda. Ventanales,
+              cerramientos, zonas de difícil acceso y otros trabajos puntuales
+              que necesitan medios, técnica o acceso específicos.
             </span>
             <span className="partmad-hero__subtitle-short">
-              Cristales, ventanales y cerramientos de tu piso, ático o chalet, incluidos los de difícil acceso. Sin contrato ni permanencia.
+              Empresa de limpieza de cristales para tu piso, ático o chalet, también los de difícil acceso. Sin contrato ni permanencia.
             </span>
           </p>
 
