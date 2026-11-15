@@ -6,7 +6,7 @@ import hero1280 from '../../assets/cristales/kristalia-1280.webp';
 import hero1672 from '../../assets/cristales/kristalia-1672.webp';
 import { WHATSAPP_QUOTE_URL } from '../../utils/constants';
 import { GoogleRating, HeroQuoteActions, PhoneLink } from '../conversion/ConversionBlock';
-import { trustItems } from '../../data/trustItems';
+import { heroStats } from '../../data/heroStats';
 import { TrustIcon, WhatsAppIcon } from '../conversion/ConversionIcons';
 import './Hero.css';
 
@@ -98,9 +98,10 @@ export default function Hero() {
         </div>
 
         <ul className="hero__mobile-benefits">
-          {trustItems.map(({ label, icon }) => (
+          {heroStats.map(({ value, label, icon }) => (
             <li key={label} className="hero__mobile-benefit">
               <TrustIcon name={icon} />
+              <strong className="hero__mobile-benefit-value">{value}</strong>
               <span>{label}</span>
             </li>
           ))}

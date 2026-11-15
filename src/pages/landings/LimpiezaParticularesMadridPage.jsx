@@ -219,7 +219,7 @@ export default function LimpiezaParticularesMadridPage() {
           </nav>
 
           <h1 id="partmad-hero-title" className="partmad-hero__title">
-            Limpieza para particulares en Madrid: pisos, áticos y chalets
+            Limpieza de cristales a domicilio en Madrid: pisos, áticos y chalets
           </h1>
 
           <p className="partmad-hero__subtitle">
